@@ -2,7 +2,7 @@
 
 
 var margin = {top: 20, right: 80, bottom: 30, left: 50},
-    width = 700 - margin.left - margin.right,
+    width = 1000 - margin.left - margin.right,
     height = 100 - margin.top - margin.bottom;
 
 var x = d3.scale.linear()
@@ -22,6 +22,10 @@ d3.json("list.json", function(error, data){
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom);
 
+var div = d3.select("body").append("div")   
+    .attr("class", "tooltip")               
+    .style("opacity", 0);
+
   var group = svg.append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")"); 
 
@@ -39,10 +43,24 @@ d3.json("list.json", function(error, data){
           .attr("class", "circle")
           //.attr("d", function(d) { return line(d); })
           //.style("stroke", function(d) { return color(d.val); })
-               .attr("cx", function(d){ return (d.start - realStart) ;})
-               .attr("cy", 40 )
-               .attr("r", function(d){ return (d.end - d.start);})
-               .style("fill", "red");
+         .attr("cx", function(d){ return (d.start - realStart) ;})
+         .attr("cy", 40 )
+         .attr("r", function(d){ return (d.end - d.start);})
+         .style("fill", function(d){return color(d.val);})
+         .on("mouseover", function(d) {      
+            div.transition()        
+                .duration(200)      
+                .style("opacity", .9);      
+            div .html(d.val + "<br/>"  + d.start)  
+                .style("left", (d3.event.pageX) + "px")     
+                .style("top", (d3.event.pageY - 28) + "px");    
+            })                  
+        .on("mouseout", function(d) {       
+            div.transition()        
+                .duration(500)      
+                .style("opacity", 0);   
+        });
+
     });     
 
   });
