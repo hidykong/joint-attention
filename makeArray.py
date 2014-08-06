@@ -21,7 +21,7 @@ for ce in info:
 
 for ce in info:
 	if (ce["val"] == "ex_face"):
-		start = int(ce["start"]*10)
+		start = int(ce["start"] * 10)
 		end = int(ce["end"] * 10)
 
 		gazeDuration = end - start
