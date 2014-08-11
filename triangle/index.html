@@ -57,23 +57,38 @@
 				  node.append("title")
 				      .text(function(d) { return d.name; });
 
+				  tick = 0
+				  prev = 0
 				  force.on("tick", function() {
 				  	var d = new Date();
 					var n = d.getTime();
 					
-					var digits = n.toString().slice(-4).slice(0,1)
+					var digits = n.toString().slice(-3).slice(0,1)
 
 				    link.attr("x1", function(d) { return d.source.x; })
 				        .attr("y1", function(d) { return d.source.y; })
 				        .attr("x2", function(d) { return d.target.x; })
 				        .attr("y2", function(d) { return d.target.y; })
-				        .style("stroke-width", function(d) { return d.sequence[digits]; } );
+				        .style("stroke", function(d) 
+				        	{  
+				        		if (d.color[tick] == 1)
+				        			return "red";
+				        		else
+				        			return "#999";
+
+				        	} )
+				        .style("stroke-width", function(d) { return d.sequence[tick]; } );
 
 				    node.attr("cx", function(d) { return d.x; })
 				        .attr("cy", function(d) { return d.y; });
 
 				    // svg.selectAll(".link").style("stroke-width", function(d) {return d.sequence[0] })
-				    // force.resume()
+				    force.resume()
+				    if (digits != prev){
+				    	tick += 1;
+				    	prev = digits;				    	
+				    }
+
 
 				  });
 			});
