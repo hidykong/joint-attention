@@ -1,0 +1,30 @@
+<html>
+	<!DOCTYPE html>
+	<meta charset="utf-8">
+	<style>
+
+		.node {
+		  stroke: #fff;
+		  stroke-width: 1.5px;
+		}
+
+		.link {
+		  stroke: #999;
+		  stroke-opacity: .6;
+		}
+
+	</style>
+	<body>
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+		<script type="text/javascript" src="triangle.js"></script>
+		<div id="timer"> This is the timer</div>
+		<div id="overview"></div>
+		<form>
+      	<input id="slider" type="range" name="slider" min="0" max="100" value="0" step="1" style="width: 300px" />
+      	</form>
+		<button id="start">START</button>
+		<button id="stop">STOP</button>
+	</body>
+</html>
+
