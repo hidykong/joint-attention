@@ -2,7 +2,8 @@
 var width = 960,
     height = 300;
 var color = d3.scale.category10();
-var sliderWidth = 300;
+var sliderWidth = 500;
+var graphHeight = 75;
 
 var force = d3.layout.force()
     .charge(0)
@@ -25,7 +26,7 @@ d3.json("data.json", function(error, graph) {
 		var svg2 = d3.select("body").select("#overview")
 		  	.append("svg")
 		    .attr("width", sliderWidth)
-		    .attr("height", 50);
+		    .attr("height", graphHeight);
 
 
 		var ec = 0; //eye contact
@@ -33,26 +34,30 @@ d3.json("data.json", function(error, graph) {
 		var arrayLength = graph.links[0].sequence.length;
 		for (i in graph.links[0].sequence){
 			ec = graph.links[0].sequence[i];
+			lineColor = graph.links[0].color[i];
 			x = (i * sliderWidth)/ arrayLength; //calculate the position of the line
-			if (ec > 8){
-				svg2.append("line")
-			        .attr("x1", x)
-			        .attr("y1", 50 - (ec * 4))
-			        .attr("x2", x)
-			        .attr("y2", 50)
-			        .attr("stroke-width", 1)
-			        .attr("stroke", "red");
-			        console.log(50 - (ec * 4));
-			} else {
-				svg2.append("line")
-			        .attr("x1", x)
-			        .attr("y1", 50 - (ec * 4))
-			        .attr("x2", x)
-			        .attr("y2", 50)
-			        .attr("stroke-width", 1)
-			        .attr("stroke", "black");				
-			}
+			
+			svg2.append("line")
+		        .attr("x1", x)
+		        .attr("y1", graphHeight)
+		        .attr("y2", graphHeight)
+		        .transition()
+		        .duration(3 * i)
+		        .delay(750)
+		        .attr("x2", x)
+		        .attr("y2", graphHeight - (ec * 4))
+		        .attr("stroke-width", 1)
+		        .attr("stroke", function(d){
+		        	if (lineColor == 1){
+		        		return "red";
+		        	} else {
+		        		return "black";
+		        }
+		        });	
+			        
+			
 		}
+
 
 	  var link = svg.selectAll(".link")
 	      .data(graph.links)
