@@ -27,7 +27,8 @@ var div = d3.select("body").append("div")
 
   var group = svg.append("g")
       .attr("transform", "translate(" + margin.left + ", 0)"); 
-
+  var group2 = svg.append("g")
+      .attr("transform", "translate(" + (margin.left * 5) + ", 0)"); 
 
     d3.json("test.json", function(error, data) {
 
@@ -46,8 +47,7 @@ var div = d3.select("body").append("div")
         .attr("y", 0)
         .attr("width", "100%")
         .attr("height", duration * lineHeight)
-        .attr("fill", "black")
-        .attr("opacity", 0.25)
+        .attr("fill", "transparent")
         .attr("stroke-width", 1)
         .attr("stroke", "white")
         .attr("id", "rectLabel");
@@ -72,12 +72,28 @@ var div = d3.select("body").append("div")
         gaze.append("rect")
           .attr("class", "rect-gaze")
           .attr("x", 0)
-          .attr("y", function(d){ console.log((d.end - realStart)); return (d.start - realStart) * lineHeight ;}) //starting y = normalized position
+          .attr("y", function(d){return (d.start - realStart) * lineHeight ;}) //starting y = normalized position
           .attr("width", "10%")
-          .attr("height", function(d){ return  (d.end - d.start) * lineHeight;})
-          .attr("fill", "red")
-          .attr("stroke-width", 1)
-          .attr("stroke", "red");
+          .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
+          .attr("fill", "#F16F1B");
+
+         var gaze2 = group2.selectAll("gaze")
+        .data(data.stages)
+        .enter().append("g")
+            .attr("class", "gaze");
+
+        gaze2.append("rect")
+          .attr("class", "rect-gaze")
+          .attr("x", 0)
+          .attr("y", function(d){return (d.start - realStart) * lineHeight ;}) //starting y = normalized position
+          .attr("width", "10%")
+          .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
+          .attr("fill", "#AECF31")
+          .attr("opacity", function(d){
+            if (d.val.indexOf("ex") > -1) {return 1}  
+            else if (d.val.indexOf("ball") > -1) {return 0.8} // <== Right here 
+            else { return 0.5};
+          });
 /*
 
          .attr("x", function(d){ console.log(d); return ((d.start - realStart) + (d.end - d.start)/2) * 2 ;})
