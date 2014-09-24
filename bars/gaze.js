@@ -28,7 +28,7 @@ var div = d3.select("body").append("div")
   var group = svg.append("g")
       .attr("transform", "translate(" + margin.left + ", 0)"); 
   var group2 = svg.append("g")
-      .attr("transform", "translate(" + (margin.left * 5) + ", 0)"); 
+      .attr("transform", "translate(" + (margin.left * 7) + ", 0)"); 
 
     d3.json("test.json", function(error, data) {
 
@@ -36,7 +36,7 @@ var div = d3.select("body").append("div")
       var realStart = data.duration[0].start;
       var realEnd = data.duration[0].end;
       var duration = parseInt(realEnd - realStart);
-      var lineHeight = 3;
+      var lineHeight = 5;
 
       var outline = svg.append("g")
         .attr("class", "outline");
@@ -77,6 +77,30 @@ var div = d3.select("body").append("div")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
           .attr("fill", "#F16F1B");
 
+        gaze.append("line")
+          .attr("x1", "10.5%")
+          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;}) 
+          .attr("x2", "20%")
+          .attr("y2", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
+          .attr("stroke-width", 2)
+          .attr("stroke", "white")
+          .attr("opacity", function(d){
+            if (d.val.indexOf("ex") > -1) {return 0}  
+            else if (d.val.indexOf("ball") > -1) {return 1} // <== Right here 
+            else { return 0};
+          }); 
+
+        gaze.append("circle")
+        .attr("cx", "20%")
+         .attr("cy", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;} )
+         .attr("r", 4)
+         .style("fill", "white")
+         .attr("opacity", function(d){
+            if (d.val.indexOf("ex") > -1) {return 0}  
+            else if (d.val.indexOf("ball") > -1) {return 1} // <== Right here 
+            else { return 0};
+          });
+
          var gaze2 = group2.selectAll("gaze")
         .data(data.stages)
         .enter().append("g")
@@ -94,25 +118,5 @@ var div = d3.select("body").append("div")
             else if (d.val.indexOf("ball") > -1) {return 0.8} // <== Right here 
             else { return 0.5};
           });
-/*
 
-         .attr("x", function(d){ console.log(d); return ((d.start - realStart) + (d.end - d.start)/2) * 2 ;})
-         .attr("cy", 40 )
-         .attr("r", function(d){ return  (d.end - d.start);})
-         .style("fill", function(d){return color(d.val);})
-         .style("opacity", 0.5)
-         .on("mouseover", function(d) {      
-            div.transition()        
-                .duration(200)      
-                .style("opacity", .9);      
-            div .html(d.val + "<br/>"  + d.start+ "<br/>"  + d.end)  
-                .style("left", (d3.event.pageX) + "px")     
-                .style("top", (d3.event.pageY - 28) + "px");    
-            })                  
-        .on("mouseout", function(d) {       
-            div.transition()        
-                .duration(500)      
-                .style("opacity", 0);   
-        });
-*/
     });     
