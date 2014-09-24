@@ -46,7 +46,9 @@ def saveJson( filename ):
 
 	jsonFile = open(filename.split('.')[0] + ".json", "w")
 	jsonFile.write(
-		"{" + "\"child\"" + ":" + "[" + ','.join(child_) + "]" + ","
+		"{" + "\"info\"" + ":" + "[" + ','.join(info_) + "]" + ","
+		"\"duration\"" + ":" + "[" + ','.join(duration_) + "]" + ","
+		"\"child\"" + ":" + "[" + ','.join(child_) + "]" + ","
 		"\"examiner\"" + ":" + "[" + ','.join(examiner_) + "]" + ","
 		"\"aggregate\"" + ":" + "[" + ','.join(aggregate_) + "]" + "}"
 	)
