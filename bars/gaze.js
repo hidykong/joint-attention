@@ -29,7 +29,11 @@ var div = d3.select("body").append("div")
       .attr("transform", "translate(" + margin.left + ", 0)");
   var group2 = svg.append("g")
 <<<<<<< HEAD
+<<<<<<< HEAD
       .attr("transform", "translate(" + (margin.left * 5) + ", 0)");
+=======
+      .attr("transform", "translate(" + (margin.left * 7) + ", 0)"); 
+>>>>>>> db19751b724ffa3441e9750b486249133764c21c
 =======
       .attr("transform", "translate(" + (margin.left * 7) + ", 0)"); 
 >>>>>>> db19751b724ffa3441e9750b486249133764c21c
@@ -124,6 +128,7 @@ var div = d3.select("body").append("div")
             else { return 0.5};
           });
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*
 
          .attr("x", function(d){ console.log(d); return ((d.start - realStart) + (d.end - d.start)/2) * 2 ;})
@@ -147,6 +152,8 @@ var div = d3.select("body").append("div")
 */
     });
 =======
+=======
+>>>>>>> db19751b724ffa3441e9750b486249133764c21c
 
     });     
 >>>>>>> db19751b724ffa3441e9750b486249133764c21c
