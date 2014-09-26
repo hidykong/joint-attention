@@ -14,7 +14,6 @@ var y = d3.scale.linear()
 var color = d3.scale.category10();    
 
 
-d3.select("body").append("p").text("visualization");
 
   var svg = d3.select("body").append("svg")
       .attr("width", "70%")
@@ -28,7 +27,13 @@ var div = d3.select("body").append("div")
   var group = svg.append("g")
       .attr("transform", "translate(" + margin.left + ", 0)"); 
   var group2 = svg.append("g")
-      .attr("transform", "translate(" + (margin.left * 7) + ", 0)"); 
+      .attr("transform", "translate(" + (margin.left * 6) + ", 0)"); 
+
+  var group3 = svg.append("g")
+      .attr("transform", "translate(" + (margin.left * 11) + ", 0)"); 
+
+  var group4 = svg.append("g")
+      .attr("transform", "translate(" + (margin.left * 16.5) + ", 0)"); 
 
     d3.json("test.json", function(error, data) {
 
@@ -41,16 +46,15 @@ var div = d3.select("body").append("div")
       var outline = svg.append("g")
         .attr("class", "outline");
 
-      console.log("hello" + duration);
-      var newRect = outline.append("rect")
-        .attr("x", 0)
-        .attr("y", 0)
-        .attr("width", "100%")
-        .attr("height", duration * lineHeight)
-        .attr("fill", "transparent")
-        .attr("stroke-width", 1)
-        .attr("stroke", "white")
-        .attr("id", "rectLabel");
+    var newRect = outline.append("rect")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", "100%")
+      .attr("height", duration * lineHeight)
+      .attr("fill", "transparent")
+      .attr("stroke-width", 1)
+      .attr("stroke", "white")
+      .attr("id", "rectLabel");
 
 
       for (i = 0; i < duration; i = i + 5){
@@ -65,48 +69,163 @@ var div = d3.select("body").append("div")
       }
 
       var gaze = group.selectAll("gaze")
-        .data(data.stages)
+        .data(data.examiner)
         .enter().append("g")
             .attr("class", "gaze");
 
         gaze.append("rect")
-          .attr("class", "rect-gaze")
+          .attr("class", "examiner-object")
           .attr("x", 0)
           .attr("y", function(d){return (d.start - realStart) * lineHeight ;}) //starting y = normalized position
           .attr("width", "10%")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
-          .attr("fill", "#F16F1B");
+          .attr("fill", "#AECF31")
+          .attr("opacity", function(d){
+            if (d.val.indexOf("book") > -1) {return 1}  
+            else { return 0.5};
+          });
 
         gaze.append("line")
-          .attr("x1", "10.5%")
+          .attr("x1", "11%")
           .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;}) 
-          .attr("x2", "20%")
+          .attr("x2", "24%")
           .attr("y2", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
           .attr("stroke-width", 2)
           .attr("stroke", "white")
           .attr("opacity", function(d){
             if (d.val.indexOf("ex") > -1) {return 0}  
-            else if (d.val.indexOf("ball") > -1) {return 1} // <== Right here 
+            else if (d.val.indexOf("book") > -1) {return 1} // <== Right here 
             else { return 0};
           }); 
 
         gaze.append("circle")
-        .attr("cx", "20%")
+         .attr("cx", "11%")
          .attr("cy", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;} )
          .attr("r", 4)
          .style("fill", "white")
          .attr("opacity", function(d){
             if (d.val.indexOf("ex") > -1) {return 0}  
-            else if (d.val.indexOf("ball") > -1) {return 1} // <== Right here 
+            else if (d.val.indexOf("book") > -1) {return 1} // <== Right here 
             else { return 0};
           });
 
          var gaze2 = group2.selectAll("gaze")
-        .data(data.stages)
+        .data(data.examiner)
         .enter().append("g")
-            .attr("class", "gaze");
+            .attr("class", "examiner");
 
         gaze2.append("rect")
+          .attr("class", "rect-gaze")
+          .attr("x", 0)
+          .attr("y", function(d){return (d.start - realStart) * lineHeight ;}) //starting y = normalized position
+          .attr("width", "10%")
+          .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
+          .attr("fill", "#45A9C8")
+          .attr("opacity", function(d){
+            if (d.val.indexOf("c_") > -1) {return 1} // <== Right here 
+            else { return 0.5};
+          }); 
+
+        //examiner-child
+        gaze2.append("line")
+          .attr("x1", "11%")
+          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;}) 
+          .attr("x2", "23%")
+          .attr("y2", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
+          .attr("stroke-width", 2)
+          .attr("stroke", "white")
+          .attr("stroke-dasharray", "6, 3")
+          .attr("opacity", function(d){
+            if (d.val.indexOf("c_") > -1) {return 1} // <== Right here 
+            else { return 0};
+          }); 
+
+        gaze2.append("circle")
+        .attr("cx", "23%")
+         .attr("cy", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;} )
+         .attr("r", 4)
+         .style("fill", "white")
+         .attr("opacity", function(d){
+            if (d.val.indexOf("c_") > -1) {return 1} // <== Right here 
+            else { return 0};
+          });
+
+       var gaze3 = group3.selectAll("gaze")
+        .data(data.stages)
+        .enter().append("g")
+            .attr("class", "child");
+
+        gaze3.append("rect")
+          .attr("class", "rect-gaze")
+          .attr("x", 0)
+          .attr("y", function(d){return (d.start - realStart) * lineHeight ;}) //starting y = normalized position
+          .attr("width", "10%")
+          .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
+          .attr("fill", "#F16F1B")
+          .attr("opacity", function(d){
+            if (d.val.indexOf("ex") > -1) { return 1}  
+            else if (d.val.indexOf("ball") > -1) {return 1} // <== Right here 
+            else { return 0.5};
+          });
+
+       //child-examiner
+        gaze3.append("line")
+          .attr("x1", "-14%")
+          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;}) 
+          .attr("x2", "-1.5%")
+          .attr("y2", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
+          .attr("stroke-width", 2)
+          .attr("stroke", "#F16F1B")
+          .attr("opacity", function(d){
+            if (d.val.indexOf("ex") > -1) {return 1}  
+            else { return 0};
+          }); 
+
+        gaze3.append("circle")
+        .attr("cx", "-14%")
+         .attr("cy", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;} )
+         .attr("r", 4)
+         .style("fill", "#F16F1B")
+         .attr("opacity", function(d){
+            if (d.val.indexOf("ex") > -1) {return 1}  
+            else if (d.val.indexOf("c_") > -1) {return 0} // <== Right here 
+            else { return 0};
+          });
+
+       //child-object
+        gaze3.append("line")
+          .attr("x1", "11%")
+          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;}) 
+          .attr("x2", "26%")
+          .attr("y2", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
+          .attr("stroke-width", 2)
+          .attr("stroke", "#F16F1B")
+          .attr("opacity", function(d){
+            if (d.val.indexOf("hat") > -1) {return 1} 
+            else if (d.val.indexOf("ball") > -1) {return 1} 
+            else if (d.val.indexOf("book") > -1) {return 1} 
+            else { return 0};
+          }); 
+
+        gaze3.append("circle")
+        .attr("cx", "26%")
+         .attr("cy", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;} )
+         .attr("r", 5)
+         .style("fill", "#F16F1B")
+         .attr("opacity", function(d){
+            if (d.val.indexOf("hat") > -1) {return 1} 
+            else if (d.val.indexOf("ball") > -1) {return 1} 
+            else if (d.val.indexOf("book") > -1) {return 1} 
+            else { return 0};
+          }); 
+
+       //child-object  
+       var gaze4 = group4.selectAll("gaze")
+        .data(data.stages)
+        .enter().append("g")
+            .attr("class", "child-object");
+
+        gaze4.append("rect")
           .attr("class", "rect-gaze")
           .attr("x", 0)
           .attr("y", function(d){return (d.start - realStart) * lineHeight ;}) //starting y = normalized position
