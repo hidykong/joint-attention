@@ -11,7 +11,7 @@ var x = d3.scale.linear()
 var y = d3.scale.linear()
     .range([height, 0]);
 
-var color = d3.scale.category10();    
+var color = d3.scale.category10();
 
 
 d3.select("body").append("p").text("visualization");
@@ -21,14 +21,14 @@ d3.select("body").append("p").text("visualization");
       .attr("height", height + margin.top + margin.bottom)
       .style("margin-left", "15%");
 
-var div = d3.select("body").append("div")   
-    .attr("class", "tooltip")               
+var div = d3.select("body").append("div")
+    .attr("class", "tooltip")
     .style("opacity", 0);
 
   var group = svg.append("g")
-      .attr("transform", "translate(" + margin.left + ", 0)"); 
+      .attr("transform", "translate(" + margin.left + ", 0)");
   var group2 = svg.append("g")
-      .attr("transform", "translate(" + (margin.left * 7) + ", 0)"); 
+      .attr("transform", "translate(" + (margin.left * 7) + ", 0)");
 
     d3.json("test.json", function(error, data) {
 
@@ -56,12 +56,12 @@ var div = d3.select("body").append("div")
       for (i = 0; i < duration; i = i + 5){
         var thinLine = outline.append("line")
           .attr("x1", 0)
-          .attr("y1", i * lineHeight) 
+          .attr("y1", i * lineHeight)
           .attr("x2", "100%")
           .attr("y2", i * lineHeight)
           .attr("stroke-width", 0.5)
           .attr("stroke", "white")
-          ;  
+          ;
       }
 
       var gaze = group.selectAll("gaze")
@@ -79,16 +79,16 @@ var div = d3.select("body").append("div")
 
         gaze.append("line")
           .attr("x1", "10.5%")
-          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;}) 
+          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
           .attr("x2", "20%")
           .attr("y2", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
           .attr("stroke-width", 2)
           .attr("stroke", "white")
           .attr("opacity", function(d){
-            if (d.val.indexOf("ex") > -1) {return 0}  
-            else if (d.val.indexOf("ball") > -1) {return 1} // <== Right here 
+            if (d.val.indexOf("ex") > -1) {return 0}
+            else if (d.val.indexOf("ball") > -1) {return 1} // <== Right here
             else { return 0};
-          }); 
+          });
 
         gaze.append("circle")
         .attr("cx", "20%")
@@ -96,8 +96,8 @@ var div = d3.select("body").append("div")
          .attr("r", 4)
          .style("fill", "white")
          .attr("opacity", function(d){
-            if (d.val.indexOf("ex") > -1) {return 0}  
-            else if (d.val.indexOf("ball") > -1) {return 1} // <== Right here 
+            if (d.val.indexOf("ex") > -1) {return 0}
+            else if (d.val.indexOf("ball") > -1) {return 1} // <== Right here
             else { return 0};
           });
 
@@ -114,9 +114,9 @@ var div = d3.select("body").append("div")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
           .attr("fill", "#AECF31")
           .attr("opacity", function(d){
-            if (d.val.indexOf("ex") > -1) {return 1}  
-            else if (d.val.indexOf("ball") > -1) {return 0.8} // <== Right here 
+            if (d.val.indexOf("ex") > -1) {return 1}
+            else if (d.val.indexOf("ball") > -1) {return 0.8} // <== Right here
             else { return 0.5};
           });
 
-    });     
+    });
