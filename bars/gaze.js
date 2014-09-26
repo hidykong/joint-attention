@@ -27,17 +27,13 @@ var div = d3.select("body").append("div")
   var group = svg.append("g")
       .attr("transform", "translate(" + margin.left + ", 0)");
   var group2 = svg.append("g")
-<<<<<<< HEAD
-      .attr("transform", "translate(" + (margin.left * 7) + ", 0)");
-=======
-      .attr("transform", "translate(" + (margin.left * 6) + ", 0)"); 
+      .attr("transform", "translate(" + (margin.left * 6) + ", 0)");
 
   var group3 = svg.append("g")
-      .attr("transform", "translate(" + (margin.left * 11) + ", 0)"); 
+      .attr("transform", "translate(" + (margin.left * 11) + ", 0)");
 
   var group4 = svg.append("g")
-      .attr("transform", "translate(" + (margin.left * 16.5) + ", 0)"); 
->>>>>>> f33a7e026f778438d4ea9f19ce3d356eb2d3ad50
+      .attr("transform", "translate(" + (margin.left * 16.5) + ", 0)");
 
     d3.json("test.json", function(error, data) {
 
@@ -85,31 +81,20 @@ var div = d3.select("body").append("div")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
           .attr("fill", "#AECF31")
           .attr("opacity", function(d){
-            if (d.val.indexOf("book") > -1) {return 1}  
+            if (d.val.indexOf("book") > -1) {return 1}
             else { return 0.5};
           });
 
         gaze.append("line")
-<<<<<<< HEAD
-          .attr("x1", "10.5%")
-          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
-          .attr("x2", "20%")
-=======
           .attr("x1", "11%")
-          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;}) 
+          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
           .attr("x2", "24%")
->>>>>>> f33a7e026f778438d4ea9f19ce3d356eb2d3ad50
           .attr("y2", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
           .attr("stroke-width", 2)
           .attr("stroke", "white")
           .attr("opacity", function(d){
-<<<<<<< HEAD
             if (d.val.indexOf("ex") > -1) {return 0}
-            else if (d.val.indexOf("ball") > -1) {return 1} // <== Right here
-=======
-            if (d.val.indexOf("ex") > -1) {return 0}  
-            else if (d.val.indexOf("book") > -1) {return 1} // <== Right here 
->>>>>>> f33a7e026f778438d4ea9f19ce3d356eb2d3ad50
+            else if (d.val.indexOf("book") > -1) {return 1} // <== Right here
             else { return 0};
           });
 
@@ -119,13 +104,8 @@ var div = d3.select("body").append("div")
          .attr("r", 4)
          .style("fill", "white")
          .attr("opacity", function(d){
-<<<<<<< HEAD
             if (d.val.indexOf("ex") > -1) {return 0}
-            else if (d.val.indexOf("ball") > -1) {return 1} // <== Right here
-=======
-            if (d.val.indexOf("ex") > -1) {return 0}  
-            else if (d.val.indexOf("book") > -1) {return 1} // <== Right here 
->>>>>>> f33a7e026f778438d4ea9f19ce3d356eb2d3ad50
+            else if (d.val.indexOf("book") > -1) {return 1} // <== Right here
             else { return 0};
           });
 
@@ -142,23 +122,23 @@ var div = d3.select("body").append("div")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
           .attr("fill", "#45A9C8")
           .attr("opacity", function(d){
-            if (d.val.indexOf("c_") > -1) {return 1} // <== Right here 
+            if (d.val.indexOf("c_") > -1) {return 1} // <== Right here
             else { return 0.5};
-          }); 
+          });
 
         //examiner-child
         gaze2.append("line")
           .attr("x1", "11%")
-          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;}) 
+          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
           .attr("x2", "23%")
           .attr("y2", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
           .attr("stroke-width", 2)
           .attr("stroke", "white")
           .attr("stroke-dasharray", "6, 3")
           .attr("opacity", function(d){
-            if (d.val.indexOf("c_") > -1) {return 1} // <== Right here 
+            if (d.val.indexOf("c_") > -1) {return 1} // <== Right here
             else { return 0};
-          }); 
+          });
 
         gaze2.append("circle")
         .attr("cx", "23%")
@@ -166,7 +146,7 @@ var div = d3.select("body").append("div")
          .attr("r", 4)
          .style("fill", "white")
          .attr("opacity", function(d){
-            if (d.val.indexOf("c_") > -1) {return 1} // <== Right here 
+            if (d.val.indexOf("c_") > -1) {return 1} // <== Right here
             else { return 0};
           });
 
@@ -183,23 +163,23 @@ var div = d3.select("body").append("div")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
           .attr("fill", "#F16F1B")
           .attr("opacity", function(d){
-            if (d.val.indexOf("ex") > -1) { return 1}  
-            else if (d.val.indexOf("ball") > -1) {return 1} // <== Right here 
+            if (d.val.indexOf("ex") > -1) { return 1}
+            else if (d.val.indexOf("ball") > -1) {return 1} // <== Right here
             else { return 0.5};
           });
 
        //child-examiner
         gaze3.append("line")
           .attr("x1", "-14%")
-          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;}) 
+          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
           .attr("x2", "-1.5%")
           .attr("y2", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
           .attr("stroke-width", 2)
           .attr("stroke", "#F16F1B")
           .attr("opacity", function(d){
-            if (d.val.indexOf("ex") > -1) {return 1}  
+            if (d.val.indexOf("ex") > -1) {return 1}
             else { return 0};
-          }); 
+          });
 
         gaze3.append("circle")
         .attr("cx", "-14%")
@@ -207,25 +187,25 @@ var div = d3.select("body").append("div")
          .attr("r", 4)
          .style("fill", "#F16F1B")
          .attr("opacity", function(d){
-            if (d.val.indexOf("ex") > -1) {return 1}  
-            else if (d.val.indexOf("c_") > -1) {return 0} // <== Right here 
+            if (d.val.indexOf("ex") > -1) {return 1}
+            else if (d.val.indexOf("c_") > -1) {return 0} // <== Right here
             else { return 0};
           });
 
        //child-object
         gaze3.append("line")
           .attr("x1", "11%")
-          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;}) 
+          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
           .attr("x2", "26%")
           .attr("y2", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
           .attr("stroke-width", 2)
           .attr("stroke", "#F16F1B")
           .attr("opacity", function(d){
-            if (d.val.indexOf("hat") > -1) {return 1} 
-            else if (d.val.indexOf("ball") > -1) {return 1} 
-            else if (d.val.indexOf("book") > -1) {return 1} 
+            if (d.val.indexOf("hat") > -1) {return 1}
+            else if (d.val.indexOf("ball") > -1) {return 1}
+            else if (d.val.indexOf("book") > -1) {return 1}
             else { return 0};
-          }); 
+          });
 
         gaze3.append("circle")
         .attr("cx", "26%")
@@ -233,13 +213,13 @@ var div = d3.select("body").append("div")
          .attr("r", 5)
          .style("fill", "#F16F1B")
          .attr("opacity", function(d){
-            if (d.val.indexOf("hat") > -1) {return 1} 
-            else if (d.val.indexOf("ball") > -1) {return 1} 
-            else if (d.val.indexOf("book") > -1) {return 1} 
+            if (d.val.indexOf("hat") > -1) {return 1}
+            else if (d.val.indexOf("ball") > -1) {return 1}
+            else if (d.val.indexOf("book") > -1) {return 1}
             else { return 0};
-          }); 
+          });
 
-       //child-object  
+       //child-object
        var gaze4 = group4.selectAll("gaze")
         .data(data.stages)
         .enter().append("g")
