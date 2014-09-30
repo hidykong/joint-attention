@@ -12,8 +12,11 @@ var y = d3.scale.linear()
     .range([height, 0]);
 
 var color = d3.scale.category10();
+var lineHeight = 5;
 
-
+function arrowY(d){
+  return (d.start + (d.end - d.start)/2) * lineHeight;
+}
 
 var svg = d3.select("body").append("svg")
       .attr("width", "70%")
@@ -36,13 +39,12 @@ var group4 = svg.append("g")
     .attr("transform", "translate(" + (margin.left * 16.5) + ", 0)"); 
 
 
-    d3.json("test.json", function(error, data) {
+    d3.json("test-modified.json", function(error, data) {
 
       //x.domain([data.duration.start, data.duration.end]);
       var realStart = data.duration[0].start;
       var realEnd = data.duration[0].end;
       var duration = parseInt(realEnd - realStart);
-      var lineHeight = 5;
 
       var outline = svg.append("g")
         .attr("class", "outline");
@@ -77,7 +79,7 @@ var group4 = svg.append("g")
         gaze.append("rect")
           .attr("class", "examiner-object")
           .attr("x", 0)
-          .attr("y", function(d){return (d.start - realStart) * lineHeight ;}) //starting y = normalized position
+          .attr("y", function(d){return (d.start ) * lineHeight ;}) //starting y = normalized position
           .attr("width", "10%")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
           .attr("fill", "#AECF31")
@@ -90,9 +92,9 @@ var group4 = svg.append("g")
 
         gaze.append("line")
           .attr("x1", "11%")
-          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
+          .attr("y1", function(d){return arrowY(d);})
           .attr("x2", "24%")
-          .attr("y2", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
+          .attr("y2", function(d){return arrowY(d);})
           .attr("stroke-width", 2)
           .attr("stroke", "white")
           .attr("opacity", function(d){
@@ -103,7 +105,7 @@ var group4 = svg.append("g")
 
         gaze.append("circle")
          .attr("cx", "11%")
-         .attr("cy", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;} )
+         .attr("cy", function(d){return arrowY(d);} )
          .attr("r", 4)
          .style("fill", "white")
          .attr("opacity", function(d){
@@ -120,10 +122,11 @@ var group4 = svg.append("g")
         gaze2.append("rect")
           .attr("class", "rect-gaze")
           .attr("x", 0)
-          .attr("y", function(d){return (d.start - realStart) * lineHeight ;}) //starting y = normalized position
+          .attr("y", function(d){return d.start * lineHeight ;}) //starting y = normalized position
           .attr("width", "10%")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
-          .attr("fill", "#45A9C8")
+          .attr("fill", function(d){ if(d.joint){return "#FFE043"} else return "#45A9C8";})
+
           .attr("opacity", function(d){
             if (d.val.indexOf("c_") > -1) { return 1}  
             else if (d.val.indexOf("hat") > -1) {return 1} 
@@ -135,9 +138,9 @@ var group4 = svg.append("g")
         //examiner-child
         gaze2.append("line")
           .attr("x1", "11%")
-          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
+          .attr("y1", function(d){return arrowY(d);})
           .attr("x2", "23%")
-          .attr("y2", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
+          .attr("y2", function(d){return arrowY(d);})
           .attr("stroke-width", 2)
           .attr("stroke", "white")
           .attr("stroke-dasharray", "6, 3")
@@ -148,7 +151,7 @@ var group4 = svg.append("g")
 
         gaze2.append("circle")
         .attr("cx", "23%")
-         .attr("cy", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;} )
+         .attr("cy", function(d){return arrowY(d);} )
          .attr("r", 4)
          .style("fill", "white")
          .attr("opacity", function(d){
@@ -157,35 +160,31 @@ var group4 = svg.append("g")
           });
 
        var gaze3 = group3.selectAll("gaze")
-        .data(data.stages)
+        .data(data.child)
         .enter().append("g")
             .attr("class", "child");
 
         gaze3.append("rect")
           .attr("class", "rect-gaze")
           .attr("x", 0)
-          .attr("y", function(d){return (d.start - realStart) * lineHeight ;}) //starting y = normalized position
+          .attr("y", function(d){return (d.start ) * lineHeight ;}) //starting y = normalized position
           .attr("width", "10%")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
-          .attr("fill", "#F16F1B")
+          .attr("fill", function(d){if(d.joint){return "#FFE043"} else return "#F16F1B";})
           .attr("opacity", function(d){
             if (d.val.indexOf("ex") > -1) { return 1}  
             else if (d.val.indexOf("hat") > -1) {return 1} 
             else if (d.val.indexOf("ball") > -1) {return 1} 
             else if (d.val.indexOf("book") > -1) {return 1} 
-
-            if (d.val.indexOf("ex") > -1) { return 1}
-            else if (d.val.indexOf("ball") > -1) {return 1} // <== Right here
-
             else { return 0.5};
           }); 
 
        //child-examiner
         gaze3.append("line")
           .attr("x1", "-14%")
-          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
-          .attr("x2", "-1.5%")
-          .attr("y2", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
+          .attr("y1", function(d){return arrowY(d);})
+          .attr("x2", "-2%")
+          .attr("y2", function(d){return arrowY(d);})
           .attr("stroke-width", 2)
           .attr("stroke", "#F16F1B")
           .attr("opacity", function(d){
@@ -195,7 +194,7 @@ var group4 = svg.append("g")
 
         gaze3.append("circle")
         .attr("cx", "-14%")
-         .attr("cy", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;} )
+         .attr("cy", function(d){return arrowY(d);} )
          .attr("r", 4)
          .style("fill", "#F16F1B")
          .attr("opacity", function(d){
@@ -207,9 +206,9 @@ var group4 = svg.append("g")
        //child-object
         gaze3.append("line")
           .attr("x1", "11%")
-          .attr("y1", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
+          .attr("y1", function(d){return arrowY(d);})
           .attr("x2", "26%")
-          .attr("y2", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;})
+          .attr("y2", function(d){return arrowY(d);})
           .attr("stroke-width", 2)
           .attr("stroke", "#F16F1B")
           .attr("opacity", function(d){
@@ -221,7 +220,7 @@ var group4 = svg.append("g")
 
         gaze3.append("circle")
         .attr("cx", "26%")
-         .attr("cy", function(d){return (d.start - realStart + (d.end - d.start)/2) * lineHeight ;} )
+         .attr("cy", function(d){return arrowY(d);} )
          .attr("r", 5)
          .style("fill", "#F16F1B")
          .attr("opacity", function(d){
@@ -233,14 +232,14 @@ var group4 = svg.append("g")
 
        //child-object
        var gaze4 = group4.selectAll("gaze")
-        .data(data.stages)
+        .data(data.child)
         .enter().append("g")
             .attr("class", "child-object");
 
         gaze4.append("rect")
           .attr("class", "rect-gaze")
           .attr("x", 0)
-          .attr("y", function(d){return (d.start - realStart) * lineHeight ;}) //starting y = normalized position
+          .attr("y", function(d){return (d.start) * lineHeight ;}) //starting y = normalized position
           .attr("width", "10%")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
           .attr("fill", "#AECF31")
