@@ -7,13 +7,16 @@ examiner = ["c_face", "par_face", "book", "ball"]
 
 attention_ = []
 ja_ = []
+ja_json = []
 
 def initialize():
-	global ja_
+	global ja_, ja_json
 	global attention_
 	global start, end
+
 	attention_ = []
 	ja_ = []
+	ja_json = []
 
 
 
@@ -48,7 +51,26 @@ def main():
 				ja_[i] = e_val
 				break
 
-	print ja_
+	currentVal = ""
+	start = 0
+	for i in range(len(ja_)):
+
+		if (ja_[i] != currentVal):
+			currentDict = {"start": 0, "end": 0, "val": ""}
+			currentDict["start"] = start
+			currentDict["end"] = i
+			currentDict["val"] = currentVal
+			if currentDict["val"] is not 0 and currentDict["val"] is not '':
+				ja_json.append(currentDict)
+			start = i
+			currentVal = ja_[i]
+			
+	data.update(ja_json)
+
+	with open('test-modified.json', 'w') as f:
+	    json.dump(data, f)
+	print ja_json
+	#print ja_
 
 
 if  __name__ =='__main__':
