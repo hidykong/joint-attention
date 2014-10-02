@@ -24,29 +24,16 @@ var div = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
-<<<<<<< HEAD
 var group = svg.append("g")
-    .attr("transform", "translate(" + margin.left + ", 0)"); 
+    .attr("transform", "translate(" + margin.left + ", 0)");
 var group2 = svg.append("g")
-    .attr("transform", "translate(" + (margin.left * 6) + ", 0)"); 
+    .attr("transform", "translate(" + (margin.left * 6) + ", 0)");
 
 var group3 = svg.append("g")
-    .attr("transform", "translate(" + (margin.left * 11) + ", 0)"); 
+    .attr("transform", "translate(" + (margin.left * 11) + ", 0)");
 
 var group4 = svg.append("g")
-    .attr("transform", "translate(" + (margin.left * 16.5) + ", 0)"); 
-=======
-  var group = svg.append("g")
-      .attr("transform", "translate(" + margin.left + ", 0)");
-  var group2 = svg.append("g")
-      .attr("transform", "translate(" + (margin.left * 6) + ", 0)");
-
-  var group3 = svg.append("g")
-      .attr("transform", "translate(" + (margin.left * 11) + ", 0)");
-
-  var group4 = svg.append("g")
-      .attr("transform", "translate(" + (margin.left * 16.5) + ", 0)");
->>>>>>> FETCH_HEAD
+    .attr("transform", "translate(" + (margin.left * 16.5) + ", 0)");
 
     d3.json("test.json", function(error, data) {
 
@@ -94,13 +81,9 @@ var group4 = svg.append("g")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
           .attr("fill", "#AECF31")
           .attr("opacity", function(d){
-<<<<<<< HEAD
-            if (d.val.indexOf("hat") > -1) {return 1} 
-            else if (d.val.indexOf("ball") > -1) {return 1} 
-            else if (d.val.indexOf("gaze_book") > -1) {return 1} 
-=======
-            if (d.val.indexOf("book") > -1) {return 1}
->>>>>>> FETCH_HEAD
+            if (d.val.indexOf("hat") > -1) {return 1}
+            else if (d.val.indexOf("ball") > -1) {return 1}
+            else if (d.val.indexOf("gaze_book") > -1) {return 1}
             else { return 0.5};
           });
 
@@ -112,13 +95,8 @@ var group4 = svg.append("g")
           .attr("stroke-width", 2)
           .attr("stroke", "white")
           .attr("opacity", function(d){
-<<<<<<< HEAD
-            if (d.val.indexOf("ex") > -1) {return 0}  
-            else if (d.val.indexOf("gaze_book") > -1) {return 1} // <== Right here 
-=======
             if (d.val.indexOf("ex") > -1) {return 0}
-            else if (d.val.indexOf("book") > -1) {return 1} // <== Right here
->>>>>>> FETCH_HEAD
+            else if (d.val.indexOf("gaze_book") > -1) {return 1} // <== Right here
             else { return 0};
           });
 
@@ -128,13 +106,8 @@ var group4 = svg.append("g")
          .attr("r", 4)
          .style("fill", "white")
          .attr("opacity", function(d){
-<<<<<<< HEAD
-            if (d.val.indexOf("ex") > -1) {return 0}  
-            else if (d.val.indexOf("gaze_book") > -1) {return 1} // <== Right here 
-=======
             if (d.val.indexOf("ex") > -1) {return 0}
-            else if (d.val.indexOf("book") > -1) {return 1} // <== Right here
->>>>>>> FETCH_HEAD
+            else if (d.val.indexOf("gaze_book") > -1) {return 1} // <== Right here
             else { return 0};
           });
 
@@ -151,14 +124,10 @@ var group4 = svg.append("g")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
           .attr("fill", "#45A9C8")
           .attr("opacity", function(d){
-<<<<<<< HEAD
-            if (d.val.indexOf("c_") > -1) { return 1}  
-            else if (d.val.indexOf("hat") > -1) {return 1} 
-            else if (d.val.indexOf("ball") > -1) {return 1} 
-            else if (d.val.indexOf("book") > -1) {return 1} 
-=======
-            if (d.val.indexOf("c_") > -1) {return 1} // <== Right here
->>>>>>> FETCH_HEAD
+            if (d.val.indexOf("c_") > -1) { return 1}
+            else if (d.val.indexOf("hat") > -1) {return 1}
+            else if (d.val.indexOf("ball") > -1) {return 1}
+            else if (d.val.indexOf("book") > -1) {return 1}
             else { return 0.5};
           });
 
@@ -199,16 +168,12 @@ var group4 = svg.append("g")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
           .attr("fill", "#F16F1B")
           .attr("opacity", function(d){
-            if (d.val.indexOf("ex") > -1) { return 1}  
-            else if (d.val.indexOf("hat") > -1) {return 1} 
-            else if (d.val.indexOf("ball") > -1) {return 1} 
-            else if (d.val.indexOf("book") > -1) {return 1} 
-
             if (d.val.indexOf("ex") > -1) { return 1}
-            else if (d.val.indexOf("ball") > -1) {return 1} // <== Right here
-
+            else if (d.val.indexOf("hat") > -1) {return 1}
+            else if (d.val.indexOf("ball") > -1) {return 1}
+            else if (d.val.indexOf("book") > -1) {return 1}
             else { return 0.5};
-          }); 
+          });
 
        //child-examiner
         gaze3.append("line")
@@ -274,17 +239,11 @@ var group4 = svg.append("g")
           .attr("width", "10%")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
           .attr("fill", "#AECF31")
-<<<<<<< HEAD
          .attr("opacity", function(d){
-            if (d.val.indexOf("hat") > -1) {return 1} 
-            else if (d.val.indexOf("ball") > -1) {return 1} 
-            else if (d.val.indexOf("book") > -1) {return 1} 
-=======
-          .attr("opacity", function(d){
-            if (d.val.indexOf("ex") > -1) {return 1}
-            else if (d.val.indexOf("ball") > -1) {return 0.8} // <== Right here
->>>>>>> FETCH_HEAD
+            if (d.val.indexOf("hat") > -1) {return 1}
+            else if (d.val.indexOf("ball") > -1) {return 1}
+            else if (d.val.indexOf("book") > -1) {return 1}
             else { return 0.5};
-          }); 
+          });
 
     });

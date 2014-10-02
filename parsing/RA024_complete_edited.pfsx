@@ -11,10 +11,10 @@
         <String>pause</String>
         <String>voc_aff_c</String>
         <String>gesture_c</String>
+        <String>gaze_dir_e</String>
         <String>gesture_e</String>
         <String>ball_book</String>
         <String>off_task</String>
-        <String>gaze_dir_e</String>
     </prefList>
     <pref key="ActiveVideoRecognizerName">
         <String>Human motion analysis and annotation</String>
@@ -103,31 +103,31 @@
     </prefGroup>
     <prefGroup key="TierFonts"/>
     <pref key="FrameLocation">
-        <Object class="java.awt.Point">181,22</Object>
+        <Object class="java.awt.Point">0,22</Object>
     </pref>
     <pref key="SelectionBeginTime">
-        <Long>1531340</Long>
+        <Long>1675470</Long>
     </pref>
     <pref key="LayoutManager.CurrentMode">
         <Int>1</Int>
     </pref>
     <pref key="MediaTime">
-        <Long>1531340</Long>
+        <Long>1679900</Long>
     </pref>
     <prefGroup key="TierHighlightColors"/>
     <pref key="FrameSize">
-        <Object class="java.awt.Dimension">925,720</Object>
+        <Object class="java.awt.Dimension">1114,720</Object>
     </pref>
     <pref key="MultiTierViewer.ActiveTierName">
         <String>gaze_dir_e</String>
     </pref>
     <pref key="TimeScaleBeginTime">
-        <Long>1553680</Long>
+        <Long>1675310</Long>
     </pref>
     <pref key="ActiveAudioRecognizerName">
         <String>Text-to-Speech alignment</String>
     </pref>
     <pref key="SelectionEndTime">
-        <Long>1570740</Long>
+        <Long>1710700</Long>
     </pref>
 </preferences>

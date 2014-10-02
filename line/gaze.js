@@ -15,7 +15,9 @@ var testsvg = d3.select(".test").append("svg")
 var childActions = ["child_ball", "child_ex_face", "child_book", "child_ex_hands"];
 var examinerActions = ["examiner_ball", "examiner_book", "examiner_c_face"];
 
-d3.json("data2.json", function(error, data) {
+//RA038_FU_complete_edited.json
+//data2.json
+d3.json("RA038_FU_complete_edited.json", function(error, data) {
 
   var childData = data.child;
   var examinerData = data.examiner;
