@@ -87,7 +87,7 @@ var group4 = svg.append("g")
             if (d.val.indexOf("hat") > -1) {return 1} 
             else if (d.val.indexOf("ball") > -1) {return 1} 
             else if (d.val.indexOf("gaze_book") > -1) {return 1} 
-            else { return 0.5};
+            else { return 0};
           });
 
         gaze.append("line")
@@ -125,14 +125,16 @@ var group4 = svg.append("g")
           .attr("y", function(d){return d.start * lineHeight ;}) //starting y = normalized position
           .attr("width", "10%")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
-          .attr("fill", function(d){ if(d.joint){return "#FFE043"} else return "#45A9C8";})
-
+         // .attr("fill", function(d){ if(d.joint){return "#FFE043"} else return "#45A9C8";})
+          .attr("fill", "#45A9C8")
           .attr("opacity", function(d){
+            if (d.joint) {return 1}
+            /*
             if (d.val.indexOf("c_") > -1) { return 1}  
             else if (d.val.indexOf("hat") > -1) {return 1} 
             else if (d.val.indexOf("ball") > -1) {return 1} 
-            else if (d.val.indexOf("book") > -1) {return 1} 
-            else { return 0.5};
+            else if (d.val.indexOf("book") > -1) {return 1} */
+            else { return 0.1};
           });
 
         //examiner-child
@@ -248,7 +250,7 @@ var group4 = svg.append("g")
             if (d.val.indexOf("hat") > -1) {return 1} 
             else if (d.val.indexOf("ball") > -1) {return 1} 
             else if (d.val.indexOf("book") > -1) {return 1} 
-            else { return 0.5};
+            else { return 0};
           }); 
 
     });
