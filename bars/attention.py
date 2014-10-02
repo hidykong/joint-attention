@@ -14,7 +14,7 @@ child_ = []
 examiner_ = []
 
 def initialize():
-	global ja_, ja_json, attention_
+	global ja_, ja_json, attention_, eye_
 	global child_, examiner_
 	global start, end
 	global info_
@@ -28,6 +28,7 @@ def initialize():
 	aggregate_ = []
 	info_= []
 	duration_ = []
+	eye_ =[]
 
 def saveJson(filename, info_, duration_):
 
@@ -61,6 +62,10 @@ def fillArray(ja_ , attention_):
 				chDict["joint"] = 0
 			else:
 				chDict["joint"] = 1
+			if ja_[gazeStart] == "c_face":
+				chDict["eye"] = 1
+			else:
+				chDict["eye"] = 0
 			if chDict["val"] is not 0 and chDict["val"] is not '':
 				child_.append(chDict)
 
@@ -73,6 +78,12 @@ def fillArray(ja_ , attention_):
 				exDict["joint"] = 0
 			else:
 				exDict["joint"] = 1
+			if ja_[gazeStart] == "c_face":
+				exDict["eye"] = 1
+				print "eye"
+			else:
+				exDict["eye"] = 0
+
 			if exDict["val"] is not 0 and exDict["val"] is not '':
 				examiner_.append(exDict)
 			gazeStart = i
@@ -94,6 +105,7 @@ def main():
 	
 	attention_ = [[0 for x in range(0,2)] for y in range(0, duration + 1)]
 	ja_ = [0 for y in range(0, duration + 1)]
+	eye_ = [0 for y in range(0, duration + 1)]
 
 	#child gaze
 	for stage in data["stages"]:
@@ -114,6 +126,7 @@ def main():
 				ja_[i] = e_val
 				break
 
+	#print ja_
 	fillArray(ja_, attention_)
 	#print json.dumps(child_, indent=4, separators=(',', ': '))
 	saveJson("test-modified", info_, duration_)

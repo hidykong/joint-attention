@@ -84,9 +84,7 @@ var group4 = svg.append("g")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
           .attr("fill", "#AECF31")
           .attr("opacity", function(d){
-            if (d.val.indexOf("hat") > -1) {return 1} 
-            else if (d.val.indexOf("ball") > -1) {return 1} 
-            else if (d.val.indexOf("gaze_book") > -1) {return 1} 
+            if (d.eye) {return 0.1}
             else { return 0};
           });
 
@@ -98,8 +96,7 @@ var group4 = svg.append("g")
           .attr("stroke-width", 2)
           .attr("stroke", "white")
           .attr("opacity", function(d){
-            if (d.val.indexOf("ex") > -1) {return 0}  
-            else if (d.val.indexOf("gaze_book") > -1) {return 1} // <== Right here 
+            if (d.eye) {return 0.1}
             else { return 0};
           });
 
@@ -109,8 +106,7 @@ var group4 = svg.append("g")
          .attr("r", 4)
          .style("fill", "white")
          .attr("opacity", function(d){
-            if (d.val.indexOf("ex") > -1) {return 0}  
-            else if (d.val.indexOf("gaze_book") > -1) {return 1} // <== Right here 
+            if (d.eye) {return 0.1}
             else { return 0};
           });
 
@@ -125,16 +121,11 @@ var group4 = svg.append("g")
           .attr("y", function(d){return d.start * lineHeight ;}) //starting y = normalized position
           .attr("width", "10%")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
-
-          .attr("stroke", "white")
-          .attr("stroke-width", function(d){ if(d.joint){return "2"} else return "0";})
+         // .attr("fill", function(d){ if(d.joint){return "#FFE043"} else return "#45A9C8";})
           .attr("fill", "#45A9C8")
           .attr("opacity", function(d){
-            if (d.val.indexOf("c_") > -1) { return 1}  
-            else if (d.val.indexOf("hat") > -1) {return 1} 
-            else if (d.val.indexOf("ball") > -1) {return 1} 
-            else if (d.val.indexOf("book") > -1) {return 1} 
-            else { return 0.5};
+            if (d.eye) {return 1}
+            else { return 0.1};
           });
 
         //examiner-child
@@ -147,7 +138,8 @@ var group4 = svg.append("g")
           .attr("stroke", "white")
           .attr("stroke-dasharray", "6, 3")
           .attr("opacity", function(d){
-            if (d.val.indexOf("c_") > -1) {return 1} // <== Right here
+            if (d.eye) {return 1}
+            else if (d.val.indexOf("c_") > -1) {return 0.1} // <== Right here
             else { return 0};
           });
 
@@ -157,8 +149,8 @@ var group4 = svg.append("g")
          .attr("r", 4)
          .style("fill", "white")
          .attr("opacity", function(d){
-            if (d.val.indexOf("c_") > -1) {return 1} // <== Right here
-            else { return 0};
+            if (d.eye) {return 1}
+            else { return 0.1};
           });
 
        var gaze3 = group3.selectAll("gaze")
@@ -172,16 +164,10 @@ var group4 = svg.append("g")
           .attr("y", function(d){return (d.start ) * lineHeight ;}) //starting y = normalized position
           .attr("width", "10%")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
-          .attr("fill",  "#F16F1B")
-
-
-          .attr("stroke", "white")
-          .attr("stroke-width", function(d){ if(d.joint){return "2"} else return "0";})
+          .attr("fill", function(d){if(d.joint){return "#FFE043"} else return "#F16F1B";})
           .attr("opacity", function(d){
-            if (d.val.indexOf("ex") > -1) { return 1}  
-            else if (d.val.indexOf("ball") > -1) {return 1} 
-            else if (d.val.indexOf("book") > -1) {return 1} 
-            else { return 0.5};
+            if (d.eye) {return 1}
+            else { return 0.1};
           }); 
 
        //child-examiner
@@ -193,8 +179,8 @@ var group4 = svg.append("g")
           .attr("stroke-width", 2)
           .attr("stroke", "#F16F1B")
           .attr("opacity", function(d){
-            if (d.val.indexOf("ex") > -1) {return 1}
-            else { return 0};
+            if (d.eye) {return 1}
+            else { return 0.1};
           });
 
         gaze3.append("circle")
@@ -203,9 +189,8 @@ var group4 = svg.append("g")
          .attr("r", 4)
          .style("fill", "#F16F1B")
          .attr("opacity", function(d){
-            if (d.val.indexOf("ex") > -1) {return 1}
-            else if (d.val.indexOf("c_") > -1) {return 0} // <== Right here
-            else { return 0};
+            if (d.eye) {return 1}
+            else { return 0.1};
           });
 
        //child-object
@@ -217,10 +202,9 @@ var group4 = svg.append("g")
           .attr("stroke-width", 2)
           .attr("stroke", "#F16F1B")
           .attr("opacity", function(d){
-            if (d.val.indexOf("ball") > -1) {return 1}
-            else if (d.val.indexOf("book") > -1) {return 1}
+            if (d.eye) {return 0.1}
             else { return 0};
-          });
+          })
 
         gaze3.append("circle")
         .attr("cx", "26%")
@@ -228,10 +212,9 @@ var group4 = svg.append("g")
          .attr("r", 5)
          .style("fill", "#F16F1B")
          .attr("opacity", function(d){
-            if (d.val.indexOf("ball") > -1) {return 1}
-            else if (d.val.indexOf("book") > -1) {return 1}
+            if (d.eye) {return 0.1}
             else { return 0};
-          });
+          })
 
        //child-object
        var gaze4 = group4.selectAll("gaze")
@@ -246,12 +229,10 @@ var group4 = svg.append("g")
           .attr("width", "10%")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
           .attr("fill", "#AECF31")
-
-         .attr("opacity", function(d){
-            if (d.val.indexOf("ball") > -1) {return 1} 
-            else if (d.val.indexOf("book") > -1) {return 1} 
+          .attr("opacity", function(d){
+            if (d.eye) {return 0.1}
             else { return 0};
-          }); 
+          })
 
           //use slider as a player
           d3.select("#eye").on('change', function(d) {
