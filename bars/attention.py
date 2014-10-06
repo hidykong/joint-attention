@@ -108,7 +108,7 @@ def main():
 	eye_ = [0 for y in range(0, duration + 1)]
 
 	#child gaze
-	for stage in data["stages"]:
+	for stage in data["child"]:
 		for i in range(int(round(stage["start"] - start)), int(round(stage["end"]- start))):
 			attention_[i][0] = stage["val"]
 
