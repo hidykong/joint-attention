@@ -1,7 +1,4 @@
-
-
-
-var margin = {top: 20, right: 80, bottom: 30, left: 50},
+var margin = {top: 20, right: 80, bottom: 30, left: 45},
     width = 1000 - margin.left - margin.right,
     height = 800 - margin.top - margin.bottom;
 
@@ -18,6 +15,52 @@ function arrowY(d){
   return (d.start + (d.end - d.start)/2) * lineHeight;
 }
 
+//functions for choosing which bars to show
+
+function normalCE(element){
+  element.transition().duration(function(d, i){ return i * 50;})
+  .attr("opacity", function(d){
+    if (d.val.indexOf("c_") > -1) {return 1} // for examiner
+    else if (d.val.indexOf("ex") > -1) {return 1} //for child
+    else { return 0};
+  });
+}
+
+function normalCERect(element){
+  element.transition().attr("opacity", function(d){
+    if (d.val.indexOf("c_") > -1) { return 1} 
+      else if (d.val.indexOf("ex") > -1) { return 1}  
+      else if (d.val.indexOf("ball") > -1) {return 1} 
+      else if (d.val.indexOf("book") > -1) {return 1} 
+      else { return 0.5};
+    }); 
+}
+
+function normalObject(element){
+  element.transition().attr("opacity", function(d){
+    if (d.val.indexOf("ball") > -1) {return 1} 
+    else if (d.val.indexOf("gaze_book") > -1) {return 1} 
+    else { return 0};
+  });
+}
+
+function selectEye(element){
+  element.transition().duration(function(d, i){ return i * 50;})
+    .attr("opacity", function(d){
+      if (d.eye) {return 1}
+      else { return 0.1};
+    }); 
+}
+
+function selectEyeObject(element){
+  element.transition()
+    .attr("opacity", function(d){
+      if (d.val.indexOf("ball") > -1) {return 0.1} 
+      else if (d.val.indexOf("book") > -1) {return 0.1} 
+      else { return 0};
+    }); 
+}
+
 var svg = d3.select("body").append("svg")
       .attr("width", "70%")
       .attr("height", height + margin.top + margin.bottom)
@@ -28,20 +71,16 @@ var div = d3.select("body").append("div")
     .style("opacity", 0);
 
 var group = svg.append("g")
-    .attr("transform", "translate(" + margin.left + ", 0)");
+    .attr("transform", "translate(" + margin.left + ", 0)"); 
 var group2 = svg.append("g")
-    .attr("transform", "translate(" + (margin.left * 6) + ", 0)");
+    .attr("transform", "translate(" + (margin.left * 6) + ", 0)"); 
 
 var group3 = svg.append("g")
-    .attr("transform", "translate(" + (margin.left * 11) + ", 0)");
+    .attr("transform", "translate(" + (margin.left * 11) + ", 0)"); 
 
 var group4 = svg.append("g")
-<<<<<<< HEAD
-    .attr("transform", "translate(" + (margin.left * 16.5) + ", 0)");
-=======
     .attr("transform", "translate(" + (margin.left * 16.5) + ", 0)"); 
 
->>>>>>> 386f813c167fe0e128f16a18cb6a8b8e85b59a66
 
     d3.json("test-modified.json", function(error, data) {
 
@@ -80,67 +119,38 @@ var group4 = svg.append("g")
         .enter().append("g")
             .attr("class", "gaze");
 
-        gaze.append("rect")
+      var eObject = gaze.append("rect")
           .attr("class", "examiner-object")
           .attr("x", 0)
           .attr("y", function(d){return (d.start ) * lineHeight ;}) //starting y = normalized position
           .attr("width", "10%")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
-          .attr("fill", "#AECF31")
-          .attr("opacity", function(d){
-<<<<<<< HEAD
-            if (d.val.indexOf("hat") > -1) {return 1}
-            else if (d.val.indexOf("ball") > -1) {return 1}
-            else if (d.val.indexOf("gaze_book") > -1) {return 1}
-            else { return 0.5};
-=======
-            if (d.val.indexOf("hat") > -1) {return 1} 
-            else if (d.val.indexOf("ball") > -1) {return 1} 
-            else if (d.val.indexOf("gaze_book") > -1) {return 1} 
-            else { return 0};
->>>>>>> 386f813c167fe0e128f16a18cb6a8b8e85b59a66
-          });
+          .attr("fill", "#AECF31");
 
-        gaze.append("line")
+      var eObjectLine = gaze.append("line")
           .attr("x1", "11%")
           .attr("y1", function(d){return arrowY(d);})
           .attr("x2", "24%")
           .attr("y2", function(d){return arrowY(d);})
           .attr("stroke-width", 2)
-          .attr("stroke", "white")
-          .attr("opacity", function(d){
-<<<<<<< HEAD
-            if (d.val.indexOf("ex") > -1) {return 0}
-            else if (d.val.indexOf("gaze_book") > -1) {return 1} // <== Right here
-=======
-            if (d.val.indexOf("ex") > -1) {return 0}  
-            else if (d.val.indexOf("gaze_book") > -1) {return 1} // <== Right here 
->>>>>>> 386f813c167fe0e128f16a18cb6a8b8e85b59a66
-            else { return 0};
-          });
+          .attr("stroke", "white");
 
-        gaze.append("circle")
+      var eObjectCircle = gaze.append("circle")
          .attr("cx", "11%")
          .attr("cy", function(d){return arrowY(d);} )
          .attr("r", 4)
-         .style("fill", "white")
-         .attr("opacity", function(d){
-<<<<<<< HEAD
-            if (d.val.indexOf("ex") > -1) {return 0}
-            else if (d.val.indexOf("gaze_book") > -1) {return 1} // <== Right here
-=======
-            if (d.val.indexOf("ex") > -1) {return 0}  
-            else if (d.val.indexOf("gaze_book") > -1) {return 1} // <== Right here 
->>>>>>> 386f813c167fe0e128f16a18cb6a8b8e85b59a66
-            else { return 0};
-          });
+         .style("fill", "white");
 
-         var gaze2 = group2.selectAll("gaze")
+      normalObject(eObject);
+      normalObject(eObjectLine);
+      normalObject(eObjectCircle);  
+
+      var gaze2 = group2.selectAll("gaze")
         .data(data.examiner)
         .enter().append("g")
             .attr("class", "examiner");
 
-        gaze2.append("rect")
+      var exBar = gaze2.append("rect")
           .attr("class", "rect-gaze")
           .attr("x", 0)
           .attr("y", function(d){return d.start * lineHeight ;}) //starting y = normalized position
@@ -149,52 +159,35 @@ var group4 = svg.append("g")
 
           .attr("stroke", "white")
           .attr("stroke-width", function(d){ if(d.joint){return "2"} else return "0";})
-          .attr("fill", "#45A9C8")
-          .attr("opacity", function(d){
-<<<<<<< HEAD
-            if (d.val.indexOf("c_") > -1) { return 1}
-            else if (d.val.indexOf("hat") > -1) {return 1}
-            else if (d.val.indexOf("ball") > -1) {return 1}
-            else if (d.val.indexOf("book") > -1) {return 1}
-=======
-            if (d.val.indexOf("c_") > -1) { return 1}  
-            else if (d.val.indexOf("hat") > -1) {return 1} 
-            else if (d.val.indexOf("ball") > -1) {return 1} 
-            else if (d.val.indexOf("book") > -1) {return 1} 
->>>>>>> 386f813c167fe0e128f16a18cb6a8b8e85b59a66
-            else { return 0.5};
-          });
+          .attr("fill", "#45A9C8");
 
         //examiner-child
-        gaze2.append("line")
+      var ecLine = gaze2.append("line")
           .attr("x1", "11%")
           .attr("y1", function(d){return arrowY(d);})
           .attr("x2", "23%")
           .attr("y2", function(d){return arrowY(d);})
           .attr("stroke-width", 2)
           .attr("stroke", "white")
-          .attr("stroke-dasharray", "6, 3")
-          .attr("opacity", function(d){
-            if (d.val.indexOf("c_") > -1) {return 1} // <== Right here
-            else { return 0};
-          });
+          .attr("stroke-dasharray", "6, 3");
 
-        gaze2.append("circle")
+
+
+      var ecCircle = gaze2.append("circle")
         .attr("cx", "23%")
          .attr("cy", function(d){return arrowY(d);} )
          .attr("r", 4)
-         .style("fill", "white")
-         .attr("opacity", function(d){
-            if (d.val.indexOf("c_") > -1) {return 1} // <== Right here
-            else { return 0};
-          });
+         .style("fill", "white");
+
+          normalCE(ecLine);
+          normalCE(ecCircle);
 
        var gaze3 = group3.selectAll("gaze")
         .data(data.child)
         .enter().append("g")
             .attr("class", "child");
 
-        gaze3.append("rect")
+      var childBar = gaze3.append("rect")
           .attr("class", "rect-gaze")
           .attr("x", 0)
           .attr("y", function(d){return (d.start ) * lineHeight ;}) //starting y = normalized position
@@ -204,69 +197,40 @@ var group4 = svg.append("g")
 
 
           .attr("stroke", "white")
-          .attr("stroke-width", function(d){ if(d.joint){return "2"} else return "0";})
-          .attr("opacity", function(d){
-<<<<<<< HEAD
-            if (d.val.indexOf("ex") > -1) { return 1}
-            else if (d.val.indexOf("hat") > -1) {return 1}
-            else if (d.val.indexOf("ball") > -1) {return 1}
-            else if (d.val.indexOf("book") > -1) {return 1}
-=======
-            if (d.val.indexOf("ex") > -1) { return 1}  
-            else if (d.val.indexOf("ball") > -1) {return 1} 
-            else if (d.val.indexOf("book") > -1) {return 1} 
->>>>>>> 386f813c167fe0e128f16a18cb6a8b8e85b59a66
-            else { return 0.5};
-          });
+          .attr("stroke-width", function(d){ if(d.joint){return "2"} else return "0";});
 
        //child-examiner
-        gaze3.append("line")
+      var ceLine = gaze3.append("line")
           .attr("x1", "-14%")
           .attr("y1", function(d){return arrowY(d);})
           .attr("x2", "-2%")
           .attr("y2", function(d){return arrowY(d);})
           .attr("stroke-width", 2)
-          .attr("stroke", "#F16F1B")
-          .attr("opacity", function(d){
-            if (d.val.indexOf("ex") > -1) {return 1}
-            else { return 0};
-          });
+          .attr("stroke", "#F16F1B");
 
-        gaze3.append("circle")
+      var ceCircle = gaze3.append("circle")
         .attr("cx", "-14%")
          .attr("cy", function(d){return arrowY(d);} )
          .attr("r", 4)
-         .style("fill", "#F16F1B")
-         .attr("opacity", function(d){
-            if (d.val.indexOf("ex") > -1) {return 1}
-            else if (d.val.indexOf("c_") > -1) {return 0} // <== Right here
-            else { return 0};
-          });
+         .style("fill", "#F16F1B");
+
+          normalCE(ceLine);
+          normalCE(ceCircle);
 
        //child-object
-        gaze3.append("line")
+      var cObjectLine = gaze3.append("line")
           .attr("x1", "11%")
           .attr("y1", function(d){return arrowY(d);})
           .attr("x2", "26%")
           .attr("y2", function(d){return arrowY(d);})
           .attr("stroke-width", 2)
-          .attr("stroke", "#F16F1B")
-          .attr("opacity", function(d){
-            if (d.val.indexOf("ball") > -1) {return 1}
-            else if (d.val.indexOf("book") > -1) {return 1}
-            else { return 0};
-          });
+          .attr("stroke", "#F16F1B");
 
-        gaze3.append("circle")
+      var cObjectCircle = gaze3.append("circle")
         .attr("cx", "26%")
          .attr("cy", function(d){return arrowY(d);} )
          .attr("r", 5)
-         .style("fill", "#F16F1B")
-         .attr("opacity", function(d){
-            if (d.val.indexOf("ball") > -1) {return 1}
-            else if (d.val.indexOf("book") > -1) {return 1}
-            else { return 0};
-          });
+         .style("fill", "#F16F1B");
 
        //child-object
        var gaze4 = group4.selectAll("gaze")
@@ -274,38 +238,58 @@ var group4 = svg.append("g")
         .enter().append("g")
             .attr("class", "child-object");
 
-        gaze4.append("rect")
+      var cObject = gaze4.append("rect")
           .attr("class", "rect-gaze")
           .attr("x", 0)
           .attr("y", function(d){return (d.start) * lineHeight ;}) //starting y = normalized position
           .attr("width", "10%")
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
-          .attr("fill", "#AECF31")
-<<<<<<< HEAD
-         .attr("opacity", function(d){
-            if (d.val.indexOf("hat") > -1) {return 1}
-            else if (d.val.indexOf("ball") > -1) {return 1}
-            else if (d.val.indexOf("book") > -1) {return 1}
-            else { return 0.5};
-          });
+          .attr("fill", "#AECF31");
 
-    });
-=======
+      normalObject(cObject);
+      normalObject(cObjectLine);
+      normalObject(cObjectCircle);
 
-         .attr("opacity", function(d){
-            if (d.val.indexOf("ball") > -1) {return 1} 
-            else if (d.val.indexOf("book") > -1) {return 1} 
-            else { return 0};
-          }); 
+    //use slider as a player
+    d3.select("#eye").on('change', function(d) {
+      console.log(this.value);
 
-          //use slider as a player
-          d3.select("#eye").on('change', function(d) {
-            
-            console.log(this.value);
-            group3.selectAll("gaze").selectAll("g")
-            .attr("fill", function(d){console.log(d); return "red"});
-          });
+      selectEye(childBar);
+      selectEye(exBar);
+      selectEye(ecCircle);
+      selectEye(ecLine);
+      selectEye(ceCircle);
+      selectEye(ceLine);
 
+      selectEyeObject(cObject);
+      selectEyeObject(cObjectLine);
+      selectEyeObject(cObjectCircle);
 
-    });
->>>>>>> 386f813c167fe0e128f16a18cb6a8b8e85b59a66
+      selectEyeObject(eObject);
+      selectEyeObject(eObjectLine);
+      selectEyeObject(eObjectCircle);           
+
+    }); //end of eye
+
+    d3.select("#normal").on('change', function(d) {
+      console.log(this.value);
+
+      normalCERect(childBar);
+      normalCERect(exBar);
+
+      normalCE(ecCircle);
+      normalCE(ecLine);
+      normalCE(ceCircle);
+      normalCE(ceLine);
+
+      normalObject(cObject);
+      normalObject(cObjectLine);
+      normalObject(cObjectCircle);
+
+      normalObject(eObject);
+      normalObject(eObjectLine);
+      normalObject(eObjectCircle);           
+
+    }); //end of eye
+
+});
