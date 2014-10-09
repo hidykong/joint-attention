@@ -1,6 +1,6 @@
 var width = 960,
     height = 400;
-var color = ["#6797C6", "#6797C6", "F78A3C", "F6749E"];
+var color = ["#6797C6", "#6797C6", "#F78A3C", "#F6749E"];
 var sliderWidth = 500;
 var graphHeight = 350;
 
@@ -13,27 +13,38 @@ var radius = 100,
 var dimension = (2 * radius) + (2 * padding),
     points = 50;
 
-var topHalf = d3.scale.linear()
-    .domain([0, points-1])
-    .range([-radians/2, radians/2]);
 
-//bottom circle
-var bottomHalf = d3.scale.linear()
-    .domain([0, points-1])
-    .range([radians/2, radians * 3/2]);    
 
-var line = d3.svg.line.radial()
-    .interpolate("basis")
-    .tension(0)
-    .radius(radius)
-    .angle(function(d, i) { return topHalf(i); });
 
-var line2 = d3.svg.line.radial()
-    .interpolate("basis")
-    .tension(0)
-    .radius(radius)
-    .angle(function(d, i) { return bottomHalf(i); });  
+function topCircle(radius, angle){
 
+	var topHalf = d3.scale.linear()
+	    .domain([0, points-1])
+	    .range([ 0 - angle, 0 + angle]);  
+
+	var line = d3.svg.line.radial()
+	    .interpolate("basis")
+	    .tension(0)
+	    .radius(radius)
+	    .angle(function(d, i) { return topHalf(i); }); 
+	return line;
+}
+
+
+function bottomCircle(radius, angle){
+
+	var bottomHalf = d3.scale.linear()
+	    .domain([0, points-1])
+	    .range([radians - angle, radians + angle]);    
+
+	var line = d3.svg.line.radial()
+	    .interpolate("basis")
+	    .tension(0)
+	    .radius(radius)
+	    .angle(function(d, i) {return bottomHalf(i); }); 
+	    //.angle(-1.5); 
+	return line;
+}
 
 //start code
 var svg = d3.select("body").append("svg")
@@ -56,17 +67,63 @@ d3.json("test-2.json", function(error, graph) {
 	      .style("fill", function(d) { return color[d.group]; })
 	      .attr("cx", function(d) { return d.x; })
 	        .attr("cy", function(d) { return d.y; });
+	
+	svg.selectAll(".text")
+		.data(graph.nodes)
+		.enter().append("text")
+		.attr("class", "text")
+      .attr("dx", function(d){return d.x - 10;})
+      .attr("dy", function(d){return d.y + 5;})
+      .attr("fill", "#F7F6F5")
+      .text(function(d) { return d.name });	
 
-svg.append("path").datum(d3.range(points))
-    .attr("class", "line")
-    .attr("d", line)
-    .attr("transform", "translate( 200, 170)");
+	start = 200
 
-svg.append("path").datum(d3.range(points))
-    .attr("class", "line")
-    .attr("d", line2)
-    .attr("transform", "translate( 400, 220)");
+//ex-obj
+	radius = 100;
+	svg.append("path").datum(d3.range(points))
+	    .attr("class", "exLine")
+	    .attr("d", topCircle(radius, radians * 3/8))
+	    .attr("transform", "translate( 200, " + (start + 10) + ")");
 
+	radius = 150;
+	svg.append("path").datum(d3.range(points))
+	    .attr("class", "exLine")
+	    .attr("d", topCircle(radius, radians/5))
+	    .attr("transform", "translate( 200, " + (start + 100) + ")");		    
+
+//ch-obj
+	radius = 100;
+	svg.append("path").datum(d3.range(points))
+	    .attr("class", "chLine")
+	    .attr("d", bottomCircle(radius, radians * 3/8))
+	    .attr("transform", "translate( 400, " + (start - 10) + ")");
+
+	radius = 125;
+	svg.append("path").datum(d3.range(points))
+	    .attr("class", "chLine")
+	    .attr("d", bottomCircle(radius, radians * 2/8))
+	    .attr("transform", "translate( 400, " + (start - 60) + ")");
+
+	radius = 150;	
+	svg.append("path").datum(d3.range(points))
+	    .attr("class", "chLine")
+	    .attr("d", bottomCircle(radius, radians/5))
+	    .attr("transform", "translate( 400, " + (start - 100) + ")");	
+
+//ex-ch
+	radius = 215;
+	svg.append("path").datum(d3.range(points))
+	    .attr("class", "exLine")
+	    .attr("d", topCircle(radius, radians * 3/8))
+		.attr("transform", "translate( 300, " + (start + 60) + ")");
+
+//ch-ex
+	svg.append("path").datum(d3.range(points))
+	    .attr("class", "chLine")
+	    .attr("d", bottomCircle(radius, radians * 3/8))
+		.attr("transform", "translate( 300, " + (start - 60) + ")");
+	   
 
 });
 
