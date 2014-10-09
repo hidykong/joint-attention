@@ -70,16 +70,26 @@ var div = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
+svgWidth = parseInt(svg.style("width").replace("px", ""));
+gap1 = svgWidth * 0.05;
+gap2 = svgWidth * 0.15; //wider gaps
+lineMargin = parseInt(gap2 * 0.05);
+barWidth = svgWidth * 0.11;
+
+lineX2 = barWidth + gap2 - lineMargin;
+
+console.log(lineMargin);
+
 var group = svg.append("g")
-    .attr("transform", "translate(" + margin.left + ", 0)"); 
+    .attr("transform", "translate(" + gap1 + ", 0)"); 
 var group2 = svg.append("g")
-    .attr("transform", "translate(" + (margin.left * 6) + ", 0)"); 
+    .attr("transform", "translate(" + (gap1 + barWidth + gap2) + ", 0)"); 
 
 var group3 = svg.append("g")
-    .attr("transform", "translate(" + (margin.left * 11) + ", 0)"); 
+    .attr("transform", "translate(" + (gap1 + 2 * barWidth + 2 * gap2) + ", 0)"); 
 
 var group4 = svg.append("g")
-    .attr("transform", "translate(" + (margin.left * 16.5) + ", 0)"); 
+    .attr("transform", "translate(" + (gap1 + 3 * barWidth + 3 * gap2) + ", 0)"); 
 
 
     d3.json("test-modified.json", function(error, data) {
@@ -123,20 +133,20 @@ var group4 = svg.append("g")
           .attr("class", "examiner-object")
           .attr("x", 0)
           .attr("y", function(d){return (d.start ) * lineHeight ;}) //starting y = normalized position
-          .attr("width", "10%")
+          .attr("width", barWidth)
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
           .attr("fill", "#AECF31");
 
       var eObjectLine = gaze.append("line")
-          .attr("x1", "11%")
+          .attr("x1", barWidth + lineMargin)
           .attr("y1", function(d){return arrowY(d);})
-          .attr("x2", "24%")
+          .attr("x2", lineX2)
           .attr("y2", function(d){return arrowY(d);})
           .attr("stroke-width", 2)
           .attr("stroke", "white");
 
       var eObjectCircle = gaze.append("circle")
-         .attr("cx", "11%")
+         .attr("cx", barWidth + lineMargin)
          .attr("cy", function(d){return arrowY(d);} )
          .attr("r", 4)
          .style("fill", "white");
@@ -154,7 +164,7 @@ var group4 = svg.append("g")
           .attr("class", "rect-gaze")
           .attr("x", 0)
           .attr("y", function(d){return d.start * lineHeight ;}) //starting y = normalized position
-          .attr("width", "10%")
+          .attr("width", barWidth)
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
 
           .attr("stroke", "white")
@@ -163,9 +173,9 @@ var group4 = svg.append("g")
 
         //examiner-child
       var ecLine = gaze2.append("line")
-          .attr("x1", "11%")
+          .attr("x1", barWidth + lineMargin)
           .attr("y1", function(d){return arrowY(d);})
-          .attr("x2", "23%")
+          .attr("x2", lineX2)
           .attr("y2", function(d){return arrowY(d);})
           .attr("stroke-width", 2)
           .attr("stroke", "white")
@@ -174,7 +184,7 @@ var group4 = svg.append("g")
 
 
       var ecCircle = gaze2.append("circle")
-        .attr("cx", "23%")
+        .attr("cx", lineX2)
          .attr("cy", function(d){return arrowY(d);} )
          .attr("r", 4)
          .style("fill", "white");
@@ -191,7 +201,7 @@ var group4 = svg.append("g")
           .attr("class", "rect-gaze")
           .attr("x", 0)
           .attr("y", function(d){return (d.start ) * lineHeight ;}) //starting y = normalized position
-          .attr("width", "10%")
+          .attr("width", barWidth)
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
           .attr("fill",  "#F16F1B")
 
@@ -201,9 +211,9 @@ var group4 = svg.append("g")
 
        //child-examiner
       var ceLine = gaze3.append("line")
-          .attr("x1", "-14%")
+          .attr("x1", -gap2 + lineMargin)
           .attr("y1", function(d){return arrowY(d);})
-          .attr("x2", "-2%")
+          .attr("x2", -lineMargin)
           .attr("y2", function(d){return arrowY(d);})
           .attr("stroke-width", 2)
           .attr("stroke", "#F16F1B");
@@ -219,15 +229,15 @@ var group4 = svg.append("g")
 
        //child-object
       var cObjectLine = gaze3.append("line")
-          .attr("x1", "11%")
+          .attr("x1", barWidth + lineMargin)
           .attr("y1", function(d){return arrowY(d);})
-          .attr("x2", "26%")
+          .attr("x2", lineX2)
           .attr("y2", function(d){return arrowY(d);})
           .attr("stroke-width", 2)
           .attr("stroke", "#F16F1B");
 
       var cObjectCircle = gaze3.append("circle")
-        .attr("cx", "26%")
+        .attr("cx", lineX2)
          .attr("cy", function(d){return arrowY(d);} )
          .attr("r", 5)
          .style("fill", "#F16F1B");
@@ -242,7 +252,7 @@ var group4 = svg.append("g")
           .attr("class", "rect-gaze")
           .attr("x", 0)
           .attr("y", function(d){return (d.start) * lineHeight ;}) //starting y = normalized position
-          .attr("width", "10%")
+          .attr("width", barWidth)
           .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
           .attr("fill", "#AECF31");
 
