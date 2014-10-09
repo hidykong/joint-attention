@@ -5,46 +5,6 @@ var sliderWidth = 500;
 var graphHeight = 350;
 
 
-//for curved lines
-var radius = 100,
-    padding = 10,
-    radians = 1 * Math.PI;
-
-var dimension = (2 * radius) + (2 * padding),
-    points = 50;
-
-
-
-
-function topCircle(radius, angle){
-
-	var topHalf = d3.scale.linear()
-	    .domain([0, points-1])
-	    .range([ 0 - angle, 0 + angle]);  
-
-	var line = d3.svg.line.radial()
-	    .interpolate("basis")
-	    .tension(0)
-	    .radius(radius)
-	    .angle(function(d, i) { return topHalf(i); }); 
-	return line;
-}
-
-
-function bottomCircle(radius, angle){
-
-	var bottomHalf = d3.scale.linear()
-	    .domain([0, points-1])
-	    .range([radians - angle, radians + angle]);    
-
-	var line = d3.svg.line.radial()
-	    .interpolate("basis")
-	    .tension(0)
-	    .radius(radius)
-	    .angle(function(d, i) {return bottomHalf(i); }); 
-	    //.angle(-1.5); 
-	return line;
-}
 
 //start code
 var svg = d3.select("body").append("svg")
@@ -80,50 +40,54 @@ d3.json("test-2.json", function(error, graph) {
 	start = 200
 
 //ex-obj
-	radius = 100;
-	svg.append("path").datum(d3.range(points))
-	    .attr("class", "exLine")
-	    .attr("d", topCircle(radius, radians * 3/8))
-	    .attr("transform", "translate( 200, " + (start + 10) + ")");
+	exX = 100;
+	y = 180;
+	obX = 300;
+	chX = 500;
+	y2 = 220;
 
-	radius = 150;
-	svg.append("path").datum(d3.range(points))
-	    .attr("class", "exLine")
-	    .attr("d", topCircle(radius, radians/5))
-	    .attr("transform", "translate( 200, " + (start + 100) + ")");		    
+	svg.append("path")
+		.attr("d", "M" + exX + " " + y + " " + "C 150 150, 250 150," 
+			+ obX + " " + y )
+	    .attr("class", "exLine");
+	
+	svg.append("path")
+		.attr("d", "M" + exX + " " + y + " " + "C 125 100, 275 100," 
+			+ obX + " " + y )
+	    .attr("class", "exLine");
 
-//ch-obj
-	radius = 100;
-	svg.append("path").datum(d3.range(points))
-	    .attr("class", "chLine")
-	    .attr("d", bottomCircle(radius, radians * 3/8))
-	    .attr("transform", "translate( 400, " + (start - 10) + ")");
+	//ex-ch
+	svg.append("path")
+		.attr("d", "M" + exX + " " + y + " " + "C 150 20, 450 20," 
+			+ chX + " " + y )
+	    .attr("class", "exLine");	
 
-	radius = 125;
-	svg.append("path").datum(d3.range(points))
-	    .attr("class", "chLine")
-	    .attr("d", bottomCircle(radius, radians * 2/8))
-	    .attr("transform", "translate( 400, " + (start - 60) + ")");
 
-	radius = 150;	
-	svg.append("path").datum(d3.range(points))
-	    .attr("class", "chLine")
-	    .attr("d", bottomCircle(radius, radians/5))
-	    .attr("transform", "translate( 400, " + (start - 100) + ")");	
+//ch-obj	
 
-//ex-ch
-	radius = 215;
-	svg.append("path").datum(d3.range(points))
-	    .attr("class", "exLine")
-	    .attr("d", topCircle(radius, radians * 3/8))
-		.attr("transform", "translate( 300, " + (start + 60) + ")");
+	svg.append("path")
+		.attr("d", "M" + obX + " " + y2 + " " 
+			+ "C " + (obX + 20) + " 280, " + (chX - 20) + " 280, " 
+			+ chX + " " + y2 )
+	    .attr("class", "chLine");		
+
+	svg.append("path")
+		.attr("d", "M" + obX + " " + y2 + " " 
+			+ "C " + (obX + 10) + " 300, " + (chX - 10) + " 300, " 
+			+ chX + " " + y2 )
+	    .attr("class", "chLine");	
+
+	svg.append("path")
+		.attr("d", "M" + obX + " " + y2 + " " 
+			+ "C " + (obX + 20) + " 260, " + (chX - 20) + " 260, " 
+			+ chX + " " + y2 )
+	    .attr("class", "chLine");		    
 
 //ch-ex
-	svg.append("path").datum(d3.range(points))
-	    .attr("class", "chLine")
-	    .attr("d", bottomCircle(radius, radians * 3/8))
-		.attr("transform", "translate( 300, " + (start - 60) + ")");
-	   
+	svg.append("path")
+		.attr("d", "M" + exX + " " + y2 + " " + "C 150 380, 450 380," 
+			+ chX + " " + y2 )
+	    .attr("class", "chLine");		   
 
 });
 
