@@ -38,8 +38,8 @@ function normalCERect(element){
 
 function normalObject(element){
   element.transition().attr("opacity", function(d){
-    if (d.val.indexOf("ball") > -1) {return 1} 
-    else if (d.val.indexOf("gaze_book") > -1) {return 1} 
+    if (d.val.indexOf("ball") > -1) { return 1} 
+    else if (d.val.indexOf("book") > -1) {return 1} 
     else { return 0};
   });
 }
@@ -58,6 +58,15 @@ function selectEyeObject(element){
       if (d.val.indexOf("ball") > -1) {return 0.1} 
       else if (d.val.indexOf("book") > -1) {return 0.1} 
       else { return 0};
+    }); 
+}
+
+
+function selectObject(element){
+  element.transition()
+    .attr("opacity", function(d){
+      if (d.objectGaze) {return 1}
+      else { return 0.1};
     }); 
 }
 
@@ -280,6 +289,26 @@ var group4 = svg.append("g")
       selectEyeObject(eObjectCircle);           
 
     }); //end of eye
+
+    d3.select("#object").on('change', function(d) {
+      console.log(this.value);
+
+      selectObject(childBar);
+      selectObject(exBar);
+      selectObject(ecCircle);
+      selectObject(ecLine);
+      selectObject(ceCircle);
+      selectObject(ceLine);
+
+      selectObject(cObject);
+      selectObject(cObjectLine);
+      selectObject(cObjectCircle);
+
+      selectObject(eObject);
+      selectObject(eObjectLine);
+      selectObject(eObjectCircle);           
+
+    });
 
     d3.select("#normal").on('change', function(d) {
       console.log(this.value);

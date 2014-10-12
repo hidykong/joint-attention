@@ -1,4 +1,10 @@
-{"info":[
+{
+"nodes":[
+    {"name":"EX","group":1, "fixed": true, "x": 100, "y": 200},
+    {"name":"OB","group":2, "fixed": true, "x": 300, "y": 200},
+    {"name":"CH","group":3, "fixed": true, "x": 500, "y": 200}
+  ],
+    "info":[
     {
         "origin": 135.9,
         "child": "RA024"

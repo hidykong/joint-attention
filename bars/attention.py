@@ -14,7 +14,7 @@ child_ = []
 examiner_ = []
 
 def initialize():
-	global ja_, ja_json, attention_, eye_
+	global ja_, ja_json, attention_, eye_, object_
 	global child_, examiner_
 	global start, end
 	global info_
@@ -29,6 +29,7 @@ def initialize():
 	info_= []
 	duration_ = []
 	eye_ =[]
+	object_ =[]
 
 def saveJson(filename, info_, duration_):
 
@@ -66,8 +67,6 @@ def fillArray(ja_ , attention_):
 				chDict["eye"] = 1
 			else:
 				chDict["eye"] = 0
-			if chDict["val"] is not 0 and chDict["val"] is not '':
-				child_.append(chDict)
 
 			#append the examiner part
 			exDict = {"start": 0, "end": 0, "val": ""}
@@ -80,10 +79,19 @@ def fillArray(ja_ , attention_):
 				exDict["joint"] = 1
 			if ja_[gazeStart] == "c_face":
 				exDict["eye"] = 1
-				print "eye"
 			else:
 				exDict["eye"] = 0
 
+			if "book" in str(ja_[gazeStart]) or "ball" in str(ja_[gazeStart]):
+				exDict["objectGaze"] = 1
+				chDict["objectGaze"] = 1
+			else:
+				exDict["objectGaze"] = 0
+				chDict["objectGaze"] = 0
+
+			#append both dictionaries to the json if not null
+			if chDict["val"] is not 0 and chDict["val"] is not '':
+				child_.append(chDict)
 			if exDict["val"] is not 0 and exDict["val"] is not '':
 				examiner_.append(exDict)
 			gazeStart = i
@@ -93,7 +101,7 @@ def fillArray(ja_ , attention_):
 
 def main():
 	initialize()
-	jsonFile = open('test.json')
+	jsonFile = open('test-1.json')
 	data = json.load(jsonFile)
 	#print(data["duration"])
 	info_ = data["info"]
@@ -106,6 +114,7 @@ def main():
 	attention_ = [[0 for x in range(0,2)] for y in range(0, duration + 1)]
 	ja_ = [0 for y in range(0, duration + 1)]
 	eye_ = [0 for y in range(0, duration + 1)]
+	object_ = [0 for y in range(0, duration + 1)]
 
 	#child gaze
 	for stage in data["child"]:
