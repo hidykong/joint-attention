@@ -90,18 +90,25 @@ def fillArray(ja_ , attention_):
 				chDict["objectGaze"] = 0
 
 			#append both dictionaries to the json if not null
-			if chDict["val"] is not 0 and chDict["val"] is not '':
+			if (chDict["val"] is not 0 and chDict["val"] is not '') or (exDict["val"] is not 0 and exDict["val"] is not ''):
+				if chDict["val"] is 0:
+					chDict["val"] = ""
+				if exDict["val"] is 0:
+					exDict["val"] = ""
 				child_.append(chDict)
-			if exDict["val"] is not 0 and exDict["val"] is not '':
 				examiner_.append(exDict)
 			gazeStart = i
 			currentCh = attention_[i][0]
 			currentEx = attention_[i][1]
 		
 
-def main():
+def main(argv):
 	initialize()
-	jsonFile = open('test-1.json')
+	if len(argv) > 0:
+		filename = argv[0]
+	else:
+		filename = "test.json"
+	jsonFile = open(filename)
 	data = json.load(jsonFile)
 	#print(data["duration"])
 	info_ = data["info"]
@@ -144,7 +151,7 @@ def main():
 		
 
 if  __name__ =='__main__':
-    main()
+    main(sys.argv[1:])
 
 
 
