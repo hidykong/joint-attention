@@ -138,9 +138,9 @@
         "end": 54
     },
     {
-        "eye": 0,
+        "eye": 1,
         "val": "child_ex_face",
-        "joint": 0,
+        "joint": 1,
         "objectGaze": 0,
         "start": 54,
         "end": 55
@@ -236,8 +236,8 @@
     {
         "eye": 0,
         "val": "child_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 79,
         "end": 81
     },
@@ -284,8 +284,8 @@
     {
         "eye": 0,
         "val": "child_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 98,
         "end": 107
     },
@@ -300,8 +300,8 @@
     {
         "eye": 0,
         "val": "child_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 116,
         "end": 119
     },
@@ -316,8 +316,8 @@
     {
         "eye": 0,
         "val": "child_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 120,
         "end": 124
     },
@@ -332,8 +332,8 @@
     {
         "eye": 0,
         "val": "child_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 125,
         "end": 127
     },
@@ -348,8 +348,8 @@
     {
         "eye": 0,
         "val": "child_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 129,
         "end": 133
     },
@@ -380,8 +380,8 @@
     {
         "eye": 0,
         "val": "child_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 140,
         "end": 142
     },
@@ -402,9 +402,9 @@
         "end": 144
     },
     {
-        "eye": 0,
+        "eye": 1,
         "val": "child_ex_face",
-        "joint": 0,
+        "joint": 1,
         "objectGaze": 0,
         "start": 144,
         "end": 152
@@ -418,9 +418,9 @@
         "end": 153
     },
     {
-        "eye": 0,
+        "eye": 1,
         "val": "child_ex_face",
-        "joint": 0,
+        "joint": 1,
         "objectGaze": 0,
         "start": 154,
         "end": 156
@@ -490,9 +490,9 @@
         "end": 180
     },
     {
-        "eye": 0,
+        "eye": 1,
         "val": "child_ex_face",
-        "joint": 0,
+        "joint": 1,
         "objectGaze": 0,
         "start": 180,
         "end": 181
@@ -651,9 +651,9 @@
         "end": 54
     },
     {
-        "eye": 0,
+        "eye": 1,
         "val": "examiner_c_face",
-        "joint": 0,
+        "joint": 1,
         "objectGaze": 0,
         "start": 54,
         "end": 55
@@ -749,8 +749,8 @@
     {
         "eye": 0,
         "val": "examiner_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 79,
         "end": 81
     },
@@ -797,8 +797,8 @@
     {
         "eye": 0,
         "val": "examiner_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 98,
         "end": 107
     },
@@ -813,8 +813,8 @@
     {
         "eye": 0,
         "val": "examiner_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 116,
         "end": 119
     },
@@ -829,8 +829,8 @@
     {
         "eye": 0,
         "val": "examiner_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 120,
         "end": 124
     },
@@ -845,8 +845,8 @@
     {
         "eye": 0,
         "val": "examiner_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 125,
         "end": 127
     },
@@ -861,8 +861,8 @@
     {
         "eye": 0,
         "val": "examiner_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 129,
         "end": 133
     },
@@ -893,8 +893,8 @@
     {
         "eye": 0,
         "val": "examiner_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 140,
         "end": 142
     },
@@ -915,9 +915,9 @@
         "end": 144
     },
     {
-        "eye": 0,
+        "eye": 1,
         "val": "examiner_c_face",
-        "joint": 0,
+        "joint": 1,
         "objectGaze": 0,
         "start": 144,
         "end": 152
@@ -931,9 +931,9 @@
         "end": 153
     },
     {
-        "eye": 0,
+        "eye": 1,
         "val": "examiner_c_face",
-        "joint": 0,
+        "joint": 1,
         "objectGaze": 0,
         "start": 154,
         "end": 156
@@ -1003,9 +1003,9 @@
         "end": 180
     },
     {
-        "eye": 0,
+        "eye": 1,
         "val": "examiner_c_face",
-        "joint": 0,
+        "joint": 1,
         "objectGaze": 0,
         "start": 180,
         "end": 181

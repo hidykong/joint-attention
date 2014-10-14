@@ -36,8 +36,8 @@
     {
         "eye": 0,
         "val": "child_ball",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 19,
         "end": 20
     },
@@ -124,8 +124,8 @@
     {
         "eye": 0,
         "val": "child_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 56,
         "end": 58
     },
@@ -140,8 +140,8 @@
     {
         "eye": 0,
         "val": "child_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 61,
         "end": 67
     },
@@ -156,8 +156,8 @@
     {
         "eye": 0,
         "val": "child_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 68,
         "end": 74
     },
@@ -202,9 +202,9 @@
         "end": 82
     },
     {
-        "eye": 0,
+        "eye": 1,
         "val": "child_ex_face",
-        "joint": 0,
+        "joint": 1,
         "objectGaze": 0,
         "start": 83,
         "end": 88
@@ -317,8 +317,8 @@
     {
         "eye": 0,
         "val": "examiner_ball",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 19,
         "end": 20
     },
@@ -405,8 +405,8 @@
     {
         "eye": 0,
         "val": "examiner_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 56,
         "end": 58
     },
@@ -421,8 +421,8 @@
     {
         "eye": 0,
         "val": "examiner_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 61,
         "end": 67
     },
@@ -437,8 +437,8 @@
     {
         "eye": 0,
         "val": "examiner_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "joint": 1,
+        "objectGaze": 1,
         "start": 68,
         "end": 74
     },
@@ -483,9 +483,9 @@
         "end": 82
     },
     {
-        "eye": 0,
+        "eye": 1,
         "val": "examiner_c_face",
-        "joint": 0,
+        "joint": 1,
         "objectGaze": 0,
         "start": 83,
         "end": 88

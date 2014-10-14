@@ -45,8 +45,7 @@ var group4 = svg.append("g")
     .attr("transform", "translate(" + (gap1 + 3 * barWidth + 3 * gap2) + ", 0)"); 
 
 
-
-d3.json("test-modified-38.json", function(error, data) {
+d3.json("test-modified.json", function(error, data) {
 
   var realStart = data.duration[0].start;
   var realEnd = data.duration[0].end;

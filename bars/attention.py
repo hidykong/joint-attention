@@ -59,27 +59,25 @@ def fillArray(ja_ , attention_):
 			chDict["start"] = gazeStart
 			chDict["end"] = i
 			chDict["val"] = currentCh 
-			if ja_[gazeStart] is 0:
-				chDict["joint"] = 0
-			else:
-				chDict["joint"] = 1
-			if ja_[gazeStart] == "c_face":
-				chDict["eye"] = 1
-			else:
-				chDict["eye"] = 0
 
 			#append the examiner part
 			exDict = {"start": 0, "end": 0, "val": ""}
 			exDict["start"] = gazeStart
 			exDict["end"] = i
 			exDict["val"] = currentEx
+
 			if ja_[gazeStart] is 0:
+				chDict["joint"] = 0
 				exDict["joint"] = 0
 			else:
+				chDict["joint"] = 1
 				exDict["joint"] = 1
-			if ja_[gazeStart] == "c_face":
+
+			if "c_face" in str(ja_[gazeStart]):
+				chDict["eye"] = 1
 				exDict["eye"] = 1
 			else:
+				chDict["eye"] = 0
 				exDict["eye"] = 0
 
 			if "book" in str(ja_[gazeStart]) or "ball" in str(ja_[gazeStart]):
@@ -138,8 +136,14 @@ def main(argv):
 		e_val = attention_[i][1]
 		for j in range(0, 3):
 			c_val = attention_[i][0]
-			if (e_val == c_val or (c_val == "gaze_ex_face" and e_val == "c_face")) and (e_val != 0):
+			print c_val, e_val, i
+			if (e_val == c_val or 
+				("ball" in str(c_val) and "ball" in str(e_val)) or
+				("book" in str(c_val) and "book" in str(e_val)) or				
+				("ex_face" in str(c_val) and "c_face" in str(e_val))
+				) and (e_val != 0):
 				ja_[i] = e_val
+				# print "match", e_val, i
 				break
 
 	#print ja_
