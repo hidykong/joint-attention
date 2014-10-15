@@ -45,14 +45,14 @@ linebreak = ["c_disengage", "c_away"]
 # speech_e: look at my ball, roll it back?, look at my book, what's next, can you turn the pag?,
 #			where is the ... ?, where is the book?, it's a hat! It's on my head!
 # gesture_e: reach
-filled = ["look at my ball", "roll it back?", "look at my book", "what's next?", "can you turn the page?", 
-			"where is the ... ?", "where is the book?",  "it's a hat! It's on my head!", "reach"]
+filled = ["look at my ball", "roll it back?", "look at my book", "what's next?", "can you turn the page?",
+			"where is the ... ?", "where is the book?",  "it's a hat! It's on my head!"]
 
 # INDIRECT
 
 # speech_e: hello, play with new toys, let's play ball, read set go, one two three, go, gonna tickle you,
-#			gonna get you, tickle tickle tickle 
-unfilled = ["hello", "play with new toys", "let's play ball", "ready, set, ...", "one, two, three, ...", "go!", 
+#			gonna get you, tickle tickle tickle
+unfilled = ["hello", "play with new toys", "let's play ball", "ready, set, ...", "one, two, three, ...", "go!",
 			"gonna tickle you", "gonna get you", "tickle tickle tickle"]
 
 # redfilled
@@ -82,7 +82,7 @@ def initialize():
 	global red_
 	global green_
 	global blue_
-	global dashes_ 
+	global dashes_
 	global linebreak_
 	global filled_
 	global unfilled_
@@ -113,7 +113,7 @@ def fillArray(val, start, end, tier_id):
 	d["start"] = start
 	d["end"] = end
 	d["val"] = val
-	
+
 	if val == "RABC":
 		rabc_.append(json.dumps(d))
 
@@ -147,7 +147,7 @@ def fillArray(val, start, end, tier_id):
 
 	#dashes
 	if val in dashes:
-		if tier_id == "gaze_dir_c":		
+		if tier_id == "gaze_dir_c":
 			d["val"] = "gaze_" + val
 			dashes_.append(json.dumps(d))
 		if tier_id == "voc_aff_c":
@@ -159,7 +159,7 @@ def fillArray(val, start, end, tier_id):
 
 	if val in filled:
 		filled_.append(json.dumps(d))
-	
+
 	if val in unfilled:
 		unfilled_.append(json.dumps(d))
 
@@ -171,10 +171,10 @@ def fillArray(val, start, end, tier_id):
 
 def saveJson( filename ):
 
-	jsonFile = open(filename.split('.')[0] + ".json", "w")		
-	
+	jsonFile = open(filename.split('.')[0] + ".json", "w")
+
 	#f.write('This is a test\n')
-	
+
 	jsonFile.write(
 		"{" + "\"info\"" + ":" + "[" + ','.join(info_) + "]" + ","
 		"\"duration\"" + ":" + "[" + ','.join(duration_) + "]" + ","
@@ -217,7 +217,7 @@ def main():
 			for timeMapping in elan.TIME_ORDER.find_all("TIME_SLOT"):
 				time = round(int(timeMapping["TIME_VALUE"])/1000, 1)
 				tm[timeMapping["TIME_SLOT_ID"]] = time
-				
+
 				if time > last:
 					last = time
 				if time < first:
@@ -241,7 +241,7 @@ def main():
 			saveJson(file_)
 
 
-				
+
 if  __name__ =='__main__':
     main()
 
