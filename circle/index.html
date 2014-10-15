@@ -1,0 +1,43 @@
+<html>
+	<!DOCTYPE html>
+	<meta charset="utf-8">
+	<style>
+		body { font-family: "helvetica";}
+		.node {
+		  stroke: #fff;
+		  stroke-width: 1.5px;
+		}
+
+		.link {
+		  stroke: #999;
+		  stroke-opacity: .6;
+		}
+
+		.exLine {
+		  fill: none;
+		  stroke: steelblue;
+		  stroke-width: 1.5px;
+		}
+
+		.chLine {
+		  fill: none;
+		  stroke: #F6749E;
+		  stroke-width: 1.5px;
+		}		
+
+	</style>
+	<body>
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+		<h2>JOINT ATTENTION</h2>
+		<script src="circle.js"></script>
+		<div id="visualization"></div>
+		<div id="timer"> This is the timer</div>
+		<form>
+      	<input id="slider" type="range" name="slider" min="0" max="100" value="0" step="1" style="width: 300px" />
+      	</form>
+		<button id="start">START</button>
+		<button id="stop">STOP</button>
+	</body>
+</html>
+

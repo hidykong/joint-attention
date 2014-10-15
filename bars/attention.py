@@ -14,7 +14,7 @@ child_ = []
 examiner_ = []
 
 def initialize():
-	global ja_, ja_json, attention_, eye_
+	global ja_, ja_json, attention_, eye_, object_
 	global child_, examiner_
 	global start, end
 	global info_
@@ -29,6 +29,7 @@ def initialize():
 	info_= []
 	duration_ = []
 	eye_ =[]
+	object_ =[]
 
 def saveJson(filename, info_, duration_):
 
@@ -58,42 +59,54 @@ def fillArray(ja_ , attention_):
 			chDict["start"] = gazeStart
 			chDict["end"] = i
 			chDict["val"] = currentCh 
-			if ja_[gazeStart] is 0:
-				chDict["joint"] = 0
-			else:
-				chDict["joint"] = 1
-			if ja_[gazeStart] == "c_face":
-				chDict["eye"] = 1
-			else:
-				chDict["eye"] = 0
-			if chDict["val"] is not 0 and chDict["val"] is not '':
-				child_.append(chDict)
 
 			#append the examiner part
 			exDict = {"start": 0, "end": 0, "val": ""}
 			exDict["start"] = gazeStart
 			exDict["end"] = i
 			exDict["val"] = currentEx
+
 			if ja_[gazeStart] is 0:
+				chDict["joint"] = 0
 				exDict["joint"] = 0
 			else:
+				chDict["joint"] = 1
 				exDict["joint"] = 1
-			if ja_[gazeStart] == "c_face":
+
+			if "c_face" in str(ja_[gazeStart]):
+				chDict["eye"] = 1
 				exDict["eye"] = 1
-				print "eye"
 			else:
+				chDict["eye"] = 0
 				exDict["eye"] = 0
 
-			if exDict["val"] is not 0 and exDict["val"] is not '':
+			if "book" in str(ja_[gazeStart]) or "ball" in str(ja_[gazeStart]):
+				exDict["objectGaze"] = 1
+				chDict["objectGaze"] = 1
+			else:
+				exDict["objectGaze"] = 0
+				chDict["objectGaze"] = 0
+
+			#append both dictionaries to the json if not null
+			if (chDict["val"] is not 0 and chDict["val"] is not '') or (exDict["val"] is not 0 and exDict["val"] is not ''):
+				if chDict["val"] is 0:
+					chDict["val"] = ""
+				if exDict["val"] is 0:
+					exDict["val"] = ""
+				child_.append(chDict)
 				examiner_.append(exDict)
 			gazeStart = i
 			currentCh = attention_[i][0]
 			currentEx = attention_[i][1]
 		
 
-def main():
+def main(argv):
 	initialize()
-	jsonFile = open('test.json')
+	if len(argv) > 0:
+		filename = argv[0]
+	else:
+		filename = "test.json"
+	jsonFile = open(filename)
 	data = json.load(jsonFile)
 	#print(data["duration"])
 	info_ = data["info"]
@@ -106,6 +119,7 @@ def main():
 	attention_ = [[0 for x in range(0,2)] for y in range(0, duration + 1)]
 	ja_ = [0 for y in range(0, duration + 1)]
 	eye_ = [0 for y in range(0, duration + 1)]
+	object_ = [0 for y in range(0, duration + 1)]
 
 	#child gaze
 	for stage in data["child"]:
@@ -122,8 +136,14 @@ def main():
 		e_val = attention_[i][1]
 		for j in range(0, 3):
 			c_val = attention_[i][0]
-			if (e_val == c_val or (c_val == "gaze_ex_face" and e_val == "c_face")) and (e_val != 0):
+			print c_val, e_val, i
+			if (e_val == c_val or 
+				("ball" in str(c_val) and "ball" in str(e_val)) or
+				("book" in str(c_val) and "book" in str(e_val)) or				
+				("ex_face" in str(c_val) and "c_face" in str(e_val))
+				) and (e_val != 0):
 				ja_[i] = e_val
+				# print "match", e_val, i
 				break
 
 	#print ja_
@@ -135,7 +155,7 @@ def main():
 		
 
 if  __name__ =='__main__':
-    main()
+    main(sys.argv[1:])
 
 
 
