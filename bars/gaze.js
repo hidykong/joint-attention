@@ -1,7 +1,8 @@
 var margin = {top: 20, right: 80, bottom: 30, left: 45},
     width = 1000 - margin.left - margin.right,
-    height = 800 - margin.top - margin.bottom;
+    height = 2500 - margin.top - margin.bottom;
 
+var childNo = "24";
 var x = d3.scale.linear()
     .range([0, width]);
 
@@ -9,8 +10,7 @@ var y = d3.scale.linear()
     .range([height, 0]);
 
 var color = d3.scale.category10();
-var lineHeight = 5;
-
+var lineHeight = 10;
 
 var svg = d3.select("body").append("svg")
       .attr("width", "70%")
@@ -20,6 +20,29 @@ var svg = d3.select("body").append("svg")
 var div = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
+
+/*
+var gradient = svg.append("svg:defs")
+  .append("svg:linearGradient")
+    .attr("id", "gradient")
+    .attr("x1", "0%")
+    .attr("y1", "0%")
+    .attr("x2", "100%")
+    .attr("y2", "0%")
+    .attr("spreadMethod", "pad");
+gradient.append("svg:stop")
+    .attr("offset", "0%")
+    .attr("stop-color", "yellow")
+    .attr("stop-opacity", 0.6);
+gradient.append("svg:stop")
+    .attr("offset", "100%")
+    .attr("stop-color", "red")
+    .attr("stop-opacity", 0.6);
+svg.append("svg:rect")
+    .attr("width", width)
+    .attr("height", 8)
+    .style("fill", "url(#gradient)");
+*/
 
 svgWidth = parseInt(svg.style("width").replace("px", ""));
 gap1 = svgWidth * 0.05;
@@ -45,7 +68,7 @@ var group4 = svg.append("g")
     .attr("transform", "translate(" + (gap1 + 3 * barWidth + 3 * gap2) + ", 0)"); 
 
 
-d3.json("test-modified.json", function(error, data) {
+d3.json("test-modified-" + childNo + ".json", function(error, data) {
 
   var realStart = data.duration[0].start;
   var realEnd = data.duration[0].end;
@@ -72,7 +95,9 @@ d3.json("test-modified.json", function(error, data) {
       .attr("x2", "100%")
       .attr("y2", i * lineHeight)
       .attr("stroke-width", 0.5)
+      .attr("stroke-dasharray", "6, 3")
       .attr("stroke", "white")
+      .attr("opacity", 0.5)
       ;
   }
 
@@ -87,7 +112,7 @@ d3.json("test-modified.json", function(error, data) {
         .attr("y", function(d){return (d.start ) * lineHeight ;}) //starting y = normalized position
         .attr("width", barWidth)
         .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
-        .attr("fill", "#AECF31");
+        .attr("fill", "#56A2D7");
 
     var eObjectLine = gaze.append("line")
         .attr("x1", barWidth + lineMargin)
@@ -95,13 +120,13 @@ d3.json("test-modified.json", function(error, data) {
         .attr("x2", lineX2)
         .attr("y2", function(d){return arrowY(d);})
         .attr("stroke-width", 2)
-        .attr("stroke", "white");
+        .attr("stroke", "#FDC40F");
 
     var eObjectCircle = gaze.append("circle")
        .attr("cx", barWidth + lineMargin)
        .attr("cy", function(d){return arrowY(d);} )
        .attr("r", 4)
-       .style("fill", "white");
+       .style("fill", "#FDC40F");
 
     normalObject(eObject);
     normalObject(eObjectLine);
@@ -119,9 +144,9 @@ d3.json("test-modified.json", function(error, data) {
         .attr("width", barWidth)
         .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
 
-        .attr("stroke", "white")
-        .attr("stroke-width", function(d){ if(d.joint){return "2"} else return "0";})
-        .attr("fill", "#45A9C8");
+        //.attr("stroke", "white")
+        //.attr("stroke-width", function(d){ if(d.joint){return "1"} else return "0";})
+        .attr("fill", "#FDC40F");
 
     //examiner-child
     var ecLine = gaze2.append("line")
@@ -130,14 +155,14 @@ d3.json("test-modified.json", function(error, data) {
         .attr("x2", lineX2)
         .attr("y2", function(d){return arrowY(d);})
         .attr("stroke-width", 2)
-        .attr("stroke", "white")
-        .attr("stroke-dasharray", "6, 3");
+        .attr("stroke", "#FDC40F");
+        //.attr("stroke-dasharray", "6, 3");
 
     var ecCircle = gaze2.append("circle")
       .attr("cx", lineX2)
        .attr("cy", function(d){return arrowY(d);} )
        .attr("r", 4)
-       .style("fill", "white");
+       .style("fill", "#FDC40F");
 
       normalCE(ecLine);
       normalCE(ecCircle);
@@ -153,9 +178,9 @@ d3.json("test-modified.json", function(error, data) {
         .attr("y", function(d){return (d.start ) * lineHeight ;}) //starting y = normalized position
         .attr("width", barWidth)
         .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
-        .attr("fill",  "#F16F1B")
-        .attr("stroke", "white")
-        .attr("stroke-width", function(d){ if(d.joint){return "2"} else return "0";});
+        .attr("fill",  "#C74342");
+        //.attr("stroke", "white")
+        //.attr("stroke-width", function(d){ if(d.joint){return "2"} else return "0";});
 
      //child-examiner
     var ceLine = gaze3.append("line")
@@ -164,13 +189,13 @@ d3.json("test-modified.json", function(error, data) {
         .attr("x2", -lineMargin)
         .attr("y2", function(d){return arrowY(d);})
         .attr("stroke-width", 2)
-        .attr("stroke", "#F16F1B");
+        .attr("stroke", "#C74342");
 
     var ceCircle = gaze3.append("circle")
       .attr("cx", "-14%")
        .attr("cy", function(d){return arrowY(d);} )
        .attr("r", 4)
-       .style("fill", "#F16F1B");
+       .style("fill", "#C74342");
 
     normalCERect(childBar);
     normalCERect(exBar);
@@ -184,13 +209,13 @@ d3.json("test-modified.json", function(error, data) {
         .attr("x2", lineX2)
         .attr("y2", function(d){return arrowY(d);})
         .attr("stroke-width", 2)
-        .attr("stroke", "#F16F1B");
+        .attr("stroke", "#C74342");
 
     var cObjectCircle = gaze3.append("circle")
       .attr("cx", lineX2)
        .attr("cy", function(d){return arrowY(d);} )
        .attr("r", 5)
-       .style("fill", "#F16F1B");
+       .style("fill", "#C74342");
 
      //child-object
      var gaze4 = group4.selectAll("gaze")
@@ -204,7 +229,7 @@ d3.json("test-modified.json", function(error, data) {
         .attr("y", function(d){return (d.start) * lineHeight ;}) //starting y = normalized position
         .attr("width", barWidth)
         .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
-        .attr("fill", "#AECF31");
+        .attr("fill", "#56A2D7");
 
     normalObject(cObject);
     normalObject(cObjectLine);

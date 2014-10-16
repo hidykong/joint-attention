@@ -136,7 +136,7 @@ def main(argv):
 		e_val = attention_[i][1]
 		for j in range(0, 3):
 			c_val = attention_[i][0]
-			print c_val, e_val, i
+			#print c_val, e_val, i
 			if (e_val == c_val or 
 				("ball" in str(c_val) and "ball" in str(e_val)) or
 				("book" in str(c_val) and "book" in str(e_val)) or				
