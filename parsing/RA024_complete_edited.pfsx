@@ -4,6 +4,7 @@
     <prefList key="MultiTierViewer.TierOrder">
         <String>default</String>
         <String>stages</String>
+        <String>gaze_dir_e</String>
         <String>speech_e</String>
         <String>speech_c</String>
         <String>gaze_dir_c</String>
@@ -11,7 +12,6 @@
         <String>pause</String>
         <String>voc_aff_c</String>
         <String>gesture_c</String>
-        <String>gaze_dir_e</String>
         <String>gesture_e</String>
         <String>ball_book</String>
         <String>off_task</String>
@@ -61,11 +61,11 @@
         <Int>7</Int>
     </pref>
     <prefGroup key="TierColors">
-        <pref key="voc_aff_c">
-            <Object class="java.awt.Color">90,160,160</Object>
-        </pref>
         <pref key="present_play">
             <Object class="java.awt.Color">0,0,90</Object>
+        </pref>
+        <pref key="voc_aff_c">
+            <Object class="java.awt.Color">90,160,160</Object>
         </pref>
         <pref key="ball_book">
             <Object class="java.awt.Color">90,160,0</Object>
@@ -86,7 +86,7 @@
             <Object class="java.awt.Color">160,90,0</Object>
         </pref>
         <pref key="gaze_dir_e">
-            <Object class="java.awt.Color">0,90,90</Object>
+            <Object class="java.awt.Color">0,90,160</Object>
         </pref>
         <pref key="speech_e">
             <Object class="java.awt.Color">160,0,160</Object>
@@ -103,31 +103,35 @@
     </prefGroup>
     <prefGroup key="TierFonts"/>
     <pref key="FrameLocation">
-        <Object class="java.awt.Point">0,22</Object>
+        <Object class="java.awt.Point">32,22</Object>
     </pref>
     <pref key="SelectionBeginTime">
-        <Long>1675470</Long>
+        <Long>1675048</Long>
     </pref>
+    <prefList key="HiddenPlayers">
+        <String>file:///Volumes/untitled/RABC_Canon_mp4_Videos/RA024_2011_10_06_child_merged.mp4</String>
+    </prefList>
     <pref key="LayoutManager.CurrentMode">
         <Int>1</Int>
     </pref>
     <pref key="MediaTime">
-        <Long>1679900</Long>
+        <Long>1519406</Long>
     </pref>
     <prefGroup key="TierHighlightColors"/>
     <pref key="FrameSize">
-        <Object class="java.awt.Dimension">1114,720</Object>
+        <Object class="java.awt.Dimension">1184,724</Object>
     </pref>
     <pref key="MultiTierViewer.ActiveTierName">
-        <String>gaze_dir_e</String>
+        <String>default</String>
     </pref>
     <pref key="TimeScaleBeginTime">
-        <Long>1675310</Long>
+        <Long>1755266</Long>
     </pref>
+    <prefList key="MultiTierViewer.HiddenTiers"/>
     <pref key="ActiveAudioRecognizerName">
         <String>Text-to-Speech alignment</String>
     </pref>
     <pref key="SelectionEndTime">
-        <Long>1710700</Long>
+        <Long>1707588</Long>
     </pref>
 </preferences>

@@ -11,6 +11,7 @@ filled = ["look at my ball", "roll it back?", "look at my book", "what's next?",
 			"where is the ... ?", "where is the book?",  "it's a hat! It's on my head!"]
 unfilled = ["hello", "play with new toys", "let's play ball", "ready, set, ...", "one, two, three, ...", "go!",
 			"gonna tickle you", "gonna get you", "tickle tickle tickle"]
+red = ["verbalization", "vocalization"]
 
 child_ = []
 examiner_ = []
@@ -19,6 +20,7 @@ info_ = []
 duration_ = []
 filled_ = []
 unfilled_ = []
+red_ = []
 
 def initialize():
 	global child_
@@ -28,6 +30,7 @@ def initialize():
 	global duration_
 	global filled_
 	global unfilled_
+	global red_
 	child_ = []
 	examiner_ = []
 	aggregate_ = []
@@ -35,6 +38,7 @@ def initialize():
 	duration_ = []
 	filled_ = []
 	unfilled_ = []
+	red_ = []
 
 def fillArray(val, start, end, tier_id):
 
@@ -55,6 +59,9 @@ def fillArray(val, start, end, tier_id):
 	if val in filled:
 		filled_.append(json.dumps(d))
 
+	if val in red:
+		red_.append(json.dumps(d))
+
 	if val in unfilled:
 		unfilled_.append(json.dumps(d))
 
@@ -68,6 +75,7 @@ def saveJson( filename ):
 		"\"examiner\"" + ":" + "[" + ','.join(examiner_) + "]" + ","
 		"\"filled\"" + ":" + "[" + ','.join(filled_) + "]" + ","
 		"\"unfilled\"" + ":" + "[" + ','.join(unfilled_) + "]" + ","
+		"\"red\"" + ":" + "[" + ','.join(red_) + "]" + ","
 		"\"aggregate\"" + ":" + "[" + ','.join(aggregate_) + "]" + "}"
 	)
 	jsonFile.close()
