@@ -2,7 +2,7 @@ var margin = {top: 20, right: 80, bottom: 30, left: 45},
     width = 1000 - margin.left - margin.right,
     height = 2500 - margin.top - margin.bottom;
 
-var childNo = "24";
+var childNo = "43";
 var x = d3.scale.linear()
     .range([0, width]);
 
@@ -10,7 +10,7 @@ var y = d3.scale.linear()
     .range([height, 0]);
 
 var color = d3.scale.category10();
-var lineHeight = 10;
+var lineHeight = 8;
 
 var svg = d3.select("body").append("svg")
       .attr("width", "70%")
