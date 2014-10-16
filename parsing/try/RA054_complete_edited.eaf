@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ANNOTATION_DOCUMENT AUTHOR="" DATE="2014-10-08T22:31:56-06:00" FORMAT="2.8" VERSION="2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/EAFv2.8.xsd">
+<ANNOTATION_DOCUMENT AUTHOR="" DATE="2014-10-15T19:33:04-06:00" FORMAT="2.8" VERSION="2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/EAFv2.8.xsd">
     <HEADER MEDIA_FILE="" TIME_UNITS="milliseconds">
         <MEDIA_DESCRIPTOR MEDIA_URL="file://cslfiles.hsi.gatech.edu/rabc/www/RA054_2012_08_09/video/canon/child/RA054_2012_08_09_canon_child.mp4" MIME_TYPE="video/*" TIME_ORIGIN="1683509"/>
         <MEDIA_DESCRIPTOR MEDIA_URL="file:///Volumes/untitled/RABC_Canon_mp4_Videos/RA054_2012_08_09_canon_examiner.mp4" MIME_TYPE="video/mp4" TIME_ORIGIN="1691067"/>
@@ -1266,7 +1266,7 @@
         </ANNOTATION>
     </TIER>
     <TIER DEFAULT_LOCALE="en" LINGUISTIC_TYPE_REF="off_task_lt" TIER_ID="off_task"/>
-    <TIER DEFAULT_LOCALE="en" LINGUISTIC_TYPE_REF="gaze_e_lt" TIER_ID="gaze_e_dir">
+    <TIER DEFAULT_LOCALE="en" LINGUISTIC_TYPE_REF="gaze_e_lt" TIER_ID="gaze_dir_e">
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a154" CVE_REF="cveid1" TIME_SLOT_REF1="ts4" TIME_SLOT_REF2="ts16">
                 <ANNOTATION_VALUE>c_face</ANNOTATION_VALUE>
@@ -1697,16 +1697,19 @@
     <CONSTRAINT DESCRIPTION="Symbolic subdivision of a parent annotation. Annotations refering to the same parent are ordered" STEREOTYPE="Symbolic_Subdivision"/>
     <CONSTRAINT DESCRIPTION="1-1 association with a parent annotation" STEREOTYPE="Symbolic_Association"/>
     <CONSTRAINT DESCRIPTION="Time alignable annotations within the parent annotation's time interval, gaps are allowed" STEREOTYPE="Included_In"/>
-    <CONTROLLED_VOCABULARY CV_ID="pause_cv">
+    <CONTROLLED_VOCABULARY CV_ID="gaze_dir_e_cv">
         <DESCRIPTION LANG_REF="und"/>
-        <CV_ENTRY_ML CVE_ID="cveid0">
-            <CVE_VALUE DESCRIPTION="" LANG_REF="und">ball_pause</CVE_VALUE>
-        </CV_ENTRY_ML>
         <CV_ENTRY_ML CVE_ID="cveid1">
-            <CVE_VALUE DESCRIPTION="" LANG_REF="und">book_pause</CVE_VALUE>
+            <CVE_VALUE DESCRIPTION="" LANG_REF="und">c_face</CVE_VALUE>
         </CV_ENTRY_ML>
         <CV_ENTRY_ML CVE_ID="cveid2">
-            <CVE_VALUE DESCRIPTION="" LANG_REF="und">tickle_pause</CVE_VALUE>
+            <CVE_VALUE DESCRIPTION="" LANG_REF="und">par_face</CVE_VALUE>
+        </CV_ENTRY_ML>
+        <CV_ENTRY_ML CVE_ID="cveid3">
+            <CVE_VALUE DESCRIPTION="" LANG_REF="und">book</CVE_VALUE>
+        </CV_ENTRY_ML>
+        <CV_ENTRY_ML CVE_ID="cveid4">
+            <CVE_VALUE DESCRIPTION="" LANG_REF="und">ball</CVE_VALUE>
         </CV_ENTRY_ML>
     </CONTROLLED_VOCABULARY>
     <CONTROLLED_VOCABULARY CV_ID="gaze_dir_c_cv">
@@ -1730,6 +1733,18 @@
             <CVE_VALUE DESCRIPTION="" LANG_REF="und">unscorable</CVE_VALUE>
         </CV_ENTRY_ML>
     </CONTROLLED_VOCABULARY>
+    <CONTROLLED_VOCABULARY CV_ID="pause_cv">
+        <DESCRIPTION LANG_REF="und"/>
+        <CV_ENTRY_ML CVE_ID="cveid0">
+            <CVE_VALUE DESCRIPTION="" LANG_REF="und">ball_pause</CVE_VALUE>
+        </CV_ENTRY_ML>
+        <CV_ENTRY_ML CVE_ID="cveid1">
+            <CVE_VALUE DESCRIPTION="" LANG_REF="und">book_pause</CVE_VALUE>
+        </CV_ENTRY_ML>
+        <CV_ENTRY_ML CVE_ID="cveid2">
+            <CVE_VALUE DESCRIPTION="" LANG_REF="und">tickle_pause</CVE_VALUE>
+        </CV_ENTRY_ML>
+    </CONTROLLED_VOCABULARY>
     <CONTROLLED_VOCABULARY CV_ID="ball_book_cv">
         <DESCRIPTION LANG_REF="und"/>
         <CV_ENTRY_ML CVE_ID="cveid0">
@@ -1751,13 +1766,13 @@
             <CVE_VALUE DESCRIPTION="" LANG_REF="und">book_shut_c</CVE_VALUE>
         </CV_ENTRY_ML>
     </CONTROLLED_VOCABULARY>
-    <CONTROLLED_VOCABULARY CV_ID="gesture_e_cv">
+    <CONTROLLED_VOCABULARY CV_ID="speech_c_cv">
         <DESCRIPTION LANG_REF="und"/>
         <CV_ENTRY_ML CVE_ID="cveid0">
-            <CVE_VALUE DESCRIPTION="" LANG_REF="und">reach</CVE_VALUE>
+            <CVE_VALUE DESCRIPTION="" LANG_REF="und">verbalization</CVE_VALUE>
         </CV_ENTRY_ML>
         <CV_ENTRY_ML CVE_ID="cveid1">
-            <CVE_VALUE DESCRIPTION="" LANG_REF="und">tickle</CVE_VALUE>
+            <CVE_VALUE DESCRIPTION="" LANG_REF="und">vocalization</CVE_VALUE>
         </CV_ENTRY_ML>
     </CONTROLLED_VOCABULARY>
     <CONTROLLED_VOCABULARY CV_ID="voc_aff_c_cv">
@@ -1769,13 +1784,13 @@
             <CVE_VALUE DESCRIPTION="" LANG_REF="und">whine_cry</CVE_VALUE>
         </CV_ENTRY_ML>
     </CONTROLLED_VOCABULARY>
-    <CONTROLLED_VOCABULARY CV_ID="speech_c_cv">
+    <CONTROLLED_VOCABULARY CV_ID="gesture_e_cv">
         <DESCRIPTION LANG_REF="und"/>
         <CV_ENTRY_ML CVE_ID="cveid0">
-            <CVE_VALUE DESCRIPTION="" LANG_REF="und">verbalization</CVE_VALUE>
+            <CVE_VALUE DESCRIPTION="" LANG_REF="und">reach</CVE_VALUE>
         </CV_ENTRY_ML>
         <CV_ENTRY_ML CVE_ID="cveid1">
-            <CVE_VALUE DESCRIPTION="" LANG_REF="und">vocalization</CVE_VALUE>
+            <CVE_VALUE DESCRIPTION="" LANG_REF="und">tickle</CVE_VALUE>
         </CV_ENTRY_ML>
     </CONTROLLED_VOCABULARY>
     <CONTROLLED_VOCABULARY CV_ID="off_task_cv">
@@ -1929,21 +1944,6 @@
         </CV_ENTRY_ML>
         <CV_ENTRY_ML CVE_ID="cveid11">
             <CVE_VALUE DESCRIPTION="" LANG_REF="und">clap</CVE_VALUE>
-        </CV_ENTRY_ML>
-    </CONTROLLED_VOCABULARY>
-    <CONTROLLED_VOCABULARY CV_ID="gaze_dir_e_cv">
-        <DESCRIPTION LANG_REF="und"/>
-        <CV_ENTRY_ML CVE_ID="cveid1">
-            <CVE_VALUE DESCRIPTION="" LANG_REF="und">c_face</CVE_VALUE>
-        </CV_ENTRY_ML>
-        <CV_ENTRY_ML CVE_ID="cveid2">
-            <CVE_VALUE DESCRIPTION="" LANG_REF="und">par_face</CVE_VALUE>
-        </CV_ENTRY_ML>
-        <CV_ENTRY_ML CVE_ID="cveid3">
-            <CVE_VALUE DESCRIPTION="" LANG_REF="und">book</CVE_VALUE>
-        </CV_ENTRY_ML>
-        <CV_ENTRY_ML CVE_ID="cveid4">
-            <CVE_VALUE DESCRIPTION="" LANG_REF="und">ball</CVE_VALUE>
         </CV_ENTRY_ML>
     </CONTROLLED_VOCABULARY>
 </ANNOTATION_DOCUMENT>
