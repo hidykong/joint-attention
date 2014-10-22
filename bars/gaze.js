@@ -2,12 +2,19 @@ var margin = {top: 20, right: 80, bottom: 30, left: 45},
     width = 1000 - margin.left - margin.right,
     height = 2500 - margin.top - margin.bottom;
 
+var header = [
+    {"name":"OBJECT","group":1, "color" : "#56A2D7", "x": 120, "y": 20},
+    {"name":"EXAMINER","group":2, "color" : "#FDC40F", "x": 240, "y": 20},
+    {"name":"CHILD","group":3, "color" : "#C74342", "x": 360, "y": 20},
+    {"name":"OBJECT","group":4, "color" : "#56A2D7", "x": 460, "y": 20}
+  ];
 var childNo = "54";
 var x = d3.scale.linear()
     .range([0, width]);
 
 var y = d3.scale.linear()
     .range([height, 0]);
+var yMargin = 50;
 
 var color = d3.scale.category10();
 var lineHeight = 8;
@@ -21,29 +28,6 @@ var div = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
-/*
-var gradient = svg.append("svg:defs")
-  .append("svg:linearGradient")
-    .attr("id", "gradient")
-    .attr("x1", "0%")
-    .attr("y1", "0%")
-    .attr("x2", "100%")
-    .attr("y2", "0%")
-    .attr("spreadMethod", "pad");
-gradient.append("svg:stop")
-    .attr("offset", "0%")
-    .attr("stop-color", "yellow")
-    .attr("stop-opacity", 0.6);
-gradient.append("svg:stop")
-    .attr("offset", "100%")
-    .attr("stop-color", "red")
-    .attr("stop-opacity", 0.6);
-svg.append("svg:rect")
-    .attr("width", width)
-    .attr("height", 8)
-    .style("fill", "url(#gradient)");
-*/
-
 svgWidth = parseInt(svg.style("width").replace("px", ""));
 gap1 = svgWidth * 0.05;
 gap2 = svgWidth * 0.15; //wider gaps
@@ -51,6 +35,34 @@ lineMargin = parseInt(gap2 * 0.05);
 barWidth = svgWidth * 0.11;
 
 lineX2 = barWidth + gap2 - lineMargin;
+
+
+header[0]["x"] = gap1 + (barWidth/2);
+header[1]["x"] = gap1 + (3/2 * barWidth) + gap2;
+header[2]["x"] = gap1 + (5/2 * barWidth) + 2 * gap2;
+header[3]["x"] = gap1 + (7/2 * barWidth) + 3 * gap2;
+
+//rect for the labels
+var labels = svg.append("g");
+  labels.append("rect")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", "100%")
+    .attr("height", 50)
+    .attr("fill", "black")
+    .attr("id", "rectLabel");
+
+  labels.selectAll(".text")
+    .data(header)
+    .enter().append("text")
+    .attr("class", "text")
+      .attr("dx", function(d){return d.x;})
+      .attr("dy", function(d){return d.y;})
+      .text(function(d){ return d.name })
+      .style("fill", function(d){ return d.color})
+      .style("font-weight", "bold")
+      .style("font-size", "10pt")
+      .style("text-anchor", "middle"); 
 
 //exObject
 var group = svg.append("g")
@@ -79,7 +91,7 @@ d3.json("test-modified-" + childNo + ".json", function(error, data) {
 
   var newRect = outline.append("rect")
     .attr("x", 0)
-    .attr("y", 0)
+    .attr("y", yMargin)
     .attr("width", "100%")
     .attr("height", duration * lineHeight)
     .attr("fill", "transparent")
@@ -91,9 +103,9 @@ d3.json("test-modified-" + childNo + ".json", function(error, data) {
   for (i = 0; i < duration; i = i + 5){
     var thinLine = outline.append("line")
       .attr("x1", 0)
-      .attr("y1", i * lineHeight)
+      .attr("y1", i * lineHeight + yMargin)
       .attr("x2", "100%")
-      .attr("y2", i * lineHeight)
+      .attr("y2", i * lineHeight + yMargin)
       .attr("stroke-width", 0.5)
       .attr("stroke-dasharray", "6, 3")
       .attr("stroke", "white")
@@ -109,7 +121,7 @@ d3.json("test-modified-" + childNo + ".json", function(error, data) {
     var eObject = gaze.append("rect")
         .attr("class", "examiner-object")
         .attr("x", 0)
-        .attr("y", function(d){return (d.start ) * lineHeight ;}) //starting y = normalized position
+        .attr("y", function(d){return (d.start ) * lineHeight + yMargin;}) //starting y = normalized position
         .attr("width", barWidth)
         .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
         .attr("fill", "#56A2D7");
@@ -140,7 +152,7 @@ d3.json("test-modified-" + childNo + ".json", function(error, data) {
     var exBar = gaze2.append("rect")
         .attr("class", "rect-gaze")
         .attr("x", 0)
-        .attr("y", function(d){return d.start * lineHeight ;}) //starting y = normalized position
+        .attr("y", function(d){return d.start * lineHeight + yMargin;}) //starting y = normalized position
         .attr("width", barWidth)
         .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
 
@@ -175,7 +187,7 @@ d3.json("test-modified-" + childNo + ".json", function(error, data) {
     var childBar = gaze3.append("rect")
         .attr("class", "rect-gaze")
         .attr("x", 0)
-        .attr("y", function(d){return (d.start ) * lineHeight ;}) //starting y = normalized position
+        .attr("y", function(d){return (d.start ) * lineHeight + yMargin;}) //starting y = normalized position
         .attr("width", barWidth)
         .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
         .attr("fill",  "#C74342");
@@ -186,7 +198,7 @@ d3.json("test-modified-" + childNo + ".json", function(error, data) {
     var ceLine = gaze3.append("line")
         .attr("x1", -gap2 + lineMargin)
         .attr("y1", function(d){return arrowY(d);})
-        .attr("x2", -lineMargin)
+        .attr("x2", -lineMargin - 5)
         .attr("y2", function(d){return arrowY(d);})
         .attr("stroke-width", 2)
         .attr("stroke", "#C74342");
@@ -226,10 +238,11 @@ d3.json("test-modified-" + childNo + ".json", function(error, data) {
     var cObject = gaze4.append("rect")
         .attr("class", "rect-gaze")
         .attr("x", 0)
-        .attr("y", function(d){return (d.start) * lineHeight ;}) //starting y = normalized position
+        .attr("y", function(d){return (d.start) * lineHeight + yMargin;}) //starting y = normalized position
         .attr("width", barWidth)
         .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
         .attr("fill", "#56A2D7");
+
 
     normalObject(cObject);
     normalObject(cObjectLine);

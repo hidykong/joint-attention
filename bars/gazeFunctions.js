@@ -1,6 +1,6 @@
 
 function arrowY(d){
-  return (d.start + (d.end - d.start)/2) * lineHeight;
+  return (d.start + (d.end - d.start)/2) * lineHeight + yMargin;
 }
 
 //functions for choosing which bars to show
