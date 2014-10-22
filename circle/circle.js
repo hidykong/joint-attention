@@ -14,7 +14,7 @@ var width = 600,
 
 
 var childNo = "54";
-var childNo2 = "43";
+var childNo2 = "24";
 
 var color = ["#6797C6", "#6797C6", "#F78A3C", "#F6749E"];
 var sliderWidth = 500;

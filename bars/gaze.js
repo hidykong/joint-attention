@@ -2,7 +2,7 @@ var margin = {top: 20, right: 80, bottom: 30, left: 45},
     width = 1000 - margin.left - margin.right,
     height = 2500 - margin.top - margin.bottom;
 
-var childNo = "43";
+var childNo = "54";
 var x = d3.scale.linear()
     .range([0, width]);
 
