@@ -35,7 +35,7 @@ $( "#toggle" ).click( function(){
   }
 });
 
-function render( audio ){
+function render(){
   $('.visualization').empty();
   $.each( arr, function( index, val ) {
 
@@ -52,6 +52,15 @@ function render( audio ){
       var aggregateData = data.aggregate;
       var examinerSpeech = data.filled;
       var childVocal = data.red;
+
+      var child_book = data.child_book;
+      var child_ball = data.child_ball;
+      var child_ex = data.child_ex;
+
+      var examiner_ball = data.examiner_ball
+      var examiner_book = data.examiner_book
+      var examiner_child = data.examiner_child
+
       examinerSpeech.push.apply(examinerSpeech, data.unfilled);
 
       var joint = data.joint;
@@ -59,117 +68,14 @@ function render( audio ){
       var end = data.duration[0].end;
 
       drawGrid( viz );
+      renderChild( viz, childData, start );
+      renderExaminer( viz, examinerData, start );
+      //renderExaminer2(viz, examiner_ball, examiner_book, examiner_child, start);
+      renderExaminerSpeech( viz, examinerSpeech, start);
+      renderChildSpeech( viz, childVocal, start);
 
-      for (i = 0; i < childData.length; i++) {
-        viz.append("rect")
-          .attr({
-            x: 250 + (childData[i].start - start).toFixed(2)*3,
-            y: 50,
-            width: (childData[i].end - childData[i].start).toFixed(2)*3,
-            height: 50,
-            fill: function(d){
-                    switch ( childData[i].val ) {
-                      case "child_ball":
-                        return green_ball;
-                      case "child_ex_face":
-                        return pink_eye ;
-                      case "child_book":
-                        return purple_book;
-                      default:
-                        return blue_hand;
-                    }
-              }
-          });
-        }
+      renderJoint(viz, child_ex, examiner_child, start);
 
-      for (i = 0; i < examinerData.length; i++) {
-        viz.append("rect")
-          .attr({
-            x: 250 + (examinerData[i].start - start).toFixed(2)*3,
-            y: 100,
-            width: (examinerData[i].end - examinerData[i].start).toFixed(2)*3,
-            height: 50,
-            fill: function(d){
-                switch ( examinerData[i].val ) {
-                  case "examiner_ball":
-                    return green_ball;
-                  case "examiner_c_face":
-                    return pink_eye ;
-                  case "examiner_book":
-                    return purple_book;
-                  default:
-                    return blue_hand;
-                }
-              }
-          });
-        }
-
-
-      // speech circles
-      /*
-      // add child speech
-      for (i = 0; i < childVocal.length; i++) {
-        viz.append("circle")
-          .attr({
-            cx: 250 + (childVocal[i].start - start).toFixed(2)*3,
-            cy: 50,
-            r: ((childVocal[i].end - childVocal[i].start)/2).toFixed(2)*3,
-            'stroke-width': 1,
-            fill: yellow_speech,
-            stroke: yellow_speech
-          });
-        }
-
-      // add examiner speech
-      for (i = 0; i < examinerSpeech.length; i++) {
-        viz.append("circle")
-          .attr({
-            cx: 250 + (examinerSpeech[i].start - start).toFixed(2)*3,
-            cy: 150,
-            r: ((examinerSpeech[i].end - examinerSpeech[i].start)/2).toFixed(2)*3,
-            'stroke-width': 1,
-            fill: yellow_speech,
-            stroke: yellow_speech
-          });
-        }
-      */
-
-      // speech dashed lines
-
-      // add examiner speech
-
-      if ( audio || audio == null) {
-        for (i = 0; i < examinerSpeech.length; i++) {
-        viz.append("line") // bottom dashed line
-          .attr({
-            class: "audio",
-            x1: 250 + (examinerSpeech[i].start - start).toFixed(2)*3,
-            y1: 150 + 5,
-            x2: 250 + (examinerSpeech[i].end - start).toFixed(2)*3,
-            y2: 150 + 5,
-            'stroke-dasharray': "1",
-            'stroke-width': 10,
-            stroke: text_color_dark,
-            opacity: 1
-          });
-        }
-
-        // add child speech
-        for (i = 0; i < childVocal.length; i++) {
-          viz.append("line") // bottom dashed line
-            .attr({
-              class: "audio",
-              x1: 250 + (childVocal[i].start - start).toFixed(2)*3,
-              y1: 50 - 5,
-              x2: 250 + (childVocal[i].end - start).toFixed(2)*3,
-              y2: 50 - 5,
-              'stroke-dasharray': "1",
-              'stroke-width': 10,
-              stroke: text_color_dark,
-              opacity: 1
-            });
-        }
-      }
     });
   });
 }
