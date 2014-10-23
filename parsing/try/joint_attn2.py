@@ -21,8 +21,14 @@ duration_ = []
 filled_ = []
 unfilled_ = []
 red_ = []
+child_ball_ = []
+child_book_ = []
+child_ex_ = []
+examiner_ball_ = []
+examiner_book_ = []
+examiner_child_ = []
 
-def initialize():
+def initialize( first, last ):
 	global child_
 	global examiner_
 	global aggregate_
@@ -31,6 +37,12 @@ def initialize():
 	global filled_
 	global unfilled_
 	global red_
+	global child_ball_
+	global child_book_
+	global child_ex_
+	global examiner_ball_
+	global examiner_book_
+	global examiner_child_
 	child_ = []
 	examiner_ = []
 	aggregate_ = []
@@ -40,7 +52,14 @@ def initialize():
 	unfilled_ = []
 	red_ = []
 
-def fillArray(val, start, end, tier_id):
+	child_ball_ = [0] * int((last - first)*10)
+	child_book_ = [0] * int((last - first)*10)
+	child_ex_ = [0] * int((last - first)*10)
+	examiner_ball_ = [0] * int((last - first)*10)
+	examiner_book_ = [0] * int((last - first)*10)
+	examiner_child_ = [0] * int((last - first)*10)
+
+def fillArray(val, start, end, tier_id, first, last):
 
 	d = dict()
 	d["start"] = start
@@ -51,10 +70,36 @@ def fillArray(val, start, end, tier_id):
 		d["val"] = "child_" + val
 		child_.append(json.dumps(d))
 		aggregate_.append(json.dumps(d))
+		if val == "ex_face":
+			range = int((end - start)*10)
+			for x in xrange( range ):
+				child_ex_[ int((start - first)*10) + x] = 1
+		if val == "book":
+			range = int((end - start)*10)
+			for x in xrange( range ):
+				child_book_[int((start - first)*10) + x] = 1
+		if val == "ball":
+			range = int((end - start)*10)
+			for x in xrange( range ):
+				child_ball_[int((start - first)*10) + x] = 1
+
 	if tier_id == "gaze_dir_e":
 		d["val"] = "examiner_" + val
 		examiner_.append(json.dumps(d))
 		aggregate_.append(json.dumps(d))
+		if val == "book":
+			range = int((end - start)*10)
+			for x in xrange( range ):
+				examiner_book_[int((start - first)*10) + x] = 1
+		if val == "ball":
+			range = int((end - start)*10)
+			for x in xrange( range ):
+				examiner_ball_[int((start - first)*10) + x] = 1
+		if val == "c_face":
+			range = int((end - start)*10)
+			for x in xrange( range ):
+				examiner_child_[int((start - first)*10) + x] = 1
+
 
 	if val in filled:
 		filled_.append(json.dumps(d))
@@ -76,6 +121,12 @@ def saveJson( filename ):
 		"\"filled\"" + ":" + "[" + ','.join(filled_) + "]" + ","
 		"\"unfilled\"" + ":" + "[" + ','.join(unfilled_) + "]" + ","
 		"\"red\"" + ":" + "[" + ','.join(red_) + "]" + ","
+		"\"child_ball\"" + ":" + "[" + ",".join(str(x) for x in child_ball_) + "]" + ","
+		"\"child_book\"" + ":" + "[" + ",".join(str(x) for x in child_book_) + "]" + ","
+		"\"child_ex\"" + ":" + "[" + ",".join(str(x) for x in child_ex_) + "]" + ","
+		"\"examiner_child\"" + ":" + "[" + ",".join(str(x) for x in examiner_child_) + "]" + ","
+		"\"examiner_ball\"" + ":" + "[" + ",".join(str(x) for x in examiner_ball_) + "]" + ","
+		"\"examiner_book\"" + ":" + "[" + ",".join(str(x) for x in examiner_book_) + "]" + ","
 		"\"aggregate\"" + ":" + "[" + ','.join(aggregate_) + "]" + "}"
 	)
 	jsonFile.close()
@@ -84,19 +135,11 @@ def saveJson( filename ):
 def main():
 	for file_ in os.listdir("."):
 	    if file_.endswith(".eaf"):
-			initialize()
+
 			elan = BeautifulSoup(open(file_), "xml")
 			tm = dict()
 			first = sys.maxint
 			last = 0
-
-			global info_
-			d = dict()
-			info = elan.HEADER.find("MEDIA_DESCRIPTOR")
-			d["origin"] = round(int(info["TIME_ORIGIN"])/1000, 1)
-			#d["filename"] = info["RELATIVE_MEDIA_URL"].split("/")[-1]
-			d["child"] = file_.split("_")[0]
-			info_.append(json.dumps(d))
 
 			for timeMapping in elan.TIME_ORDER.find_all("TIME_SLOT"):
 				time = round(int(timeMapping["TIME_VALUE"])/1000, 1)
@@ -107,6 +150,17 @@ def main():
 				if time < first:
 					first = time
 
+			initialize( first, last )
+
+			global info_
+			d = dict()
+			info = elan.HEADER.find("MEDIA_DESCRIPTOR")
+			d["origin"] = round(int(info["TIME_ORIGIN"])/1000, 1)
+			#d["filename"] = info["RELATIVE_MEDIA_URL"].split("/")[-1]
+			d["child"] = file_.split("_")[0]
+			info_.append(json.dumps(d))
+
+
 			for tier in elan.find_all("TIER"):
 				tier_id = tier["TIER_ID"]
 
@@ -114,7 +168,7 @@ def main():
 					start = tm[annotation.find("ALIGNABLE_ANNOTATION")["TIME_SLOT_REF1"]]
 					end = tm[annotation.find("ALIGNABLE_ANNOTATION")["TIME_SLOT_REF2"]]
 					val = annotation.find("ANNOTATION_VALUE").string
-					fillArray(val, start, end, tier_id)
+					fillArray(val, start, end, tier_id, first, last)
 
 			global duration_
 			d = dict()

@@ -1,8 +1,8 @@
 var childActions = ["child_ball", "child_ex_face", "child_book", "child_ex_hands"];
 var examinerActions = ["examiner_ball", "examiner_book", "examiner_c_face"];
-var arr = ["RA024_complete_edited.json", "RA038_FU_complete_edited.json",
-  "RA043_complete_edited.json", "RA052_complete_edited.json", "RA054_complete_edited.json",
-  "RA057_complete_edited.json"];
+var arr = ["RA024_complete_edited.json",
+  "RA043_complete_edited.json", "RA038_FU_complete_edited.json", "RA054_complete_edited.json",
+  "RA052_complete_edited.json", "RA057_complete_edited.json"];
 
 var blue = "#6F99C2";
 var orange = "#EA9153";
@@ -19,9 +19,24 @@ var line_color = "#b4b0b6";
 var text_color_light = "#989399";
 var text_color_dark = "#626363";
 
+$( "#toggle" ).click( function(){
 
-function render(){
+  if ( $(".audio").attr("opacity") == 1)
+  {
+    d3.selectAll(".audio").attr("opacity", 1).transition()
+    .duration(function(d, i){ return i * 30;})
+    .attr("opacity", 0);
+  }
+  else
+  {
+    d3.selectAll(".audio").attr("opacity", 0).transition()
+      .duration(function(d, i){ return i * 30;})
+      .attr("opacity", 1);
+  }
+});
 
+function render( audio ){
+  $('.visualization').empty();
   $.each( arr, function( index, val ) {
 
     var className = "viz_" + index.toString();
@@ -43,96 +58,7 @@ function render(){
       var start = data.duration[0].start;
       var end = data.duration[0].end;
 
-
-      viz.append("line") // top dashed line
-        .attr({
-          x1: 120,
-          y1: 50,
-          x2: 1200,
-          y2: 50,
-          'stroke-dasharray': "5, 5",
-          stroke: line_color
-        });
-      viz.append("line") // bottom dashed line
-        .attr({
-          x1: 120,
-          y1: 150,
-          x2: 1200,
-          y2: 150,
-          'stroke-dasharray': "5, 5",
-          stroke: line_color
-        });
-      viz.append("line") // back solid line
-        .attr({
-          x1: 1200,
-          y1: 10,
-          x2: 1200,
-          y2: 190,
-          stroke: "#737373"
-        });
-      viz.append("line") // front solid line
-        .attr({
-          x1: 200,
-          y1: 10,
-          x2: 200,
-          y2: 190,
-          stroke: line_color
-        });
-      viz.append("line") // middle solid line
-        .attr({
-          x1: 50,
-          y1: 100,
-          x2: 1200,
-          y2: 100,
-          stroke: line_color
-        });
-
-      viz.append("text").text("CHILD")
-        .attr({
-          x: 50,
-          y: 54,
-          "font-size": 10,
-          fill: text_color_dark
-        });
-      viz.append("text").text("EXAMINER")
-        .attr({
-          x: 50,
-          y: 154,
-          "font-size": 10,
-          fill: text_color_dark
-        });
-
-      // talk gaze for child
-      viz.append("text").text("Talk")
-        .attr({
-          x: 150,
-          y: 32,
-          "font-size": 10,
-          fill: text_color_light
-        });
-      viz.append("text").text("Gaze")
-        .attr({
-          x: 150,
-          y: 78,
-          "font-size": 10,
-          fill: text_color_light
-        });
-
-      // talk gaze for child
-      viz.append("text").text("Talk")
-        .attr({
-          x: 150,
-          y: 130,
-          "font-size": 10,
-          fill: text_color_light
-        });
-      viz.append("text").text("Gaze")
-        .attr({
-          x: 150,
-          y: 175,
-          "font-size": 10,
-          fill: text_color_light
-        });
+      drawGrid( viz );
 
       for (i = 0; i < childData.length; i++) {
         viz.append("rect")
@@ -178,13 +104,28 @@ function render(){
           });
         }
 
+
+      // speech circles
       /*
+      // add child speech
+      for (i = 0; i < childVocal.length; i++) {
+        viz.append("circle")
+          .attr({
+            cx: 250 + (childVocal[i].start - start).toFixed(2)*3,
+            cy: 50,
+            r: ((childVocal[i].end - childVocal[i].start)/2).toFixed(2)*3,
+            'stroke-width': 1,
+            fill: yellow_speech,
+            stroke: yellow_speech
+          });
+        }
+
       // add examiner speech
       for (i = 0; i < examinerSpeech.length; i++) {
         viz.append("circle")
           .attr({
             cx: 250 + (examinerSpeech[i].start - start).toFixed(2)*3,
-            cy: 100,
+            cy: 150,
             r: ((examinerSpeech[i].end - examinerSpeech[i].start)/2).toFixed(2)*3,
             'stroke-width': 1,
             fill: yellow_speech,
@@ -193,34 +134,42 @@ function render(){
         }
       */
 
+      // speech dashed lines
+
       // add examiner speech
-      for (i = 0; i < examinerSpeech.length; i++) {
+
+      if ( audio || audio == null) {
+        for (i = 0; i < examinerSpeech.length; i++) {
         viz.append("line") // bottom dashed line
           .attr({
+            class: "audio",
             x1: 250 + (examinerSpeech[i].start - start).toFixed(2)*3,
             y1: 150 + 5,
             x2: 250 + (examinerSpeech[i].end - start).toFixed(2)*3,
             y2: 150 + 5,
-            'stroke-dasharray': "0.8",
+            'stroke-dasharray': "1",
             'stroke-width': 10,
-            stroke: text_color_dark
+            stroke: text_color_dark,
+            opacity: 1
           });
         }
 
-      // add child speech
-      for (i = 0; i < childVocal.length; i++) {
-        viz.append("line") // bottom dashed line
-          .attr({
-            x1: 250 + (childVocal[i].start - start).toFixed(2)*3,
-            y1: 50 - 5,
-            x2: 250 + (childVocal[i].end - start).toFixed(2)*3,
-            y2: 50 - 5,
-            'stroke-dasharray': "0.8",
-            'stroke-width': 10,
-            stroke: text_color_dark
-          });
+        // add child speech
+        for (i = 0; i < childVocal.length; i++) {
+          viz.append("line") // bottom dashed line
+            .attr({
+              class: "audio",
+              x1: 250 + (childVocal[i].start - start).toFixed(2)*3,
+              y1: 50 - 5,
+              x2: 250 + (childVocal[i].end - start).toFixed(2)*3,
+              y2: 50 - 5,
+              'stroke-dasharray': "1",
+              'stroke-width': 10,
+              stroke: text_color_dark,
+              opacity: 1
+            });
         }
-
+      }
     });
   });
 }
