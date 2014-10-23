@@ -8,7 +8,7 @@ var header = [
     {"name":"CHILD","group":3, "color" : "#C74342", "x": 360, "y": 20},
     {"name":"OBJECT","group":4, "color" : "#56A2D7", "x": 460, "y": 20}
   ];
-var childNo = "54";
+var childNo = "38";
 var x = d3.scale.linear()
     .range([0, width]);
 
@@ -81,7 +81,7 @@ var group4 = svg.append("g")
 
 
 d3.json("test-modified-" + childNo + ".json", function(error, data) {
-
+//d3.json("test-modified.json", function(error, data) {
   var realStart = data.duration[0].start;
   var realEnd = data.duration[0].end;
   var duration = parseInt(realEnd - realStart);
@@ -140,9 +140,17 @@ d3.json("test-modified-" + childNo + ".json", function(error, data) {
        .attr("r", 4)
        .style("fill", "#FDC40F");
 
+
+    var eObjectJACircle = gaze.append("circle")
+       .attr("cx", lineX2)
+       .attr("cy", function(d){return arrowY(d);} )
+       .attr("r", 4)
+       .style("fill", "#FDC40F");       
+
     normalObject(eObject);
     normalObject(eObjectLine);
-    normalObject(eObjectCircle);  
+    normalObject(eObjectCircle); 
+    selectObject(eObjectJACircle); 
 
     var gaze2 = group2.selectAll("gaze")
       .data(data.examiner)
@@ -229,7 +237,13 @@ d3.json("test-modified-" + childNo + ".json", function(error, data) {
        .attr("r", 5)
        .style("fill", "#C74342");
 
-     //child-object
+     var cObjectJACircle = gaze3.append("circle")
+       .attr("cx", barWidth + lineMargin)
+       .attr("cy", function(d){return arrowY(d);} )
+       .attr("r", 4)
+       .style("fill", "#C74342");      
+
+     //child-object rect
      var gaze4 = group4.selectAll("gaze")
       .data(data.child)
       .enter().append("g")
@@ -247,11 +261,11 @@ d3.json("test-modified-" + childNo + ".json", function(error, data) {
     normalObject(cObject);
     normalObject(cObjectLine);
     normalObject(cObjectCircle);
-
+    selectObject(cObjectJACircle);
 
     list1 = [childBar, exBar, ecCircle, ecLine, ceCircle, ceLine];
 
-    list2 = [cObject, cObjectLine, cObjectCircle, eObject, eObjectLine, eObjectCircle];
+    list2 = [cObject, cObjectLine, cObjectCircle, cObjectJACircle, eObject, eObjectLine, eObjectCircle, eObjectJACircle];
   //use slider as a player
   d3.select("#eye").on('change', function(d) {
    
@@ -262,7 +276,6 @@ d3.json("test-modified-" + childNo + ".json", function(error, data) {
     for (i=0; i< list2.length; i++){
       selectEyeObject(list2[i]);
     }           
-
   }); //end of eye
 
   d3.select("#object").on('change', function(d) {
@@ -277,18 +290,46 @@ d3.json("test-modified-" + childNo + ".json", function(error, data) {
 
   });
 
+bafList1 = [childBar, exBar];
+bafList2 = [ecCircle, ecLine, eObject, eObjectLine, eObjectCircle, eObjectJACircle, cObjectJACircle];
+bafList3 = [cObject, cObjectLine, cObjectCircle];
+bafList4 = [ceCircle, ceLine];
+
+
+
+  d3.select("#baf").on('change', function(d) {
+    //console.log(this.value);
+    for (i=0; i< bafList1.length; i++){
+      selectBAF(bafList1[i]);
+    }      
+
+    for (i=0; i< bafList2.length; i++){
+      bafList2[i].transition().duration(function(d, i){ return i * 50;})
+        .attr("opacity", 0); 
+    }          
+    for (i=0; i< bafList3.length; i++){
+      selectBAFObject(bafList3[i]);
+    } 
+
+    for (i=0; i< bafList4.length; i++){
+      selectBAFExaminer(bafList4[i]);
+    }    
+  });
+
   d3.select("#normal").on('change', function(d) {
 
     normalCERect(childBar);
     normalCERect(exBar);
-
+    //normalObject(eObjectJACircle);
     normalCE(ecCircle);
     normalCE(ecLine);
     normalCE(ceCircle);
     normalCE(ceLine);
     for (i=0; i< list2.length; i++){
       normalObject(list2[i]);
-    }          
+    }      
+
+    selectObject(eObjectJACircle); 
 
   }); //end of eye
 

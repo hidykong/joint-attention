@@ -12,9 +12,10 @@ ja_ = []
 ja_json = []
 child_ = []
 examiner_ = []
+baf_ = []
 
 def initialize():
-	global ja_, ja_json, attention_, eye_, object_
+	global ja_, ja_json, attention_, eye_, object_, baf_
 	global child_, examiner_
 	global start, end
 	global info_
@@ -30,6 +31,7 @@ def initialize():
 	duration_ = []
 	eye_ =[]
 	object_ =[]
+	baf_ = []
 
 def saveJson(filename, info_, duration_):
 
@@ -45,26 +47,31 @@ def saveJson(filename, info_, duration_):
 
 	jsonFile.close()
 
-def fillArray(ja_ , attention_):
+def fillArray(ja_ , attention_, baf_):
 	currentEx = ""
 	currentCh = ""
 	gazeStart = 0
+	#print baf_
 
 	for i in range(len(ja_)):
 		#whenever the child gaze or examiner gaze changes
 		if (attention_[i][0] != currentCh) or (attention_[i][1] != currentEx):
 
 			#append the child part
-			chDict = {"start": 0, "end": 0, "val": ""}
+			chDict = {"start": 0, "end": 0, "val": "", "baf": 0}
 			chDict["start"] = gazeStart
 			chDict["end"] = i
 			chDict["val"] = currentCh 
 
 			#append the examiner part
-			exDict = {"start": 0, "end": 0, "val": ""}
+			exDict = {"start": 0, "end": 0, "val": "", "baf": 0}
 			exDict["start"] = gazeStart
 			exDict["end"] = i
 			exDict["val"] = currentEx
+
+			if baf_[gazeStart] is 1:
+				chDict["baf"] = 1
+				exDict["baf"] = 1
 
 			if ja_[gazeStart] is 0:
 				chDict["joint"] = 0
@@ -120,6 +127,7 @@ def main(argv):
 	ja_ = [0 for y in range(0, duration + 1)]
 	eye_ = [0 for y in range(0, duration + 1)]
 	object_ = [0 for y in range(0, duration + 1)]
+	baf_ = [0 for y in range(0, duration + 1)]
 
 	#child gaze
 	for stage in data["child"]:
@@ -146,8 +154,29 @@ def main(argv):
 				# print "match", e_val, i
 				break
 
+	baf = False
+	previousVal = ""
+	start = 0
+	toggled = 0
+	for i in range(0, duration + 1):
+		currentVal = attention_[i][0]
+		if ("ex_face" in str(currentVal) or "ball" in str(currentVal) or "book" in str(currentVal)):
+			#print currentVal, i
+			if (currentVal is not previousVal and i > 0 and i is not start):
+				toggled = toggled + 1
+			#print currentVal, toggled, i, start 
+		else:
+			if (toggled > 3):
+				for j in range(start, i-1):
+					baf_[j] = 1
+			toggled = 0
+			#print i, start
+			start = i
+		previousVal = currentVal
+
+
 	#print ja_
-	fillArray(ja_, attention_)
+	fillArray(ja_, attention_, baf_)
 	#print json.dumps(child_, indent=4, separators=(',', ': '))
 	saveJson("test-modified", info_, duration_)
 
