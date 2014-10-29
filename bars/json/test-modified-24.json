@@ -1,140 +1,102 @@
 {"info":[
     {
-        "origin": 126.7,
-        "child": "RA043"
+        "origin": 135.9,
+        "child": "RA024"
     }
 ],"duration":[
     {
-        "start": 1140.1,
-        "end": 1317.6
+        "start": 1521.9,
+        "end": 1757.4
     }
 ],"child":[
     {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
+        "eye": 0,
+        "val": "",
+        "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 0,
-        "end": 2
-    },
-    {
-        "eye": 0,
-        "val": "",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 2,
-        "end": 3
-    },
-    {
-        "eye": 0,
-        "val": "child_par_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 3,
-        "end": 4
-    },
-    {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 4,
-        "end": 7
-    },
-    {
-        "eye": 0,
-        "val": "",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 10,
-        "end": 11
+        "end": 12
     },
     {
         "eye": 0,
         "val": "child_ball",
         "joint": 0,
         "objectGaze": 0,
-        "start": 11,
-        "end": 12
-    },
-    {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
-        "objectGaze": 0,
+        "baf": 0,
         "start": 12,
         "end": 14
     },
     {
         "eye": 0,
-        "val": "child_ball",
+        "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 14,
-        "end": 17
-    },
-    {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 17,
-        "end": 18
-    },
-    {
-        "eye": 0,
-        "val": "child_ball",
-        "joint": 1,
-        "objectGaze": 1,
-        "start": 18,
-        "end": 19
+        "end": 15
     },
     {
         "eye": 0,
         "val": "child_ball",
         "joint": 0,
         "objectGaze": 0,
-        "start": 19,
-        "end": 20
+        "baf": 0,
+        "start": 15,
+        "end": 16
     },
     {
         "eye": 0,
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
+        "start": 16,
+        "end": 20
+    },
+    {
+        "eye": 0,
+        "val": "child_ball",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
         "start": 20,
         "end": 21
     },
     {
         "eye": 0,
-        "val": "child_ball",
+        "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 21,
         "end": 22
-    },
-    {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 22,
-        "end": 24
     },
     {
         "eye": 0,
         "val": "child_ball",
         "joint": 0,
         "objectGaze": 0,
-        "start": 24,
-        "end": 26
+        "baf": 0,
+        "start": 22,
+        "end": 24
     },
     {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
+        "eye": 0,
+        "val": "",
+        "joint": 0,
         "objectGaze": 0,
-        "start": 26,
+        "baf": 0,
+        "start": 24,
+        "end": 25
+    },
+    {
+        "eye": 0,
+        "val": "child_ball",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 25,
         "end": 27
     },
     {
@@ -142,207 +104,107 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 27,
-        "end": 28
-    },
-    {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 28,
-        "end": 29
-    },
-    {
-        "eye": 0,
-        "val": "",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 29,
-        "end": 30
-    },
-    {
-        "eye": 0,
-        "val": "child_ball",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 30,
-        "end": 31
-    },
-    {
-        "eye": 0,
-        "val": "",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 31,
-        "end": 32
-    },
-    {
-        "eye": 0,
-        "val": "child_ball",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 32,
-        "end": 33
-    },
-    {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 33,
         "end": 34
     },
     {
         "eye": 0,
-        "val": "",
+        "val": "child_ball",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 34,
         "end": 35
     },
     {
         "eye": 0,
-        "val": "child_ball",
+        "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 35,
-        "end": 36
-    },
-    {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 36,
-        "end": 37
-    },
-    {
-        "eye": 0,
-        "val": "child_ball",
-        "joint": 1,
-        "objectGaze": 1,
-        "start": 37,
-        "end": 38
-    },
-    {
-        "eye": 0,
-        "val": "",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 38,
-        "end": 42
+        "end": 40
     },
     {
         "eye": 0,
         "val": "child_ball",
         "joint": 0,
         "objectGaze": 0,
-        "start": 42,
-        "end": 43
+        "baf": 0,
+        "start": 40,
+        "end": 41
     },
     {
         "eye": 0,
         "val": "",
         "joint": 0,
         "objectGaze": 0,
-        "start": 43,
-        "end": 44
+        "baf": 0,
+        "start": 41,
+        "end": 50
     },
     {
         "eye": 0,
-        "val": "child_ex_face",
+        "val": "child_ball",
         "joint": 0,
         "objectGaze": 0,
-        "start": 44,
-        "end": 45
-    },
-    {
-        "eye": 0,
-        "val": "child_book",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 49,
-        "end": 51
-    },
-    {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 51,
-        "end": 52
-    },
-    {
-        "eye": 0,
-        "val": "child_book",
-        "joint": 1,
-        "objectGaze": 1,
-        "start": 52,
-        "end": 53
-    },
-    {
-        "eye": 0,
-        "val": "child_ex_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 53,
+        "baf": 0,
+        "start": 50,
         "end": 54
     },
     {
-        "eye": 0,
-        "val": "child_book",
+        "eye": 1,
+        "val": "child_ex_face",
         "joint": 1,
-        "objectGaze": 1,
+        "objectGaze": 0,
+        "baf": 0,
         "start": 54,
+        "end": 55
+    },
+    {
+        "eye": 0,
+        "val": "child_ball",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 55,
+        "end": 56
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 56,
+        "end": 57
+    },
+    {
+        "eye": 0,
+        "val": "child_ball",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 57,
         "end": 58
     },
     {
         "eye": 0,
-        "val": "child_book",
+        "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 58,
-        "end": 60
+        "end": 64
     },
     {
         "eye": 0,
-        "val": "child_ex_face",
+        "val": "child_ball",
         "joint": 0,
         "objectGaze": 0,
-        "start": 60,
-        "end": 61
-    },
-    {
-        "eye": 0,
-        "val": "child_book",
-        "joint": 1,
-        "objectGaze": 1,
-        "start": 61,
-        "end": 62
-    },
-    {
-        "eye": 0,
-        "val": "child_book",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 62,
-        "end": 63
-    },
-    {
-        "eye": 0,
-        "val": "child_book",
-        "joint": 1,
-        "objectGaze": 1,
-        "start": 63,
-        "end": 66
-    },
-    {
-        "eye": 0,
-        "val": "child_book",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 66,
+        "baf": 0,
+        "start": 64,
         "end": 67
     },
     {
@@ -350,110 +212,88 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
-        "start": 67,
-        "end": 68
-    },
-    {
-        "eye": 0,
-        "val": "child_book",
-        "joint": 1,
-        "objectGaze": 1,
-        "start": 68,
-        "end": 69
-    },
-    {
-        "eye": 0,
-        "val": "child_ex_face",
-        "joint": 0,
-        "objectGaze": 0,
+        "baf": 0,
         "start": 69,
         "end": 70
     },
     {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 70,
         "end": 71
     },
     {
         "eye": 0,
-        "val": "child_book",
-        "joint": 1,
-        "objectGaze": 1,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
         "start": 71,
         "end": 72
     },
     {
         "eye": 0,
-        "val": "",
+        "val": "child_book",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 72,
-        "end": 73
-    },
-    {
-        "eye": 0,
-        "val": "child_book",
-        "joint": 1,
-        "objectGaze": 1,
-        "start": 73,
         "end": 75
     },
     {
         "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 75,
+        "end": 78
+    },
+    {
+        "eye": 0,
         "val": "child_book",
         "joint": 0,
         "objectGaze": 0,
-        "start": 75,
-        "end": 76
+        "baf": 0,
+        "start": 78,
+        "end": 79
     },
     {
         "eye": 0,
         "val": "child_book",
         "joint": 1,
         "objectGaze": 1,
-        "start": 76,
-        "end": 84
+        "baf": 0,
+        "start": 79,
+        "end": 81
     },
     {
         "eye": 0,
         "val": "child_book",
         "joint": 0,
         "objectGaze": 0,
-        "start": 84,
-        "end": 86
+        "baf": 0,
+        "start": 81,
+        "end": 82
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 82,
+        "end": 91
     },
     {
         "eye": 0,
         "val": "",
         "joint": 0,
         "objectGaze": 0,
-        "start": 86,
-        "end": 87
-    },
-    {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 87,
-        "end": 89
-    },
-    {
-        "eye": 0,
-        "val": "child_book",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 89,
-        "end": 91
-    },
-    {
-        "eye": 0,
-        "val": "child_book",
-        "joint": 1,
-        "objectGaze": 1,
+        "baf": 0,
         "start": 91,
         "end": 92
     },
@@ -462,231 +302,305 @@
         "val": "child_book",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 92,
-        "end": 94
-    },
-    {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 95,
-        "end": 100
-    },
-    {
-        "eye": 0,
-        "val": "",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 100,
-        "end": 101
-    },
-    {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 101,
-        "end": 102
+        "end": 97
     },
     {
         "eye": 0,
         "val": "child_book",
         "joint": 0,
         "objectGaze": 0,
-        "start": 102,
-        "end": 103
+        "baf": 0,
+        "start": 97,
+        "end": 98
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 0,
+        "start": 98,
+        "end": 107
     },
     {
         "eye": 0,
         "val": "child_book",
         "joint": 0,
         "objectGaze": 0,
-        "start": 103,
-        "end": 104
-    },
-    {
-        "eye": 0,
-        "val": "",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 105,
-        "end": 106
-    },
-    {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 106,
-        "end": 109
-    },
-    {
-        "eye": 0,
-        "val": "child_ex_hands",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 109,
-        "end": 110
-    },
-    {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 110,
-        "end": 111
-    },
-    {
-        "eye": 0,
-        "val": "child_ex_hands",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 111,
-        "end": 112
-    },
-    {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 112,
-        "end": 113
-    },
-    {
-        "eye": 0,
-        "val": "child_ex_hands",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 113,
-        "end": 114
-    },
-    {
-        "eye": 1,
-        "val": "child_ex_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 114,
-        "end": 115
-    },
-    {
-        "eye": 0,
-        "val": "",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 115,
+        "baf": 0,
+        "start": 107,
         "end": 116
     },
     {
-        "eye": 1,
-        "val": "child_ex_face",
+        "eye": 0,
+        "val": "child_book",
         "joint": 1,
-        "objectGaze": 0,
+        "objectGaze": 1,
+        "baf": 0,
         "start": 116,
         "end": 119
     },
     {
         "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 119,
+        "end": 120
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 0,
+        "start": 120,
+        "end": 124
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 124,
+        "end": 125
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 0,
+        "start": 125,
+        "end": 127
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 127,
+        "end": 129
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 0,
+        "start": 129,
+        "end": 133
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 133,
+        "end": 134
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 134,
+        "end": 136
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 137,
+        "end": 140
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 0,
+        "start": 140,
+        "end": 142
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 142,
+        "end": 143
+    },
+    {
+        "eye": 0,
         "val": "",
         "joint": 0,
         "objectGaze": 0,
-        "start": 119,
-        "end": 120
+        "baf": 0,
+        "start": 143,
+        "end": 144
     },
     {
         "eye": 1,
         "val": "child_ex_face",
         "joint": 1,
         "objectGaze": 0,
-        "start": 120,
-        "end": 121
+        "baf": 0,
+        "start": 144,
+        "end": 152
     },
     {
         "eye": 0,
-        "val": "child_par_face",
+        "val": "child_ex_face",
         "joint": 0,
         "objectGaze": 0,
-        "start": 121,
-        "end": 122
+        "baf": 0,
+        "start": 152,
+        "end": 153
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 154,
+        "end": 156
+    },
+    {
+        "eye": 0,
+        "val": "child_ex_hands",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 156,
+        "end": 157
     },
     {
         "eye": 0,
         "val": "",
         "joint": 0,
         "objectGaze": 0,
-        "start": 122,
-        "end": 140
+        "baf": 0,
+        "start": 157,
+        "end": 158
     },
     {
         "eye": 0,
-        "val": "child_ex_face",
+        "val": "child_ex_hands",
         "joint": 0,
         "objectGaze": 0,
-        "start": 165,
-        "end": 169
+        "baf": 0,
+        "start": 158,
+        "end": 160
     },
     {
         "eye": 0,
-        "val": "child_ex_face",
+        "val": "",
         "joint": 0,
         "objectGaze": 0,
-        "start": 176,
+        "baf": 0,
+        "start": 160,
+        "end": 164
+    },
+    {
+        "eye": 0,
+        "val": "child_ex_hands",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 164,
+        "end": 166
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 166,
+        "end": 170
+    },
+    {
+        "eye": 0,
+        "val": "child_ex_hands",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 170,
         "end": 177
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 177,
+        "end": 180
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 180,
+        "end": 181
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 181,
+        "end": 189
+    },
+    {
+        "eye": 0,
+        "val": "child_ex_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 219,
+        "end": 221
+    },
+    {
+        "eye": 0,
+        "val": "child_ex_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 234,
+        "end": 235
     }
 ],"examiner":[
     {
-        "eye": 1,
+        "eye": 0,
         "val": "examiner_c_face",
-        "joint": 1,
+        "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 0,
-        "end": 2
-    },
-    {
-        "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 2,
-        "end": 3
-    },
-    {
-        "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 3,
-        "end": 4
-    },
-    {
-        "eye": 1,
-        "val": "examiner_c_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 4,
-        "end": 7
-    },
-    {
-        "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 10,
-        "end": 11
-    },
-    {
-        "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 11,
         "end": 12
     },
     {
-        "eye": 1,
+        "eye": 0,
         "val": "examiner_c_face",
-        "joint": 1,
+        "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 12,
         "end": 14
     },
@@ -695,31 +609,26 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 14,
-        "end": 17
-    },
-    {
-        "eye": 1,
-        "val": "examiner_c_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 17,
-        "end": 18
-    },
-    {
-        "eye": 0,
-        "val": "examiner_ball",
-        "joint": 1,
-        "objectGaze": 1,
-        "start": 18,
-        "end": 19
+        "end": 15
     },
     {
         "eye": 0,
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
-        "start": 19,
+        "baf": 0,
+        "start": 15,
+        "end": 16
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 16,
         "end": 20
     },
     {
@@ -727,22 +636,25 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 20,
         "end": 21
     },
     {
         "eye": 0,
-        "val": "",
+        "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 21,
         "end": 22
     },
     {
-        "eye": 1,
+        "eye": 0,
         "val": "examiner_c_face",
-        "joint": 1,
+        "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 22,
         "end": 24
     },
@@ -751,15 +663,17 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 24,
-        "end": 26
+        "end": 25
     },
     {
-        "eye": 1,
+        "eye": 0,
         "val": "examiner_c_face",
-        "joint": 1,
+        "joint": 0,
         "objectGaze": 0,
-        "start": 26,
+        "baf": 0,
+        "start": 25,
         "end": 27
     },
     {
@@ -767,55 +681,8 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 27,
-        "end": 28
-    },
-    {
-        "eye": 1,
-        "val": "examiner_c_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 28,
-        "end": 29
-    },
-    {
-        "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 29,
-        "end": 30
-    },
-    {
-        "eye": 0,
-        "val": "",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 30,
-        "end": 31
-    },
-    {
-        "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 31,
-        "end": 32
-    },
-    {
-        "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 32,
-        "end": 33
-    },
-    {
-        "eye": 1,
-        "val": "examiner_c_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 33,
         "end": 34
     },
     {
@@ -823,6 +690,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 34,
         "end": 35
     },
@@ -831,95 +699,71 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 35,
-        "end": 36
-    },
-    {
-        "eye": 1,
-        "val": "examiner_c_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 36,
-        "end": 37
-    },
-    {
-        "eye": 0,
-        "val": "examiner_ball",
-        "joint": 1,
-        "objectGaze": 1,
-        "start": 37,
-        "end": 38
+        "end": 40
     },
     {
         "eye": 0,
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
-        "start": 38,
-        "end": 42
+        "baf": 0,
+        "start": 40,
+        "end": 41
     },
     {
         "eye": 0,
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
-        "start": 42,
-        "end": 43
-    },
-    {
-        "eye": 0,
-        "val": "examiner_ball",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 43,
-        "end": 44
-    },
-    {
-        "eye": 0,
-        "val": "",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 44,
-        "end": 45
+        "baf": 0,
+        "start": 41,
+        "end": 50
     },
     {
         "eye": 0,
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
-        "start": 49,
-        "end": 51
-    },
-    {
-        "eye": 1,
-        "val": "examiner_c_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 51,
-        "end": 52
-    },
-    {
-        "eye": 0,
-        "val": "examiner_book",
-        "joint": 1,
-        "objectGaze": 1,
-        "start": 52,
-        "end": 53
-    },
-    {
-        "eye": 0,
-        "val": "examiner_book",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 53,
+        "baf": 0,
+        "start": 50,
         "end": 54
     },
     {
-        "eye": 0,
-        "val": "examiner_book",
+        "eye": 1,
+        "val": "examiner_c_face",
         "joint": 1,
-        "objectGaze": 1,
+        "objectGaze": 0,
+        "baf": 0,
         "start": 54,
+        "end": 55
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 55,
+        "end": 56
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 56,
+        "end": 57
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 57,
         "end": 58
     },
     {
@@ -927,47 +771,17 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 58,
-        "end": 60
-    },
-    {
-        "eye": 0,
-        "val": "examiner_book",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 60,
-        "end": 61
-    },
-    {
-        "eye": 0,
-        "val": "examiner_book",
-        "joint": 1,
-        "objectGaze": 1,
-        "start": 61,
-        "end": 62
+        "end": 64
     },
     {
         "eye": 0,
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
-        "start": 62,
-        "end": 63
-    },
-    {
-        "eye": 0,
-        "val": "examiner_book",
-        "joint": 1,
-        "objectGaze": 1,
-        "start": 63,
-        "end": 66
-    },
-    {
-        "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 66,
+        "baf": 0,
+        "start": 64,
         "end": 67
     },
     {
@@ -975,110 +789,88 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
-        "start": 67,
-        "end": 68
-    },
-    {
-        "eye": 0,
-        "val": "examiner_book",
-        "joint": 1,
-        "objectGaze": 1,
-        "start": 68,
-        "end": 69
-    },
-    {
-        "eye": 0,
-        "val": "examiner_book",
-        "joint": 0,
-        "objectGaze": 0,
+        "baf": 0,
         "start": 69,
         "end": 70
     },
     {
-        "eye": 1,
+        "eye": 0,
         "val": "examiner_c_face",
-        "joint": 1,
+        "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 70,
         "end": 71
     },
     {
         "eye": 0,
-        "val": "examiner_book",
-        "joint": 1,
-        "objectGaze": 1,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
         "start": 71,
         "end": 72
     },
     {
         "eye": 0,
-        "val": "examiner_book",
+        "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 72,
-        "end": 73
-    },
-    {
-        "eye": 0,
-        "val": "examiner_book",
-        "joint": 1,
-        "objectGaze": 1,
-        "start": 73,
         "end": 75
     },
     {
         "eye": 0,
-        "val": "examiner_c_face",
+        "val": "examiner_book",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 75,
-        "end": 76
+        "end": 78
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 78,
+        "end": 79
     },
     {
         "eye": 0,
         "val": "examiner_book",
         "joint": 1,
         "objectGaze": 1,
-        "start": 76,
-        "end": 84
+        "baf": 0,
+        "start": 79,
+        "end": 81
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 81,
+        "end": 82
     },
     {
         "eye": 0,
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
-        "start": 84,
-        "end": 86
-    },
-    {
-        "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 86,
-        "end": 87
-    },
-    {
-        "eye": 1,
-        "val": "examiner_c_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 87,
-        "end": 89
-    },
-    {
-        "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 89,
+        "baf": 0,
+        "start": 82,
         "end": 91
     },
     {
         "eye": 0,
-        "val": "examiner_book",
-        "joint": 1,
-        "objectGaze": 1,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
         "start": 91,
         "end": 92
     },
@@ -1087,175 +879,287 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 92,
-        "end": 94
-    },
-    {
-        "eye": 1,
-        "val": "examiner_c_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 95,
-        "end": 100
-    },
-    {
-        "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 100,
-        "end": 101
-    },
-    {
-        "eye": 1,
-        "val": "examiner_c_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 101,
-        "end": 102
-    },
-    {
-        "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 102,
-        "end": 103
+        "end": 97
     },
     {
         "eye": 0,
         "val": "",
         "joint": 0,
         "objectGaze": 0,
-        "start": 103,
-        "end": 104
+        "baf": 0,
+        "start": 97,
+        "end": 98
     },
     {
         "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 105,
-        "end": 106
-    },
-    {
-        "eye": 1,
-        "val": "examiner_c_face",
+        "val": "examiner_book",
         "joint": 1,
-        "objectGaze": 0,
-        "start": 106,
-        "end": 109
+        "objectGaze": 1,
+        "baf": 0,
+        "start": 98,
+        "end": 107
     },
     {
         "eye": 0,
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
-        "start": 109,
-        "end": 110
-    },
-    {
-        "eye": 1,
-        "val": "examiner_c_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 110,
-        "end": 111
-    },
-    {
-        "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 111,
-        "end": 112
-    },
-    {
-        "eye": 1,
-        "val": "examiner_c_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 112,
-        "end": 113
-    },
-    {
-        "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 113,
-        "end": 114
-    },
-    {
-        "eye": 1,
-        "val": "examiner_c_face",
-        "joint": 1,
-        "objectGaze": 0,
-        "start": 114,
-        "end": 115
-    },
-    {
-        "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 115,
+        "baf": 0,
+        "start": 107,
         "end": 116
     },
     {
-        "eye": 1,
-        "val": "examiner_c_face",
+        "eye": 0,
+        "val": "examiner_book",
         "joint": 1,
-        "objectGaze": 0,
+        "objectGaze": 1,
+        "baf": 0,
         "start": 116,
         "end": 119
     },
     {
         "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 119,
+        "end": 120
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 0,
+        "start": 120,
+        "end": 124
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 124,
+        "end": 125
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 0,
+        "start": 125,
+        "end": 127
+    },
+    {
+        "eye": 0,
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
-        "start": 119,
-        "end": 120
+        "baf": 0,
+        "start": 127,
+        "end": 129
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 0,
+        "start": 129,
+        "end": 133
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 133,
+        "end": 134
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 134,
+        "end": 136
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 137,
+        "end": 140
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 0,
+        "start": 140,
+        "end": 142
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 142,
+        "end": 143
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 143,
+        "end": 144
     },
     {
         "eye": 1,
         "val": "examiner_c_face",
         "joint": 1,
         "objectGaze": 0,
-        "start": 120,
-        "end": 121
-    },
-    {
-        "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 121,
-        "end": 122
-    },
-    {
-        "eye": 0,
-        "val": "examiner_c_face",
-        "joint": 0,
-        "objectGaze": 0,
-        "start": 122,
-        "end": 140
+        "baf": 0,
+        "start": 144,
+        "end": 152
     },
     {
         "eye": 0,
         "val": "",
         "joint": 0,
         "objectGaze": 0,
-        "start": 165,
-        "end": 169
+        "baf": 0,
+        "start": 152,
+        "end": 153
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 154,
+        "end": 156
     },
     {
         "eye": 0,
-        "val": "",
+        "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
-        "start": 176,
+        "baf": 0,
+        "start": 156,
+        "end": 157
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 157,
+        "end": 158
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 158,
+        "end": 160
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 160,
+        "end": 164
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 164,
+        "end": 166
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 166,
+        "end": 170
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 170,
         "end": 177
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 177,
+        "end": 180
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 180,
+        "end": 181
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 181,
+        "end": 189
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 219,
+        "end": 221
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 234,
+        "end": 235
     }
 ]}

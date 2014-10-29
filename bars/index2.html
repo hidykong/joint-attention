@@ -5,8 +5,8 @@ body {
   font: 10px sans-serif;
   color: white;
   background-color: black;
+  font-family: helvetica;
 }
-
 
 div.tooltip {   
   position: absolute;           
@@ -20,20 +20,48 @@ div.tooltip {
   border-radius: 8px;           
   pointer-events: none;         
 }
+
+.legend{
+  font: 10pt sans-serif;
+}
 </style>
 <body>
-<h2>JOINT ATTENTION</h2>
 
 <script src="http://d3js.org/d3.v3.js"></script>
+
+<div class="description" style="float:left; margin-left:5%" width="50%">
+<h2>JOINT ATTENTION</h2>
+<p style="font:14px">Joint attention is the shared focus of two individuals on an object. <br>
+  It is achieved when one individual alerts another to an object by means of <br>
+  eye-gazing, pointing, or other verbal or non-verbal indications.</p>
+
 <form>
+<input type="radio" name="ja" value="normal" id="normal" checked="checked">Normal View<br>
 <input type="radio" name="ja" value="eye" id="eye">Eye Contact<br>
+<input type="radio" name="ja" value="baf" id="baf">Looking Back and Forth<br>
+<input type="radio" name="ja" value="object" id="object">Object Gaze<br>
 </form>
-<h2 style="margin-left: 20%">
-  <span style="color: #AECF31">OBJECT<span>
-  <span style="margin-left: 16%; color: #45A9C8">EXAMINER<span>
-  <span style="margin-left: 16%; color: #F16F1B">CHILD<span>
-  <span style="margin-left: 19%; color: #AECF31">OBJECT<span>
-</h2>
+</div>
+
+<div class="legend" width="50%" style="margin: 10pt; text-align:center">
+  <svg width="50%">
+    <line x1="10" y1="20" x2="70" y2="20" stroke-width="2" stroke="#FDC40F"></line>
+    <circle cx="10" cy="20" r="4" style="fill: rgb(253, 196, 15);"></circle>
+    <text x="80" y="25" fill="white" class="legend">Examiner looking at object/ child</text>
+
+    <line x1="10" y1="40" x2="70" y2="40" stroke-width="2" stroke="#C74342"></line>
+    <circle cx="10" cy="40" r="4" style="fill: #C74342;"></circle>
+    <text x="80" y="45" fill="white" class="legend">Child looking at object/ examiner</text>
+
+    <line x1="10" y1="60" x2="70" y2="60" stroke-width="2" stroke="#C74342"></line>
+    <circle cx="10" cy="60" r="4" style="fill: #C74342;"></circle>
+    <circle cx="70" cy="60" r="4" style="fill: rgb(253, 196, 15);"></circle>   
+    <text x="80" y="65" fill="white" class="legend">Eye contact/ looking at the same object</text>
+
+  </svg>
+</div>
+
+<script src="gazeFunctions.js"></script>
 <script src="gaze2.js"></script>
 
 </body>

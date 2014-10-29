@@ -58,3 +58,26 @@ function selectObject(element){
       else { return 0.1};
     }); 
 }
+
+function selectBAF(element){
+  element.transition().duration(function(d, i){ return i * 50;})
+    .attr("opacity", function(d){
+      if (d.baf) {return 1}
+      else { return 0.1};
+    }); 
+}
+
+function selectBAFObject(element){
+  element.transition().attr("opacity", function(d){
+    if (d.val.indexOf("ball") > -1 && d.baf) { return 1} 
+    else if (d.val.indexOf("book") > -1 && d.baf) {return 1} 
+    else { return 0};
+  });
+}
+
+function selectBAFExaminer(element){
+  element.transition().attr("opacity", function(d){
+    if (d.val.indexOf("ex_face") > -1 && d.baf) { return 1} 
+    else { return 0};
+  });
+}

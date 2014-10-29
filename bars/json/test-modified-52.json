@@ -14,6 +14,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 0,
         "end": 13
     },
@@ -22,6 +23,7 @@
         "val": "child_ball",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 13,
         "end": 18
     },
@@ -30,6 +32,7 @@
         "val": "child_ball",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 18,
         "end": 19
     },
@@ -38,6 +41,7 @@
         "val": "child_ball",
         "joint": 1,
         "objectGaze": 1,
+        "baf": 0,
         "start": 19,
         "end": 20
     },
@@ -46,6 +50,7 @@
         "val": "child_ball",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 26,
         "end": 29
     },
@@ -54,6 +59,7 @@
         "val": "child_ball",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 29,
         "end": 30
     },
@@ -62,6 +68,7 @@
         "val": "child_ball",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 35,
         "end": 36
     },
@@ -70,6 +77,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 36,
         "end": 37
     },
@@ -78,6 +86,7 @@
         "val": "child_ball",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 37,
         "end": 42
     },
@@ -86,6 +95,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 42,
         "end": 43
     },
@@ -94,6 +104,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 51,
         "end": 52
     },
@@ -102,6 +113,7 @@
         "val": "child_book",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 52,
         "end": 53
     },
@@ -110,6 +122,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 53,
         "end": 54
     },
@@ -118,6 +131,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 54,
         "end": 56
     },
@@ -126,6 +140,7 @@
         "val": "child_book",
         "joint": 1,
         "objectGaze": 1,
+        "baf": 0,
         "start": 56,
         "end": 58
     },
@@ -134,6 +149,7 @@
         "val": "child_book",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 58,
         "end": 61
     },
@@ -142,6 +158,7 @@
         "val": "child_book",
         "joint": 1,
         "objectGaze": 1,
+        "baf": 0,
         "start": 61,
         "end": 67
     },
@@ -150,6 +167,7 @@
         "val": "child_book",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 67,
         "end": 68
     },
@@ -158,6 +176,7 @@
         "val": "child_book",
         "joint": 1,
         "objectGaze": 1,
+        "baf": 0,
         "start": 68,
         "end": 74
     },
@@ -166,6 +185,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 74,
         "end": 77
     },
@@ -174,6 +194,7 @@
         "val": "child_book",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 77,
         "end": 79
     },
@@ -182,6 +203,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 79,
         "end": 80
     },
@@ -190,6 +212,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 80,
         "end": 81
     },
@@ -198,6 +221,7 @@
         "val": "child_book",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 81,
         "end": 82
     },
@@ -206,6 +230,7 @@
         "val": "child_ex_face",
         "joint": 1,
         "objectGaze": 0,
+        "baf": 0,
         "start": 83,
         "end": 88
     },
@@ -214,6 +239,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 88,
         "end": 90
     },
@@ -222,6 +248,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 91,
         "end": 94
     },
@@ -230,6 +257,7 @@
         "val": "child_ex_hands",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 94,
         "end": 95
     },
@@ -238,6 +266,7 @@
         "val": "child_unscorable",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 95,
         "end": 96
     },
@@ -246,6 +275,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 96,
         "end": 103
     },
@@ -254,6 +284,7 @@
         "val": "child_ex_hands",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 103,
         "end": 104
     },
@@ -262,6 +293,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 104,
         "end": 111
     },
@@ -270,6 +302,7 @@
         "val": "child_ex_hands",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 111,
         "end": 115
     },
@@ -278,6 +311,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 115,
         "end": 124
     },
@@ -286,6 +320,7 @@
         "val": "child_ex_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 163,
         "end": 166
     }
@@ -295,6 +330,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 0,
         "end": 13
     },
@@ -303,6 +339,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 13,
         "end": 18
     },
@@ -311,6 +348,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 18,
         "end": 19
     },
@@ -319,6 +357,7 @@
         "val": "examiner_ball",
         "joint": 1,
         "objectGaze": 1,
+        "baf": 0,
         "start": 19,
         "end": 20
     },
@@ -327,6 +366,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 26,
         "end": 29
     },
@@ -335,6 +375,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 29,
         "end": 30
     },
@@ -343,6 +384,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 35,
         "end": 36
     },
@@ -351,6 +393,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 36,
         "end": 37
     },
@@ -359,6 +402,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 37,
         "end": 42
     },
@@ -367,6 +411,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 42,
         "end": 43
     },
@@ -375,6 +420,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 51,
         "end": 52
     },
@@ -383,6 +429,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 52,
         "end": 53
     },
@@ -391,6 +438,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 53,
         "end": 54
     },
@@ -399,6 +447,7 @@
         "val": "examiner_book",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 54,
         "end": 56
     },
@@ -407,6 +456,7 @@
         "val": "examiner_book",
         "joint": 1,
         "objectGaze": 1,
+        "baf": 0,
         "start": 56,
         "end": 58
     },
@@ -415,6 +465,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 58,
         "end": 61
     },
@@ -423,6 +474,7 @@
         "val": "examiner_book",
         "joint": 1,
         "objectGaze": 1,
+        "baf": 0,
         "start": 61,
         "end": 67
     },
@@ -431,6 +483,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 67,
         "end": 68
     },
@@ -439,6 +492,7 @@
         "val": "examiner_book",
         "joint": 1,
         "objectGaze": 1,
+        "baf": 0,
         "start": 68,
         "end": 74
     },
@@ -447,6 +501,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 74,
         "end": 77
     },
@@ -455,6 +510,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 77,
         "end": 79
     },
@@ -463,6 +519,7 @@
         "val": "examiner_book",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 79,
         "end": 80
     },
@@ -471,6 +528,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 80,
         "end": 81
     },
@@ -479,6 +537,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 81,
         "end": 82
     },
@@ -487,6 +546,7 @@
         "val": "examiner_c_face",
         "joint": 1,
         "objectGaze": 0,
+        "baf": 0,
         "start": 83,
         "end": 88
     },
@@ -495,6 +555,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 88,
         "end": 90
     },
@@ -503,6 +564,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 91,
         "end": 94
     },
@@ -511,6 +573,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 94,
         "end": 95
     },
@@ -519,6 +582,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 95,
         "end": 96
     },
@@ -527,6 +591,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 96,
         "end": 103
     },
@@ -535,6 +600,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 103,
         "end": 104
     },
@@ -543,6 +609,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 104,
         "end": 111
     },
@@ -551,6 +618,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 111,
         "end": 115
     },
@@ -559,6 +627,7 @@
         "val": "examiner_c_face",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 115,
         "end": 124
     },
@@ -567,6 +636,7 @@
         "val": "",
         "joint": 0,
         "objectGaze": 0,
+        "baf": 0,
         "start": 163,
         "end": 166
     }
