@@ -2,18 +2,13 @@ var margin = {top: 20, right: 80, bottom: 30, left: 45},
     width = 1000 - margin.left - margin.right,
     height = 2500 - margin.top - margin.bottom;
 
-var objectColor = "#9a6bad";
-var exColor = "#71af54";
-var chColor = "#64b1c3";
-var jointColor = "#F05252";
-
 var header = [
-    {"name":"OBJECT","group":1, "color" : objectColor, "x": 120, "y": 20},
-    {"name":"EXAMINER","group":2, "color" : exColor, "x": 240, "y": 20},
-    {"name":"CHILD","group":3, "color" : chColor, "x": 360, "y": 20},
-    {"name":"OBJECT","group":4, "color" : objectColor, "x": 460, "y": 20}
+    {"name":"OBJECT","group":1, "color" : "#56A2D7", "x": 120, "y": 20},
+    {"name":"EXAMINER","group":2, "color" : "#FDC40F", "x": 240, "y": 20},
+    {"name":"CHILD","group":3, "color" : "#C74342", "x": 360, "y": 20},
+    {"name":"OBJECT","group":4, "color" : "#56A2D7", "x": 460, "y": 20}
   ];
-var childNo = "24";
+var childNo = "38";
 var x = d3.scale.linear()
     .range([0, width]);
 
@@ -24,7 +19,7 @@ var yMargin = 50;
 var color = d3.scale.category10();
 var lineHeight = 8;
 
-var svg = d3.select(".info").append("svg")
+var svg = d3.select("body").append("svg")
       .attr("width", "70%")
       .attr("height", height + margin.top + margin.bottom)
       .style("margin-left", "15%");
@@ -100,11 +95,11 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
     .attr("width", "100%")
     .attr("height", duration * lineHeight)
     .attr("fill", "transparent")
-    .attr("stroke-width", 0)
+    .attr("stroke-width", 1)
     .attr("stroke", "white")
     .attr("id", "rectLabel");
 
-/*
+
   for (i = 0; i < duration; i = i + 5){
     var thinLine = outline.append("line")
       .attr("x1", 0)
@@ -114,9 +109,9 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
       .attr("stroke-width", 0.5)
       .attr("stroke-dasharray", "6, 3")
       .attr("stroke", "white")
-      .attr("opacity", 0);
+      .attr("opacity", 0.5)
+      ;
   }
-  */
 
     var gaze = group.selectAll("gaze")
       .data(data.examiner)
@@ -129,7 +124,7 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
         .attr("y", function(d){return (d.start ) * lineHeight + yMargin;}) //starting y = normalized position
         .attr("width", barWidth)
         .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
-        .attr("fill", objectColor);
+        .attr("fill", "#56A2D7");
 
     var eObjectLine = gaze.append("line")
         .attr("x1", barWidth + lineMargin)
@@ -137,20 +132,20 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
         .attr("x2", lineX2)
         .attr("y2", function(d){return arrowY(d);})
         .attr("stroke-width", 2)
-        .attr("stroke", exColor);
+        .attr("stroke", "#FDC40F");
 
     var eObjectCircle = gaze.append("circle")
        .attr("cx", barWidth + lineMargin)
        .attr("cy", function(d){return arrowY(d);} )
        .attr("r", 4)
-       .style("fill", exColor);
+       .style("fill", "#FDC40F");
 
 
     var eObjectJACircle = gaze.append("circle")
        .attr("cx", lineX2)
        .attr("cy", function(d){return arrowY(d);} )
        .attr("r", 4)
-       .style("fill", exColor);       
+       .style("fill", "#FDC40F");       
 
     normalObject(eObject);
     normalObject(eObjectLine);
@@ -168,7 +163,10 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
         .attr("y", function(d){return d.start * lineHeight + yMargin;}) //starting y = normalized position
         .attr("width", barWidth)
         .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
-        .attr("fill", exColor);
+
+        //.attr("stroke", "white")
+        //.attr("stroke-width", function(d){ if(d.joint){return "1"} else return "0";})
+        .attr("fill", "#FDC40F");
 
     //examiner-child
     var ecLine = gaze2.append("line")
@@ -177,14 +175,14 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
         .attr("x2", lineX2)
         .attr("y2", function(d){return arrowY(d);})
         .attr("stroke-width", 2)
-        .attr("stroke", exColor);
+        .attr("stroke", "#FDC40F");
         //.attr("stroke-dasharray", "6, 3");
 
     var ecCircle = gaze2.append("circle")
       .attr("cx", lineX2)
        .attr("cy", function(d){return arrowY(d);} )
        .attr("r", 4)
-       .style("fill", exColor);
+       .style("fill", "#FDC40F");
 
       normalCE(ecLine);
       normalCE(ecCircle);
@@ -200,7 +198,9 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
         .attr("y", function(d){return (d.start ) * lineHeight + yMargin;}) //starting y = normalized position
         .attr("width", barWidth)
         .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
-        .attr("fill",  chColor);
+        .attr("fill",  "#C74342");
+        //.attr("stroke", "white")
+        //.attr("stroke-width", function(d){ if(d.joint){return "2"} else return "0";});
 
      //child-examiner
     var ceLine = gaze3.append("line")
@@ -209,13 +209,13 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
         .attr("x2", -lineMargin - 5)
         .attr("y2", function(d){return arrowY(d);})
         .attr("stroke-width", 2)
-        .attr("stroke", chColor);
+        .attr("stroke", "#C74342");
 
     var ceCircle = gaze3.append("circle")
       .attr("cx", "-14%")
        .attr("cy", function(d){return arrowY(d);} )
        .attr("r", 4)
-       .style("fill", chColor);
+       .style("fill", "#C74342");
 
     normalCERect(childBar);
     normalCERect(exBar);
@@ -229,19 +229,19 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
         .attr("x2", lineX2)
         .attr("y2", function(d){return arrowY(d);})
         .attr("stroke-width", 2)
-        .attr("stroke", chColor);
+        .attr("stroke", "#C74342");
 
     var cObjectCircle = gaze3.append("circle")
       .attr("cx", lineX2)
        .attr("cy", function(d){return arrowY(d);} )
        .attr("r", 5)
-       .style("fill", chColor);
+       .style("fill", "#C74342");
 
      var cObjectJACircle = gaze3.append("circle")
        .attr("cx", barWidth + lineMargin)
        .attr("cy", function(d){return arrowY(d);} )
        .attr("r", 4)
-       .style("fill", chColor);      
+       .style("fill", "#C74342");      
 
      //child-object rect
      var gaze4 = group4.selectAll("gaze")
@@ -255,7 +255,7 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
         .attr("y", function(d){return (d.start) * lineHeight + yMargin;}) //starting y = normalized position
         .attr("width", barWidth)
         .attr("height", function(d){ return (d.end - d.start) * lineHeight;})
-        .attr("fill", objectColor);
+        .attr("fill", "#56A2D7");
 
 
     normalObject(cObject);
