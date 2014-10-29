@@ -70,7 +70,7 @@ function render(){
       drawGrid( viz );
       renderChild( viz, childData, start );
       renderExaminer( viz, examinerData, start );
-      //renderExaminer2(viz, examiner_ball, examiner_book, examiner_child, start);
+      renderExaminer2(viz, examiner_ball, examiner_book, examiner_child, start);
       renderExaminerSpeech( viz, examinerSpeech, start);
       renderChildSpeech( viz, childVocal, start);
 

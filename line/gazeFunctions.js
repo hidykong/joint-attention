@@ -258,7 +258,7 @@ function renderJoint(viz, child_ex, examiner_child, start){
     }
 
     // BACK AND FORTH
-    var limit = 15;
+    var limit = 30;
     var ex = checkLeft(examiner_child, i, limit) || checkRight(examiner_child, i, limit);
     var child = checkLeft(child_ex, i, limit) || checkRight(child_ex, i, limit);
     if ( ex && child )
