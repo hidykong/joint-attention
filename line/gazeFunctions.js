@@ -75,14 +75,14 @@ function drawGrid ( viz ){
         });
 
       // talk gaze for child
-      viz.append("text").text("Talk")
+      viz.append("text").text("Gaze")
         .attr({
           x: 150,
           y: 130,
           "font-size": 10,
           fill: text_color_light
         });
-      viz.append("text").text("Gaze")
+      viz.append("text").text("Talk")
         .attr({
           x: 150,
           y: 175,

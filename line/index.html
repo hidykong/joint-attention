@@ -4,31 +4,95 @@
 <style>
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
 <body>
 
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Joint Attention</a>
-      </div>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a id="toggle">toggle</a>
-            <!-- <a><span id="options" class="glyphicon glyphicon-cog"></span></a> -->
-          </li>
-        </ul>
-    </div>
-  </nav>
+<div class="everythinig">
 
-<div class="row">
+  <div class="right-bar">
     <div class="visualization">
     <!-- <div class="child"></div>
     <div class="examiner"></div> -->
     </div>
+  </div>
+
+  <div class="left-bar">
+    <div class="title">
+      JOINT ATTENTION
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">
+        <div class="custom-checkbox">
+          <input type="checkbox" value="1" id="audioCheckBox" name="">
+          <label for="audioCheckBox"></label>
+        </div>
+      </div>
+      <div class="col-xs-9 checkbox-caption">
+        <p>Show Audio</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">
+        <div class="custom-checkbox">
+          <input type="checkbox" value="1" id="jointAttentionCheckbox" name="">
+          <label for="jointAttentionCheckbox"></label>
+        </div>
+
+      </div>
+      <div class="col-xs-9 checkbox-caption">
+        <p>Highlight Joint Attention <span class="glyphicon glyphicon-question-sign"></span></p>
+
+        <div class="row">
+          <div class="col-xs-3"><p>interval:</p></div>
+          <div class="col-xs-9">
+            <form oninput="amount.value=rangeInput.value/5">
+              <input type="range" id="rangeInput" name="rangeInput" class="slider" value="0" min="0" max="15"/>
+              <output id="rangeOutput" name="amount" class="slider" for="rangeInput">0</output>
+            </form>
+            <p class="slider">s</p>
+
+          </div>
+        </div>
+        <div>
+          <text>This will highlight the moments when the examiner and the child are making eye contact, or when the child and examiner exchanges glances within x seconds of each other, where x is the set interval </text>
+        </div>
+      </div>
+    </div>
+
+    <hr noshade>
+
+    <div id="legend">
+      <div class="each">
+        <svg class="legend" width="20px" height="30px" ><rect width="20px" height="20px" fill="#AB64A8"></rect></svg>
+        <p class="legend text"> Making eye contact </p>
+      </div>
+      <div class="each">
+         <svg class="legend" width="20px" height="30px" ><rect width="20px" height="20px" fill="#B8D44B"></rect></svg>
+         <p class="legend text"> Looking at the ball </p>
+      </div>
+      <div class="each">
+         <svg class="legend" width="20px" height="30px" ><rect width="20px" height="20px" fill="#4BC2C4"></rect></svg>
+         <p class="legend text"> Looking at the book </p>
+      </div>
+      <div class="each">
+         <svg class="legend" width="20px" height="30px" ><rect width="20px" height="20px" fill="#F26B6C"></rect></svg>
+         <p class="legend text"> Looking at the hands</p>
+      </div>
+      <div class="each">
+         <svg class="legend" width="20px" height="30px" ><rect width="20px" height="20px" fill="#C1C5D4"></rect></svg>
+         <p class="legend text"> Vocalization / Verbalization </p>
+      </div>
+    </div>
+
+  </div>
+
 </div>
+
 
 
 <script src="http://d3js.org/d3.v3.js"></script>
