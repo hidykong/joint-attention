@@ -6,6 +6,8 @@ var objectColor = "#9a6bad";
 var exColor = "#71af54";
 var chColor = "#64b1c3";
 var jointColor = "#F05252";
+var highlight = "#D1D1D4";
+var normalColor = "#F3F2F4";
 
 var header = [
     {"name":"OBJECT","group":1, "color" : objectColor, "x": 120, "y": 20},
@@ -25,9 +27,9 @@ var color = d3.scale.category10();
 var lineHeight = 8;
 
 var svg = d3.select(".info").append("svg")
-      .attr("width", "70%")
+      .attr("width", "90%")
       .attr("height", height + margin.top + margin.bottom)
-      .style("margin-left", "15%");
+      .style("margin-left", "5%");
 
 var div = d3.select("body").append("div")
     .attr("class", "tooltip")
@@ -104,19 +106,6 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
     .attr("stroke", "white")
     .attr("id", "rectLabel");
 
-/*
-  for (i = 0; i < duration; i = i + 5){
-    var thinLine = outline.append("line")
-      .attr("x1", 0)
-      .attr("y1", i * lineHeight + yMargin)
-      .attr("x2", "100%")
-      .attr("y2", i * lineHeight + yMargin)
-      .attr("stroke-width", 0.5)
-      .attr("stroke-dasharray", "6, 3")
-      .attr("stroke", "white")
-      .attr("opacity", 0);
-  }
-  */
 
     var gaze = group.selectAll("gaze")
       .data(data.examiner)
@@ -182,12 +171,11 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
 
     var ecCircle = gaze2.append("circle")
       .attr("cx", lineX2)
-       .attr("cy", function(d){return arrowY(d);} )
-       .attr("r", 4)
-       .style("fill", exColor);
-
-      normalCE(ecLine);
-      normalCE(ecCircle);
+      .attr("cy", function(d){return arrowY(d);} )
+      .attr("r", 4)
+      .style("fill", function(d) {
+        if (d.joint) {return jointColor}
+        else {return exColor;} } );
 
      var gaze3 = group3.selectAll("gaze")
       .data(data.child)
@@ -206,21 +194,22 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
     var ceLine = gaze3.append("line")
         .attr("x1", -gap2 + lineMargin)
         .attr("y1", function(d){return arrowY(d);})
-        .attr("x2", -lineMargin - 5)
+        .attr("x2", -lineMargin )
         .attr("y2", function(d){return arrowY(d);})
         .attr("stroke-width", 2)
-        .attr("stroke", chColor);
+        .attr("stroke", function(d){
+          if (d.eye) {return jointColor} // for examiner
+          else { return chColor};
+        })
 
     var ceCircle = gaze3.append("circle")
       .attr("cx", "-14%")
-       .attr("cy", function(d){return arrowY(d);} )
-       .attr("r", 4)
-       .style("fill", chColor);
+      .attr("cy", function(d){return arrowY(d);} )
+      .attr("r", 4)
+      .style("fill", function(d) {
+        if (d.joint) {return jointColor}
+        else {return chColor;} } );
 
-    normalCERect(childBar);
-    normalCERect(exBar);
-    normalCE(ceLine);
-    normalCE(ceCircle);
 
      //child-object
     var cObjectLine = gaze3.append("line")
@@ -258,79 +247,82 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
         .attr("fill", objectColor);
 
 
-    normalObject(cObject);
-    normalObject(cObjectLine);
-    normalObject(cObjectCircle);
-    selectObject(cObjectJACircle);
+
 
     list1 = [childBar, exBar, ecCircle, ecLine, ceCircle, ceLine];
 
     list2 = [cObject, cObjectLine, cObjectCircle, cObjectJACircle, eObject, eObjectLine, eObjectCircle, eObjectJACircle];
-  //use slider as a player
-  d3.select("#eye").on('change', function(d) {
-   
-    for (i=0; i< list1.length; i++){
-      selectEye(list1[i]);
-    }
 
-    for (i=0; i< list2.length; i++){
-      selectEyeObject(list2[i]);
-    }           
+    setNormal();
+
+  function setNormal(){
+      normalCERect(childBar);
+      normalCERect(exBar);
+      normalCE(ecCircle);
+      normalCE(ecLine);
+      normalCE(ceCircle);
+      normalCE(ceLine);
+      for (i=0; i< list2.length; i++){
+        normalObject(list2[i]);
+      }      
+      selectObject(eObjectJACircle); 
+      selectObject(cObjectJACircle);  
+  }
+
+  $("#normal").click(function(){
+      $("a").css("background-color", normalColor);
+      $(this).css("background-color", highlight);
+      setNormal(); }); 
+
+  $("#eye").click(function(){
+      $("a").css("background-color", normalColor);
+      $(this).css("background-color", highlight);
+
+      for (i=0; i< list1.length; i++){
+        selectEye(list1[i]);
+      }
+      for (i=0; i< list2.length; i++){
+        selectEyeObject(list2[i]);
+      }           
   }); //end of eye
 
-  d3.select("#object").on('change', function(d) {
-    //console.log(this.value);
-    for (i=0; i< list1.length; i++){
-      selectObject(list1[i]);
-    }      
-
-    for (i=0; i< list2.length; i++){
-      selectObject(list2[i]);
-    }          
-
+  $("#object").click(function(){
+      $("a").css("background-color", normalColor);
+      $(this).css("background-color", highlight);
+      for (i=0; i< list1.length; i++){
+        selectObject(list1[i]);
+      }      
+      for (i=0; i< list2.length; i++){
+        selectObject(list2[i]);
+      }          
   });
 
-bafList1 = [childBar, exBar];
-bafList2 = [ecCircle, ecLine, eObject, eObjectLine, eObjectCircle, eObjectJACircle, cObjectJACircle];
-bafList3 = [cObject, cObjectLine, cObjectCircle];
-bafList4 = [ceCircle, ceLine];
+  bafList1 = [childBar, exBar];
+  bafList2 = [ecCircle, ecLine, eObject, eObjectLine, eObjectCircle, eObjectJACircle, cObjectJACircle];
+  bafList3 = [cObject, cObjectLine, cObjectCircle];
+  bafList4 = [ceCircle, ceLine];
 
+  $("#baf").click(function(){
+      $("a").css("background-color", normalColor);
+      $(this).css("background-color", highlight);
+      //console.log(this.value);
+      for (i=0; i< bafList1.length; i++){
+        selectBAF(bafList1[i]);
+      }      
 
+      for (i=0; i< bafList2.length; i++){
+        bafList2[i].transition().duration(function(d, i){ return i * 50;})
+          .attr("opacity", 0); 
+      }          
+      for (i=0; i< bafList3.length; i++){
+        selectBAFObject(bafList3[i]);
+      } 
 
-  d3.select("#baf").on('change', function(d) {
-    //console.log(this.value);
-    for (i=0; i< bafList1.length; i++){
-      selectBAF(bafList1[i]);
-    }      
-
-    for (i=0; i< bafList2.length; i++){
-      bafList2[i].transition().duration(function(d, i){ return i * 50;})
-        .attr("opacity", 0); 
-    }          
-    for (i=0; i< bafList3.length; i++){
-      selectBAFObject(bafList3[i]);
-    } 
-
-    for (i=0; i< bafList4.length; i++){
-      selectBAFExaminer(bafList4[i]);
-    }    
+      for (i=0; i< bafList4.length; i++){
+        selectBAFExaminer(bafList4[i]);
+      }    
   });
 
-  d3.select("#normal").on('change', function(d) {
 
-    normalCERect(childBar);
-    normalCERect(exBar);
-    //normalObject(eObjectJACircle);
-    normalCE(ecCircle);
-    normalCE(ecLine);
-    normalCE(ceCircle);
-    normalCE(ceLine);
-    for (i=0; i< list2.length; i++){
-      normalObject(list2[i]);
-    }      
-
-    selectObject(eObjectJACircle); 
-
-  }); //end of eye
 
 });

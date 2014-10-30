@@ -1,152 +1,53 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<style>
-
- .sidebar {
-     position: fixed;
-     width: 25%;
-     height: 100%;
-     background: #E4E3E5;
- }
- .content {
-     margin-left: 25%;
-     width: auto;
-     position: relative;
-     overflow: auto;
-     z-index: 1;
- }
- .info {
-     width: 98%;
-     position: relative;
- }
-
-body {
-  font: 10px sans-serif;
-  color: white;
-  background-color: black;
-  font-family: helvetica;
-  margin: 0pt;
-}
-
-div.tooltip {   
-  position: absolute;           
-  text-align: center;           
-  width: 60px;                  
-  height: 28px;                 
-  padding: 2px;             
-  font: 12px sans-serif;        
-  background: lightsteelblue;   
-  border: 0px;      
-  border-radius: 8px;           
-  pointer-events: none;         
-}
-
-.legend{
-  font: 10pt sans-serif;
-}
-
-#cssmenu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-size: 14pt;
-}
-
-#cssmenu ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-#cssmenu li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-#cssmenu a {
-  background-color: #F3F2F4;
-  border-bottom: 1px solid #E4E3E5;
-  color: #7D7E81;
-  display: block;
-  padding-left: 10%;
-  padding: 8px 12px;
-  height: 75px;
-  text-decoration: none;
-  font-weight: normal;
-  display: table;
-  width: 95%;
-}
-
-#cssmenu span {
- vertical-align: middle;
- display: table-cell;
-}
-
-#cssmenu b {
-  background: #F3F2F4;
-  border-bottom: 1px solid #E4E3E5;
-  color: black;
-  display: block;
-  margin: 10 0;
-  height: 75px;
-  padding: 8px 12px;
-  text-decoration: none;
-  font-size:24pt;
-  font-weight: normal;
-  display: table;
-  width: 95%;
-}
-
-
-
-#cssmenu a:hover {
-  background: #E4E3E5  left center no-repeat;
-  padding-bottom: 8px;
-}
-
-</style>
+<link rel="stylesheet" type="text/css" href="style.css">
 <body>
 
 <script src="http://d3js.org/d3.v3.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 
 <div class="sidebar">
   <div id="cssmenu" class="description">
     <ul>
-   <li class='active'><b><span>JOINT ATTENTION<span></b></li>
-   <li><a href='#'><span>View All</span></a></li>
-   <li><a href='#'><span>Child and Examiner <br>look at the object together</span></a></li>
-   <li class='last'><a href='#'><span>Child and Examiner <br>look at each other</span></a></li>
-   <li class='last'><a href='#'><span>Child looks back and forth <br> between examiner and the object</span></a></li>
+   <li class='active'><header><span>JOINT ATTENTION<span></header></li>
+   <li><a id="normal"><span>View All</span></a></li>
+   <li><a id="object"><span>Child and Examiner <br>look at the object together</span></a></li>
+   <li><a id="eye"><span>Child and Examiner <br>look at each other</span></a></li>
+   <li><a id="baf"><span>Child looks back and forth <br> between examiner and the object</span></a></li>
 
 </ul>
-  <form>
-  <input type="radio" name="ja" value="normal" id="normal" checked="checked">Normal View<br>
-  <input type="radio" name="ja" value="eye" id="eye">Eye Contact<br>
-  <input type="radio" name="ja" value="baf" id="baf">Looking Back and Forth<br>
-  <input type="radio" name="ja" value="object" id="object">Object Gaze<br>
-  </form>
   </div>
 
-<div class="legend" width="50%" style="margin: 10pt; text-align:center">
-  <svg width="50%">
-    <line x1="10" y1="20" x2="70" y2="20" stroke-width="2" stroke="#FDC40F"></line>
-    <circle cx="10" cy="20" r="4" style="fill: rgb(253, 196, 15);"></circle>
-    <text x="80" y="25" fill="white" class="legend">Examiner looking at object/ child</text>
+<div class="legend" >
+  <svg>
+    <line x1="120" y1="10" x2="190" y2="10" stroke-width="2" stroke="#71af54"></line>
+    <circle cx="122" cy="10" r="4" style="fill: #71af54;"></circle>
+    <line x1="120" y1="20" x2="190" y2="20" stroke-width="2" stroke="#71af54"></line>
+    <circle cx="188" cy="20" r="4" style="fill: #71af54;"></circle>
 
-    <line x1="10" y1="40" x2="70" y2="40" stroke-width="2" stroke="#C74342"></line>
-    <circle cx="10" cy="40" r="4" style="fill: #C74342;"></circle>
-    <text x="80" y="45" fill="white" class="legend">Child looking at object/ examiner</text>
+    <text x="80" y="0" class="legend">
+      <tspan x="0" dy="1.2em">Examiner looks at</tspan>
+      <tspan x="0" dy="1.2em">the child or the object</tspan></text>
 
-    <line x1="10" y1="60" x2="70" y2="60" stroke-width="2" stroke="#C74342"></line>
-    <circle cx="10" cy="60" r="4" style="fill: #C74342;"></circle>
-    <circle cx="70" cy="60" r="4" style="fill: rgb(253, 196, 15);"></circle>   
-    <text x="80" y="65" fill="white" class="legend">Eye contact/ looking at the same object</text>
+    <line x1="120" y1="60" x2="190" y2="60" stroke-width="2" stroke="#F05252"></line>
+    <circle cx="122" cy="60" r="4" style="fill: #F05252;"></circle>
+    <circle cx="188" cy="60" r="4" style="fill: #F05252;"></circle>
+
+    <text x="80" y="45" class="legend">
+      <tspan x="0" dy="1.2em">Examiner and child </tspan>
+      <tspan x="0" dy="1.2em">look at each other</tspan></text>
+
+    <line x1="120" y1="100" x2="190" y2="100" stroke-width="2" stroke="#64b1c3"></line>
+    <circle cx="122" cy="100" r="4" style="fill: #64b1c3;"></circle>
+    <line x1="120" y1="110" x2="190" y2="110" stroke-width="2" stroke="#64b1c3"></line>
+    <circle cx="188" cy="110" r="4" style="fill: #64b1c3;"></circle>  
+    <text x="80" y="90" class="legend">
+      <tspan x="0" dy="1.2em">Child looks at examiner </tspan>
+      <tspan x="0" dy="1.2em">or the object</tspan><br></text>
 
   </svg>
 </div>
-
 
 
 </div>

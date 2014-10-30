@@ -1,0 +1,114 @@
+
+ .sidebar {
+     position: fixed;
+     width: 25%;
+     height: 100%;
+     background: #F3F2F4;
+ }
+ .content {
+     margin-left: 25%;
+     width: auto;
+     position: relative;
+     overflow: auto;
+     z-index: 1;
+ }
+ .info {
+     width: 98%;
+     position: relative;
+ }
+
+body {
+  font: 10px sans-serif;
+  color: white;
+  background-color: black;
+  font-family: helvetica;
+  margin: 0pt;
+}
+
+div.tooltip {   
+  position: absolute;           
+  text-align: center;           
+  width: 60px;                  
+  height: 28px;                 
+  padding: 2px;             
+  font: 12px sans-serif;        
+  background: lightsteelblue;   
+  border: 0px;      
+  border-radius: 8px;           
+  pointer-events: none;         
+}
+
+.legend{
+  font: 8pt sans-serif;
+  fill: #7D7E81;
+
+  width:100%;
+  margin: 50% 10pt 0;
+  text-align:center
+
+}
+
+#cssmenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 14pt;
+}
+
+#cssmenu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#cssmenu li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#cssmenu a {
+  background-color: #F3F2F4;
+  border-bottom: 1px solid #E4E3E5;
+  color: #7D7E81;
+  display: block;
+  padding: 3% 0 3% 10%;
+  height: 55px;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 10pt;
+  display: table;
+  width: 90%;
+  letter-spacing: 1px;
+}
+
+#cssmenu a#normal{
+  background: #D1D1D4;
+}
+
+#cssmenu span {
+ vertical-align: middle;
+ display: table-cell;
+}
+
+#cssmenu header {
+  background: #F3F2F4;
+  border-bottom: 1px solid #E4E3E5;
+  color: black;
+  display: block;
+  margin: 10 0;
+  height: 60px;
+  padding-left: 10%;
+  text-decoration: none;
+  font-size:16pt;
+  font-weight: normal;
+  display: table;
+  width: 90%;
+  letter-spacing: 2px;
+
+}
+
+#cssmenu a:hover {
+  background: #D1D1D4  left center no-repeat;
+}
+

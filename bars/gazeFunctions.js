@@ -6,13 +6,17 @@ function arrowY(d){
 //functions for choosing which bars to show
 
 function normalCE(element){
+  originalColor = ""
+  originalColor = element.style("stroke");
+
   element.transition().duration(function(d, i){ return i * 50;})
   .attr("opacity", function(d){
     if (d.val.indexOf("c_") > -1) {return 1} // for examiner
-    else if (d.val.indexOf("ex") > -1) {return 1} //for child
+    else if (d.val.indexOf("ex_face") > -1) {return 1} //for child
     else { return 0};
   });
 }
+
 
 function normalCERect(element){
   element.transition().attr("opacity", function(d){
