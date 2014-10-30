@@ -1,6 +1,6 @@
 var margin = {top: 20, right: 80, bottom: 30, left: 45},
     width = 1000 - margin.left - margin.right,
-    height = 2500 - margin.top - margin.bottom;
+    height = 2300 - margin.top - margin.bottom;
 
 var objectColor = "#9a6bad";
 var exColor = "#71af54";
@@ -27,13 +27,11 @@ var color = d3.scale.category10();
 var lineHeight = 8;
 
 var svg = d3.select(".info").append("svg")
+      .attr("id", "childSvg")
       .attr("width", "90%")
       .attr("height", height + margin.top + margin.bottom)
       .style("margin-left", "5%");
 
-var div = d3.select("body").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
 
 svgWidth = parseInt(svg.style("width").replace("px", ""));
 gap1 = svgWidth * 0.05;
@@ -49,42 +47,44 @@ header[1]["x"] = gap1 + (3/2 * barWidth) + gap2;
 header[2]["x"] = gap1 + (5/2 * barWidth) + 2 * gap2;
 header[3]["x"] = gap1 + (7/2 * barWidth) + 3 * gap2;
 
-//rect for the labels
-var labels = svg.append("g");
-  labels.append("rect")
-    .attr("x", 0)
-    .attr("y", 0)
-    .attr("width", "100%")
-    .attr("height", 50)
-    .attr("fill", "black")
-    .attr("id", "rectLabel");
+function drawViz(childNo){
+  //rect for the labels
+  var labels = svg.append("g");
+    labels.append("rect")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", "100%")
+      .attr("height", 50)
+      .attr("fill", "black")
+      .attr("id", "rectLabel");
 
-  labels.selectAll(".text")
-    .data(header)
-    .enter().append("text")
-    .attr("class", "text")
-      .attr("dx", function(d){return d.x;})
-      .attr("dy", function(d){return d.y;})
-      .text(function(d){ return d.name })
-      .style("fill", function(d){ return d.color})
-      .style("font-weight", "bold")
-      .style("font-size", "10pt")
-      .style("text-anchor", "middle"); 
+    labels.selectAll(".text")
+      .data(header)
+      .enter().append("text")
+      .attr("class", "text")
+        .attr("dx", function(d){return d.x;})
+        .attr("dy", function(d){return d.y;})
+        .text(function(d){ return d.name })
+        .style("fill", function(d){ return d.color})
+        .style("font-weight", "bold")
+        .style("font-size", "10pt")
+        .style("text-anchor", "middle"); 
 
-//exObject
-var group = svg.append("g")
-    .attr("transform", "translate(" + gap1 + ", 0)"); 
-//ex    
-var group2 = svg.append("g")
-    .attr("transform", "translate(" + (gap1 + barWidth + gap2) + ", 0)"); 
+  //exObject
+  var group = svg.append("g")
+      .attr("transform", "translate(" + gap1 + ", 0)"); 
+  //ex    
+  var group2 = svg.append("g")
+      .attr("transform", "translate(" + (gap1 + barWidth + gap2) + ", 0)"); 
 
-//ch
-var group3 = svg.append("g")
-    .attr("transform", "translate(" + (gap1 + 2 * barWidth + 2 * gap2) + ", 0)"); 
+  //ch
+  var group3 = svg.append("g")
+      .attr("transform", "translate(" + (gap1 + 2 * barWidth + 2 * gap2) + ", 0)"); 
 
-//chObject
-var group4 = svg.append("g")
-    .attr("transform", "translate(" + (gap1 + 3 * barWidth + 3 * gap2) + ", 0)"); 
+  //chObject
+  var group4 = svg.append("g")
+      .attr("transform", "translate(" + (gap1 + 3 * barWidth + 3 * gap2) + ", 0)"); 
+
 
 
 d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
@@ -126,20 +126,20 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
         .attr("x2", lineX2)
         .attr("y2", function(d){return arrowY(d);})
         .attr("stroke-width", 2)
-        .attr("stroke", exColor);
+        .attr("stroke", objectColor);
 
     var eObjectCircle = gaze.append("circle")
        .attr("cx", barWidth + lineMargin)
        .attr("cy", function(d){return arrowY(d);} )
        .attr("r", 4)
-       .style("fill", exColor);
+       .style("fill", objectColor);
 
 
     var eObjectJACircle = gaze.append("circle")
        .attr("cx", lineX2)
        .attr("cy", function(d){return arrowY(d);} )
        .attr("r", 4)
-       .style("fill", exColor);       
+       .style("fill", objectColor);       
 
     normalObject(eObject);
     normalObject(eObjectLine);
@@ -218,19 +218,19 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
         .attr("x2", lineX2)
         .attr("y2", function(d){return arrowY(d);})
         .attr("stroke-width", 2)
-        .attr("stroke", chColor);
+        .attr("stroke", objectColor);
 
     var cObjectCircle = gaze3.append("circle")
       .attr("cx", lineX2)
        .attr("cy", function(d){return arrowY(d);} )
        .attr("r", 5)
-       .style("fill", chColor);
+       .style("fill", objectColor);
 
      var cObjectJACircle = gaze3.append("circle")
        .attr("cx", barWidth + lineMargin)
        .attr("cy", function(d){return arrowY(d);} )
        .attr("r", 4)
-       .style("fill", chColor);      
+       .style("fill", objectColor);      
 
      //child-object rect
      var gaze4 = group4.selectAll("gaze")
@@ -247,53 +247,61 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
         .attr("fill", objectColor);
 
 
+    rectList = [childBar, exBar]
+    list2 = [ecCircle, ecLine, ceCircle, ceLine];
 
-
-    list1 = [childBar, exBar, ecCircle, ecLine, ceCircle, ceLine];
-
-    list2 = [cObject, cObjectLine, cObjectCircle, cObjectJACircle, eObject, eObjectLine, eObjectCircle, eObjectJACircle];
+    list3 = [cObject, cObjectLine, cObjectCircle, cObjectJACircle, eObject, eObjectLine, eObjectCircle, eObjectJACircle];
 
     setNormal();
 
   function setNormal(){
-      normalCERect(childBar);
-      normalCERect(exBar);
-      normalCE(ecCircle);
-      normalCE(ecLine);
-      normalCE(ceCircle);
-      normalCE(ceLine);
+      for (i=0; i< rectList.length; i++){
+        normalCERect(rectList[i]);
+      }
       for (i=0; i< list2.length; i++){
-        normalObject(list2[i]);
+        normalCE(list2[i]);
+      }
+      for (i=0; i< list3.length; i++){
+        normalObject(list3[i]);
       }      
       selectObject(eObjectJACircle); 
       selectObject(cObjectJACircle);  
   }
 
   $("#normal").click(function(){
-      $("a").css("background-color", normalColor);
-      $(this).css("background-color", highlight);
-      setNormal(); }); 
+      $("a").removeClass('active').addClass('inactive');
+      $(this).removeClass('inactive').addClass('active');
+      setNormal(); 
+    }); 
 
   $("#eye").click(function(){
-      $("a").css("background-color", normalColor);
-      $(this).css("background-color", highlight);
+      $("a").removeClass('active').addClass('inactive');
+      $(this).removeClass('inactive').addClass('active');
 
-      for (i=0; i< list1.length; i++){
-        selectEye(list1[i]);
+      for (i=0; i< rectList.length; i++){
+        selectEye(rectList[i]);
       }
       for (i=0; i< list2.length; i++){
-        selectEyeObject(list2[i]);
+        selectEye(list2[i]);
+      }
+      for (i=0; i< list3.length; i++){
+        selectEyeObject(list3[i]);
       }           
   }); //end of eye
 
   $("#object").click(function(){
-      $("a").css("background-color", normalColor);
-      $(this).css("background-color", highlight);
-      for (i=0; i< list1.length; i++){
-        selectObject(list1[i]);
+      $("a").removeClass('active').addClass('inactive');
+      $(this).removeClass('inactive').addClass('active');
+
+
+      for (i=0; i< rectList.length; i++){
+        selectObject(rectList[i]);
       }      
       for (i=0; i< list2.length; i++){
-        selectObject(list2[i]);
+        list2[i].transition().attr("opacity", 0);
+      } 
+      for (i=0; i< list3.length; i++){
+        selectObject(list3[i]);
       }          
   });
 
@@ -303,8 +311,8 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
   bafList4 = [ceCircle, ceLine];
 
   $("#baf").click(function(){
-      $("a").css("background-color", normalColor);
-      $(this).css("background-color", highlight);
+      $("a").removeClass('active').addClass('inactive');
+      $(this).removeClass('inactive').addClass('active');
       //console.log(this.value);
       for (i=0; i< bafList1.length; i++){
         selectBAF(bafList1[i]);
@@ -326,3 +334,37 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
 
 
 });
+
+}//end of function
+
+function childClick(childNo){
+  svg.selectAll("*").remove();
+  drawViz(childNo);
+  document.getElementById('chSelected').firstChild.nodeValue = "Child #" + childNo + " ";
+  $("a").removeClass('active').addClass('inactive');
+  $("#normal").removeClass('inactive').addClass('active');
+}
+
+$("#24").click(function(){
+  childClick(24);
+});
+$("#38").click(function(){
+  childClick(38);
+});
+$("#43").click(function(){
+  childClick(43);
+});
+$("#52").click(function(){
+  childClick(52);
+});
+$("#54").click(function(){
+  childClick(54);
+});
+$("#57").click(function(){
+  childClick(57);
+});
+
+drawViz(childNo);
+
+
+

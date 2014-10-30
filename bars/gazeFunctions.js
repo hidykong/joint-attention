@@ -41,7 +41,7 @@ function selectEye(element){
   element.transition().duration(function(d, i){ return i * 50;})
     .attr("opacity", function(d){
       if (d.eye) {return 1}
-      else { return 0.1};
+      else { return 0.05};
     }); 
 }
 

@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<head>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
 <link rel="stylesheet" type="text/css" href="style.css">
 <body>
 
@@ -11,12 +14,12 @@
   <div id="cssmenu" class="description">
     <ul>
    <li class='active'><header><span>JOINT ATTENTION<span></header></li>
-   <li><a id="normal"><span>View All</span></a></li>
-   <li><a id="object"><span>Child and Examiner <br>look at the object together</span></a></li>
-   <li><a id="eye"><span>Child and Examiner <br>look at each other</span></a></li>
-   <li><a id="baf"><span>Child looks back and forth <br> between examiner and the object</span></a></li>
+   <li><a id="normal" class="active"><span>View All</span></a></li>
+   <li><a id="object"><span>Child and Examiner <br>looking at the object together</span></a></li>
+   <li><a id="eye"><span>Child and Examiner <br>looking at each other</span></a></li>
+   <li><a id="baf"><span>Child looking back and forth <br> between the examiner and the object</span></a></li>
 
-</ul>
+  </ul>
   </div>
 
 <div class="legend" >
@@ -27,7 +30,7 @@
     <circle cx="188" cy="20" r="4" style="fill: #71af54;"></circle>
 
     <text x="80" y="0" class="legend">
-      <tspan x="0" dy="1.2em">Examiner looks at</tspan>
+      <tspan x="0" dy="1.2em">Examiner looking at</tspan>
       <tspan x="0" dy="1.2em">the child or the object</tspan></text>
 
     <line x1="120" y1="60" x2="190" y2="60" stroke-width="2" stroke="#F05252"></line>
@@ -36,15 +39,15 @@
 
     <text x="80" y="45" class="legend">
       <tspan x="0" dy="1.2em">Examiner and child </tspan>
-      <tspan x="0" dy="1.2em">look at each other</tspan></text>
+      <tspan x="0" dy="1.2em">looking at each other</tspan></text>
 
     <line x1="120" y1="100" x2="190" y2="100" stroke-width="2" stroke="#64b1c3"></line>
     <circle cx="122" cy="100" r="4" style="fill: #64b1c3;"></circle>
     <line x1="120" y1="110" x2="190" y2="110" stroke-width="2" stroke="#64b1c3"></line>
     <circle cx="188" cy="110" r="4" style="fill: #64b1c3;"></circle>  
     <text x="80" y="90" class="legend">
-      <tspan x="0" dy="1.2em">Child looks at examiner </tspan>
-      <tspan x="0" dy="1.2em">or the object</tspan><br></text>
+      <tspan x="0" dy="1.2em">Child looking at the  </tspan>
+      <tspan x="0" dy="1.2em">examiner or the object</tspan><br></text>
 
   </svg>
 </div>
@@ -52,9 +55,27 @@
 
 </div>
 <div class="content">
+    <div class="childMenu" >
+
+      <ul>
+      <li id="chSelected" >Child #24
+         <i class="fa fa-caret-down"></i>
+        <ul>
+          <li id="24">Child #24</li>
+          <li id="38">Child #38</li>
+          <li id="43">Child #43</li>
+          <li id="52">Child #52</li>
+          <li id="54">Child #54</li>
+          <li id="57">Child #57</li>
+        </ul>
+      </li>
+    </ul>
+
+    </div>
+
     <div class="info">
-<script src="gazeFunctions.js"></script>
-<script src="gaze.js"></script>
+      <script src="gazeFunctions.js"></script>
+      <script src="gaze.js"></script>
     </div>
 </div>
 

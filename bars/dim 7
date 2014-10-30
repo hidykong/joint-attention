@@ -1,0 +1,24 @@
+dim 8
+
+Accuracy1 	0.5920
+Accuracy2	0.9667
+
+dim 7
+
+Accuracy1 	0.618390804597701
+Accuracy2	0.957471264367816
+
+dim 6
+
+Accuracy1 	0.6023
+Accuracy2	0.9529
+
+
+dim 5
+
+Accuracy1 	0.598850574712644
+Accuracy2	0.922988505747126
+
+
+Matthieu Kruyswyk, Disha Koul, Chuma Kabaghe, William Xie
+

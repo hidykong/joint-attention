@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-
+8859-1" />
+<title>Example of vertical slider with progress bar</title>
+<script language="javascript" src="js/prototype.js"></script>
+<script language="javascript" src="js/scriptaculous.js"></script>
+<style>
+
+input[type='range'] {  
+    -webkit-appearance: none;  
+   height: 2px; 
+    width: 400px;
+    background: red;
+    /*border: solid red 1px;
+    border-bottom: solid rgba(0,0,0,0.5) 1px;
+    border-left: solid rgba(0,0,0,0.5) 1px;*/
+   -webkit-transform: rotate(90deg);
+    -webkit-transform-origin: top left;
+   margin: 50px;
+}  
+  
+input[type='range']::-webkit-slider-thumb {  
+    -webkit-appearance: none;  
+    background: transparent url(data:image/gif;base64,R0lGODlhDAAMANUAAE5SUsHX7JWiq32GibTH1mlubuPo7sXLza69xo2ao+Hm7Obr8KW2xXN7ftrf4oaSm+3x9lpeXre8v4ycrb7Dxq20tZyqs4aNjXyCgmhwc8Xc8c/U2ZWbnY6Tk+rv9O/0+K/AzIKOl8LZ7np/f9zh5pGgrJ6vvnF2dv///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEHACgALAAAAAAMAAwAAAZQQJRwKAw8SsShKHGqKExEkQAjMVgBQo3lQll4rygC5wApfw0AkOTzsRrOAISj7YajQBX3ewEOdzoUe31CEQMjFSSDQxcNBRwbE0lDDBkhKEEAOw==)
+top left no-repeat;
+    width: 12px;  
+    height: 12px;  
+    -webkit-transform: rotate(-90deg);
+}  
+</style>
+
+</head>
+<body>
+ <input type="range" step="1" min="0" max="5">
+</body>
+</html>
