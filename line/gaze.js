@@ -9,30 +9,44 @@ var orange = "#EA9153";
 var pink = "#E686A1";
 var grey = "#BEBEBE";
 
-var green_ball = "#42BC8F";
-var pink_eye = "#E964A6";
-var purple_book = "#775DA8";
-var blue_hand = "#5869B1";
+var green_ball = "#B8D44B"; //"#42BC8F";
+var pink_eye = "#AB64A8"; //"#E964A6";
+var purple_book = "#4BC2C4"; //"#775DA8";
+var blue_hand = "#F26B6C"; //"#5869B1";
+
 var yellow_speech = "#fff24a";
+
 var background_color = "#E5E7E5";
 var line_color = "#b4b0b6";
 var text_color_light = "#989399";
 var text_color_dark = "#626363";
 
-$( "#toggle" ).click( function(){
 
-  if ( $(".audio").attr("opacity") == 1)
-  {
-    d3.selectAll(".audio").attr("opacity", 1).transition()
-    .duration(function(d, i){ return i * 30;})
-    .attr("opacity", 0);
-  }
-  else
-  {
-    d3.selectAll(".audio").attr("opacity", 0).transition()
-      .duration(function(d, i){ return i * 30;})
-      .attr("opacity", 1);
-  }
+//audio
+$('#audioCheckBox').click(function() {
+    var $this = $(this);
+    // $this will contain a reference to the checkbox
+    if (this.checked) {
+      d3.selectAll(".audio").attr("opacity", 0).transition()
+        .duration(function(d, i){ return i * 30;})
+        .attr("opacity", 1);
+    } else {
+      d3.selectAll(".audio").attr("opacity", 1).transition()
+        .duration(function(d, i){ return i * 30;})
+        .attr("opacity", 0);
+    }
+});
+
+
+$('#jointAttentionCheckbox').click(function() {
+    if (this.checked) { // make checked
+      rangeUpdate( rangeInput.value );
+      $('.normal').fadeTo( 500, 0.2 );
+      $('.jointAttention').css({"opacity":1});
+    } else { // now empty
+      $('.normal').fadeTo( 1000 , 1 );
+      $('.jointAttention').css({"opacity":0});
+    }
 });
 
 function render(){
@@ -44,7 +58,6 @@ function render(){
           .attr("class", className)
           .attr("width", "100%")
           .attr("height", 200);
-
     d3.json( val , function(error, data) {
 
       var childData = data.child;
@@ -70,14 +83,18 @@ function render(){
       drawGrid( viz );
       renderChild( viz, childData, start );
       renderExaminer( viz, examinerData, start );
-      renderExaminer2(viz, examiner_ball, examiner_book, examiner_child, start);
       renderExaminerSpeech( viz, examinerSpeech, start);
       renderChildSpeech( viz, childVocal, start);
-
-      renderJoint(viz, child_ex, examiner_child, start);
+      renderJointAttention(viz, child_ex, examiner_child, start, rangeInput.value);
 
     });
   });
 }
 
 render();
+
+
+
+
+
+

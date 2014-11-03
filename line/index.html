@@ -3,8 +3,8 @@
 <head>
 <style>
 </style>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap-glyphicons.css" >
 <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
@@ -27,7 +27,7 @@
     <div class="row">
       <div class="col-xs-3">
         <div class="custom-checkbox">
-          <input type="checkbox" value="1" id="audioCheckBox" name="">
+          <input type="checkbox" value="1" id="audioCheckBox" name="" checked>
           <label for="audioCheckBox"></label>
         </div>
       </div>
@@ -50,9 +50,9 @@
         <div class="row">
           <div class="col-xs-3"><p>interval:</p></div>
           <div class="col-xs-9">
-            <form oninput="amount.value=rangeInput.value/5">
-              <input type="range" id="rangeInput" name="rangeInput" class="slider" value="0" min="0" max="15"/>
-              <output id="rangeOutput" name="amount" class="slider" for="rangeInput">0</output>
+            <form oninput="amount.value=(rangeInput.value/10); ">
+              <input type="range" id="rangeInput" name="rangeInput" class="slider" value="15" min="0" max="30" onchange="rangeUpdate(rangeInput.value);"/>
+              <output id="rangeOutput" name="amount" class="slider" for="rangeInput">1.5</output>
             </form>
             <p class="slider">s</p>
 
@@ -65,6 +65,9 @@
     </div>
 
     <hr noshade>
+    <div class="title">
+      LEGEND
+    </div>
 
     <div id="legend">
       <div class="each">
@@ -88,15 +91,11 @@
          <p class="legend text"> Vocalization / Verbalization </p>
       </div>
     </div>
-
   </div>
-
 </div>
 
-
-
-<script src="http://d3js.org/d3.v3.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="d3.min.js"></script>
+<script src="jquery-2.1.1.min.js"></script>
 <script src="gaze.js"></script>
 <script src="gazeFunctions.js"></script>
 
