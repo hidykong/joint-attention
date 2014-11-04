@@ -21,7 +21,6 @@ var line_color = "#b4b0b6";
 var text_color_light = "#989399";
 var text_color_dark = "#626363";
 
-
 //audio
 $('#audioCheckBox').click(function() {
     var $this = $(this);
