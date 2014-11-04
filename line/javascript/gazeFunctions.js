@@ -8,7 +8,8 @@ function rangeUpdate( limit ) {
 
       var className = "viz_" + index.toString();
       var viz = d3.select("." + className);
-      d3.json( val , function(error, data) {
+      var file = "data" + "/" + val;
+      d3.json( file , function(error, data) {
         var child_ex = data.child_ex;
         var examiner_child = data.examiner_child
         var start = data.duration[0].start;
@@ -62,7 +63,7 @@ function renderJointAttention(viz, child_ex, examiner_child, start, limit, opa )
 }
 
 
-function drawGrid ( viz ){
+function drawGrid ( viz, number ){
   viz.append("line") // top dashed line
         .attr({
           x1: 120,
@@ -114,9 +115,9 @@ function drawGrid ( viz ){
           fill: text_color_dark
         });
 
-      viz.append("text").text("#017")
+      viz.append("text").text(number)
         .attr({
-          x: 53,
+          x: 50,
           y: 59,
           "font-size": 10,
           fill: text_color_dark

@@ -58,7 +58,8 @@ function render(){
           .attr("class", className)
           .attr("width", "100%")
           .attr("height", 200);
-    d3.json( val , function(error, data) {
+    var file = "data" + "/" + val;
+    d3.json( file , function(error, data) {
 
       var childData = data.child;
       var examinerData = data.examiner;
@@ -80,7 +81,7 @@ function render(){
       var start = data.duration[0].start;
       var end = data.duration[0].end;
 
-      drawGrid( viz );
+      drawGrid( viz, data.info[0].child );
       renderChild( viz, childData, start );
       renderExaminer( viz, examinerData, start );
       renderExaminerSpeech( viz, examinerSpeech, start);
