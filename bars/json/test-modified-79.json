@@ -1,0 +1,1838 @@
+{"info":[
+    {
+        "origin": 2234.5,
+        "child": "RA079"
+    }
+],"duration":[
+    {
+        "start": 44.6,
+        "end": 288.4
+    }
+],"child":[
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 0,
+        "end": 1
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 1,
+        "end": 3
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 3,
+        "end": 4
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 4,
+        "end": 5
+    },
+    {
+        "eye": 0,
+        "val": "child_ball",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 7,
+        "end": 12
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 12,
+        "end": 14
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 14,
+        "end": 16
+    },
+    {
+        "eye": 0,
+        "val": "child_ball",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 19,
+        "end": 20
+    },
+    {
+        "eye": 0,
+        "val": "child_unscorable",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 20,
+        "end": 21
+    },
+    {
+        "eye": 0,
+        "val": "child_ball",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 21,
+        "end": 22
+    },
+    {
+        "eye": 0,
+        "val": "child_ball",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 22,
+        "end": 24
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 24,
+        "end": 25
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 25,
+        "end": 26
+    },
+    {
+        "eye": 0,
+        "val": "child_ex_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 26,
+        "end": 27
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 27,
+        "end": 28
+    },
+    {
+        "eye": 0,
+        "val": "child_unscorable",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 34,
+        "end": 35
+    },
+    {
+        "eye": 0,
+        "val": "child_ball",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 35,
+        "end": 36
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 36,
+        "end": 37
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 37,
+        "end": 38
+    },
+    {
+        "eye": 0,
+        "val": "child_ball",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 0,
+        "start": 38,
+        "end": 39
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 39,
+        "end": 40
+    },
+    {
+        "eye": 0,
+        "val": "child_ex_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 41,
+        "end": 42
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 42,
+        "end": 44
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 51,
+        "end": 53
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 53,
+        "end": 59
+    },
+    {
+        "eye": 0,
+        "val": "child_ball",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 59,
+        "end": 60
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 60,
+        "end": 61
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 61,
+        "end": 62
+    },
+    {
+        "eye": 0,
+        "val": "child_unscorable",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 68,
+        "end": 69
+    },
+    {
+        "eye": 0,
+        "val": "child_ex_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 69,
+        "end": 72
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 73,
+        "end": 76
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 76,
+        "end": 77
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 77,
+        "end": 80
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 80,
+        "end": 82
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 82,
+        "end": 83
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 83,
+        "end": 85
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 85,
+        "end": 87
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 87,
+        "end": 88
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 88,
+        "end": 92
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 92,
+        "end": 93
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 93,
+        "end": 94
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 94,
+        "end": 95
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 95,
+        "end": 96
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 96,
+        "end": 97
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 97,
+        "end": 98
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 98,
+        "end": 99
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 99,
+        "end": 100
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 0,
+        "start": 100,
+        "end": 102
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 102,
+        "end": 104
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 104,
+        "end": 105
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 105,
+        "end": 107
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 107,
+        "end": 108
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 108,
+        "end": 112
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 112,
+        "end": 113
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 113,
+        "end": 114
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 114,
+        "end": 117
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 117,
+        "end": 120
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 120,
+        "end": 122
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 122,
+        "end": 123
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 123,
+        "end": 125
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 125,
+        "end": 127
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 127,
+        "end": 128
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 128,
+        "end": 129
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 129,
+        "end": 131
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 131,
+        "end": 135
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 135,
+        "end": 136
+    },
+    {
+        "eye": 0,
+        "val": "child_ex_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 136,
+        "end": 137
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 137,
+        "end": 139
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 139,
+        "end": 140
+    },
+    {
+        "eye": 0,
+        "val": "child_ex_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 140,
+        "end": 142
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 142,
+        "end": 143
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 143,
+        "end": 144
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 144,
+        "end": 146
+    },
+    {
+        "eye": 0,
+        "val": "child_ex_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 146,
+        "end": 147
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 147,
+        "end": 149
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 149,
+        "end": 152
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 152,
+        "end": 153
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 153,
+        "end": 157
+    },
+    {
+        "eye": 0,
+        "val": "child_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 157,
+        "end": 158
+    },
+    {
+        "eye": 0,
+        "val": "child_ex_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 159,
+        "end": 160
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 160,
+        "end": 161
+    },
+    {
+        "eye": 0,
+        "val": "child_ex_hands",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 161,
+        "end": 162
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 162,
+        "end": 164
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 164,
+        "end": 165
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 165,
+        "end": 167
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 167,
+        "end": 168
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 168,
+        "end": 169
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 169,
+        "end": 170
+    },
+    {
+        "eye": 0,
+        "val": "child_ex_hands",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 170,
+        "end": 171
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 171,
+        "end": 177
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 181,
+        "end": 183
+    },
+    {
+        "eye": 0,
+        "val": "child_ex_hands",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 183,
+        "end": 184
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 184,
+        "end": 190
+    },
+    {
+        "eye": 0,
+        "val": "child_ex_hands",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 190,
+        "end": 191
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 191,
+        "end": 192
+    },
+    {
+        "eye": 1,
+        "val": "child_ex_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 192,
+        "end": 193
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 193,
+        "end": 199
+    },
+    {
+        "eye": 0,
+        "val": "child_ex_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 232,
+        "end": 235
+    }
+],"examiner":[
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 0,
+        "end": 1
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 1,
+        "end": 3
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 3,
+        "end": 4
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 4,
+        "end": 5
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 7,
+        "end": 12
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 12,
+        "end": 14
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 14,
+        "end": 16
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 19,
+        "end": 20
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 20,
+        "end": 21
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 21,
+        "end": 22
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 22,
+        "end": 24
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 24,
+        "end": 25
+    },
+    {
+        "eye": 0,
+        "val": "examiner_ball",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 25,
+        "end": 26
+    },
+    {
+        "eye": 0,
+        "val": "examiner_ball",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 26,
+        "end": 27
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 27,
+        "end": 28
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 34,
+        "end": 35
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 35,
+        "end": 36
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 36,
+        "end": 37
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 37,
+        "end": 38
+    },
+    {
+        "eye": 0,
+        "val": "examiner_ball",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 0,
+        "start": 38,
+        "end": 39
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 39,
+        "end": 40
+    },
+    {
+        "eye": 0,
+        "val": "examiner_ball",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 41,
+        "end": 42
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 42,
+        "end": 44
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 51,
+        "end": 53
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 53,
+        "end": 59
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 59,
+        "end": 60
+    },
+    {
+        "eye": 0,
+        "val": "examiner_ball",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 60,
+        "end": 61
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 61,
+        "end": 62
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 68,
+        "end": 69
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 69,
+        "end": 72
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 73,
+        "end": 76
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 76,
+        "end": 77
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 77,
+        "end": 80
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 80,
+        "end": 82
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 82,
+        "end": 83
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 83,
+        "end": 85
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 85,
+        "end": 87
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 87,
+        "end": 88
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 88,
+        "end": 92
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 92,
+        "end": 93
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 93,
+        "end": 94
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 94,
+        "end": 95
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 95,
+        "end": 96
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 96,
+        "end": 97
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 97,
+        "end": 98
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 98,
+        "end": 99
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 99,
+        "end": 100
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 0,
+        "start": 100,
+        "end": 102
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 102,
+        "end": 104
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 104,
+        "end": 105
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 105,
+        "end": 107
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 107,
+        "end": 108
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 108,
+        "end": 112
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 112,
+        "end": 113
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 113,
+        "end": 114
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 114,
+        "end": 117
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 117,
+        "end": 120
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 120,
+        "end": 122
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 122,
+        "end": 123
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 123,
+        "end": 125
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 125,
+        "end": 127
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 127,
+        "end": 128
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 128,
+        "end": 129
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 129,
+        "end": 131
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 131,
+        "end": 135
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 135,
+        "end": 136
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 136,
+        "end": 137
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 137,
+        "end": 139
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 139,
+        "end": 140
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 140,
+        "end": 142
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 1,
+        "objectGaze": 1,
+        "baf": 1,
+        "start": 142,
+        "end": 143
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 143,
+        "end": 144
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 144,
+        "end": 146
+    },
+    {
+        "eye": 0,
+        "val": "examiner_book",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 146,
+        "end": 147
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 147,
+        "end": 149
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 1,
+        "start": 149,
+        "end": 152
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 152,
+        "end": 153
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 153,
+        "end": 157
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 157,
+        "end": 158
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 159,
+        "end": 160
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 160,
+        "end": 161
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 161,
+        "end": 162
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 162,
+        "end": 164
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 164,
+        "end": 165
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 165,
+        "end": 167
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 167,
+        "end": 168
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 168,
+        "end": 169
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 169,
+        "end": 170
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 170,
+        "end": 171
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 171,
+        "end": 177
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 181,
+        "end": 183
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 183,
+        "end": 184
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 184,
+        "end": 190
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 190,
+        "end": 191
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 191,
+        "end": 192
+    },
+    {
+        "eye": 1,
+        "val": "examiner_c_face",
+        "joint": 1,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 192,
+        "end": 193
+    },
+    {
+        "eye": 0,
+        "val": "examiner_c_face",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 193,
+        "end": 199
+    },
+    {
+        "eye": 0,
+        "val": "",
+        "joint": 0,
+        "objectGaze": 0,
+        "baf": 0,
+        "start": 232,
+        "end": 235
+    }
+],"socialbid":[
+    {
+        "start": 70.0,
+        "end": 71.6,
+        "val": "social__bid"
+    },
+    {
+        "start": 83.9,
+        "end": 84.7,
+        "val": "social__bid"
+    },
+    {
+        "start": 118.6,
+        "end": 121.5,
+        "val": "social__bid"
+    },
+    {
+        "start": 147.9,
+        "end": 148.3,
+        "val": "social__bid"
+    },
+    {
+        "start": 156.7,
+        "end": 158.4,
+        "val": "social__bid"
+    },
+    {
+        "start": 174.2,
+        "end": 175.6,
+        "val": "social__bid"
+    },
+    {
+        "start": 180.1,
+        "end": 181.4,
+        "val": "social__bid"
+    },
+    {
+        "start": 183.9,
+        "end": 186.2,
+        "val": "social__bid"
+    },
+    {
+        "start": 186.7,
+        "end": 188.7,
+        "val": "social__bid"
+    },
+    {
+        "start": 189.5,
+        "end": 191.4,
+        "val": "social__bid"
+    },
+    {
+        "start": 230.5,
+        "end": 230.8,
+        "val": "social__bid"
+    },
+    {
+        "start": 236.3,
+        "end": 238.1,
+        "val": "social__bid"
+    }
+]}

@@ -70,6 +70,11 @@ function drawViz(childNo){
         .style("font-size", "10pt")
         .style("text-anchor", "middle"); 
 
+
+  //social bid
+  var social = svg.append("g")
+      .attr("transform", "translate(" + gap1 + ", 0)");   
+
   //exObject
   var group = svg.append("g")
       .attr("transform", "translate(" + gap1 + ", 0)"); 
@@ -105,6 +110,23 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
     .attr("stroke-width", 0)
     .attr("stroke", "white")
     .attr("id", "rectLabel");
+
+    if (childNo == 79){
+      var bid = social.selectAll("socialbid")
+        .data(data.socialbid)
+        .enter().append("g")
+            .attr("class", "social");
+
+      var bidRect = bid.append("rect")
+        .attr("class", "bidRect")
+        .attr("x", 0)
+        .attr("y", function(d){return (d.start -realStart) * lineHeight + yMargin;}) //starting y = normalized position
+        .attr("width", svgWidth)
+        .attr("height", function(d){ return (d.end - d.start ) * lineHeight;})
+        .attr("fill", "pink")
+        .attr("opacity", 0.5);
+
+        };
 
 
     var gaze = group.selectAll("gaze")
@@ -337,8 +359,7 @@ d3.json("json/test-modified-" + childNo + ".json", function(error, data) {
 
 }//end of function
 
-function childClick(childNo){
-  svg.selectAll("*").remove();
+function childClick(childNo){  svg.selectAll("*").remove();
   drawViz(childNo);
   document.getElementById('chSelected').firstChild.nodeValue = "Child #" + childNo + " ";
   $("a").removeClass('active').addClass('inactive');
@@ -362,6 +383,9 @@ $("#54").click(function(){
 });
 $("#57").click(function(){
   childClick(57);
+});
+$("#79").click(function(){
+  childClick(79);
 });
 
 drawViz(childNo);

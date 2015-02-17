@@ -112,10 +112,11 @@ def main(argv):
 	if len(argv) > 0:
 		filename = argv[0]
 	else:
-		filename = "test.json"
+		filename = "json/test.json"
 	jsonFile = open(filename)
 	data = json.load(jsonFile)
 	#print(data["duration"])
+
 	info_ = data["info"]
 	duration_ = data["duration"]
 
@@ -175,11 +176,9 @@ def main(argv):
 		previousVal = currentVal
 
 
-	#print ja_
 	fillArray(ja_, attention_, baf_)
 	#print json.dumps(child_, indent=4, separators=(',', ': '))
 	saveJson("test-modified", info_, duration_)
-
 
 		
 
