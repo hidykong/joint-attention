@@ -1,6 +1,6 @@
 var childActions = ["child_ball", "child_ex_face", "child_book", "child_ex_hands"];
 var examinerActions = ["examiner_ball", "examiner_book", "examiner_c_face"];
-var arr = ["RA024_complete_edited.json",
+var arr = ["RA079_complete.json","RA102_complete.json", "RA024_complete_edited.json",
   "RA043_complete_edited.json", "RA038_FU_complete_edited.json", "RA054_complete_edited.json",
   "RA052_complete_edited.json", "RA057_complete_edited.json"];
 
@@ -8,6 +8,7 @@ var blue = "#6F99C2";
 var orange = "#EA9153";
 var pink = "#E686A1";
 var grey = "#BEBEBE";
+var lightblue = "#b6c4ed"
 
 var green_ball = "#B8D44B"; //"#42BC8F";
 var pink_eye = "#AB64A8"; //"#E964A6";
@@ -48,15 +49,27 @@ $('#jointAttentionCheckbox').click(function() {
     }
 });
 
+
+
+
 function render(){
   $('.visualization').empty();
   $.each( arr, function( index, val ) {
 
     var className = "viz_" + index.toString();
-    var viz = d3.select(".visualization").append("svg")
-          .attr("class", className)
+    var temp = d3.select(".visualization").append("svg")
           .attr("width", "100%")
           .attr("height", 200);
+    var viz = temp.append("g").attr("class", className).call(d3.behavior.zoom().scaleExtent([1, 8]).on("zoom", zoom))
+                                                       .on("mousedown.zoom", null).on("dblclick", restoreDefault);
+    function zoom() {
+      $(".viz_" + index).attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+    }
+
+    function restoreDefault() {
+      $(".viz_" + index).attr("transform", "translate(0,0)scale(1)");
+    }
+
     var file = "data" + "/" + val;
     d3.json( file , function(error, data) {
 
@@ -73,6 +86,7 @@ function render(){
       var examiner_ball = data.examiner_ball
       var examiner_book = data.examiner_book
       var examiner_child = data.examiner_child
+      var social_bid = data.socialbid
 
       examinerSpeech.push.apply(examinerSpeech, data.unfilled);
 
@@ -86,7 +100,7 @@ function render(){
       renderExaminerSpeech( viz, examinerSpeech, start);
       renderChildSpeech( viz, childVocal, start);
       renderJointAttention(viz, child_ex, examiner_child, start, rangeInput.value);
-
+      renderSocialBid( viz, social_bid, start );
     });
   });
 }

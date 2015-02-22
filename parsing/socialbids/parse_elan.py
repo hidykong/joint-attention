@@ -22,7 +22,7 @@ red = ["verbalization", "vocalization"]
 # gesture_c: reach, point, tap, head_nod, head_shake, wave, wave_away, push_away, pat_table
 #		     show, clap, other
 # ball_book: book_shut_c
-green = ["reach", "point", "tap", "head_nod", "head_shake", "wave", "wave_away", "push_away", "pat_table", "show", "clap", "other"]
+green = ["reach", "point", "tap", "head_nod", "head_shake", "wave", "wave_away", "push_away", "pat_table", "show", "clap"]
 
 # gaze
 # gaze_dir_c: ex_face
@@ -32,12 +32,13 @@ blue = ["ex_face"]
 
 # voc_aff_c: laugh, whine_cry
 # gaze_dir_c: ball, book, ex_hands, par_face, other, unscorable
-dashes = ["laugh", "whine_cry", "ball", "book", "ex_hands", "par_face", "other", "unscorable"]
+# gesture_c: other
+dashes = ["laugh", "whine_cry", "ball", "book", "ex_hands", "par_face", "other"]
 
 # off_task: c_disengage, c_away
 linebreak = ["c_disengage", "c_away"]
 
-socialbid = ["social__bid"]
+socialbid = ["social__bid", "social_overture"]
 # Examiner
 
 # DIRECT
@@ -216,13 +217,13 @@ def main():
 			global info_
 			d = dict()
 			info = elan.HEADER.find("MEDIA_DESCRIPTOR")
-			d["origin"] = round(int(info["TIME_ORIGIN"])/1000, 1)
+			d["origin"] = round(int(info["TIME_ORIGIN"])/1000, 3)
 			#d["filename"] = info["RELATIVE_MEDIA_URL"].split("/")[-1]
 			d["child"] = file_.split("_")[0]
 			info_.append(json.dumps(d))
 
 			for timeMapping in elan.TIME_ORDER.find_all("TIME_SLOT"):
-				time = round(int(timeMapping["TIME_VALUE"])/1000, 1)
+				time = round(int(timeMapping["TIME_VALUE"])/1000, 3)
 				tm[timeMapping["TIME_SLOT_ID"]] = time
 
 				if time > last:

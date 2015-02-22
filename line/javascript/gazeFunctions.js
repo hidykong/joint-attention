@@ -193,6 +193,47 @@ function renderChild( viz, childData, start){
   }
 }
 
+function renderSocialBid( viz, socialbid, start ){
+
+  if( socialbid )
+  {
+    // circle
+    for (i = 0; i < socialbid.length; i++) {
+      viz.append("circle")
+        .attr({
+          cx: 250 + (socialbid[i].start - start).toFixed(2)*3,
+          cy: 100,
+          r: ((socialbid[i].end - socialbid[i].start)/2).toFixed(2)*3,
+          'stroke-width': 1,
+          fill: "#34ed48",
+          stroke: "#34ed48"
+        });
+    }
+
+
+    // rectangles
+    /*
+    for (i = 0; i < socialbid.length; i++) {
+    viz.append("rect")
+      .attr({
+        class: "normal",
+        x: 250 + (socialbid[i].start - start).toFixed(2)*3,
+        y: 50,
+        width: (socialbid[i].end - socialbid[i].start).toFixed(2)*3,
+        height: 100,
+        fill: function(d){
+            switch ( socialbid[i].val ) {
+              case "social__bid":
+                return lightblue;
+            }
+          }
+      });
+    }
+    */
+  }
+}
+
+
 function renderExaminer(viz, examinerData, start){
   for (i = 0; i < examinerData.length; i++) {
   viz.append("rect")
@@ -292,19 +333,21 @@ function renderExaminerSpeech( viz, examinerSpeech, start ){
 }
 
 function renderChildSpeech( viz, childVocal, start){
-  for (i = 0; i < childVocal.length; i++) {
-    viz.append("line") // bottom dashed line
-      .attr({
-        class: "audio",
-        x1: 250 + (childVocal[i].start - start).toFixed(2)*3,
-        y1: 50 - 5,
-        x2: 250 + (childVocal[i].end - start).toFixed(2)*3,
-        y2: 50 - 5,
-        'stroke-dasharray': "1",
-        'stroke-width': 10,
-        stroke: text_color_dark,
-        opacity: 1
-      });
+  if (childVocal) {
+        for (i = 0; i < childVocal.length; i++) {
+      viz.append("line") // bottom dashed line
+        .attr({
+          class: "audio",
+          x1: 250 + (childVocal[i].start - start).toFixed(2)*3,
+          y1: 50 - 5,
+          x2: 250 + (childVocal[i].end - start).toFixed(2)*3,
+          y2: 50 - 5,
+          'stroke-dasharray': "1",
+          'stroke-width': 10,
+          stroke: text_color_dark,
+          opacity: 1
+        });
+    }
   }
 }
 
