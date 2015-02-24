@@ -61,7 +61,7 @@ unfilled = ["hello", "play with new toys", "let's play ball", "ready, set, ...",
 redfilled = ["c_name", "hi_c_name"]
 
 # examiner gaze
-examiner = ["c_face", "par_face", "book" ]
+examiner = ["c_face"]#, "par_face", "book" ]
 
 
 red_ = []

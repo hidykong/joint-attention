@@ -61,7 +61,7 @@ function render(){
           .attr("width", "100%")
           .attr("height", 200);
     var viz = temp.append("g").attr("class", className).call(d3.behavior.zoom().scaleExtent([1, 8]).on("zoom", zoom))
-                                                       .on("mousedown.zoom", null).on("dblclick", restoreDefault);
+                                                       .on("dblclick", restoreDefault);
     function zoom() {
       $(".viz_" + index).attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
     }
