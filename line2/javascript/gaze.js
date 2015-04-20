@@ -49,7 +49,6 @@ $('#jointAttentionCheckbox').click(function() {
 });
 
 
-
 function render(){
   $('.visualization').empty();
   $.each( arr, function( index, val ) {
@@ -80,6 +79,7 @@ function render(){
       var aggregateData = data.aggregate;
       var examinerSpeech = data.filled;
       var childVocal = data.red;
+      var childGesture = data.green;
 
       var child_book = data.child_book;
       var child_ball = data.child_ball;
@@ -97,10 +97,11 @@ function render(){
       var end = data.duration[0].end;
 
       drawGrid( viz, data.info[0].child );
-      renderChild( viz, childData, start );
-      renderExaminer( viz, examinerData, start );
+      renderChildGaze( viz, childData, start );
+      renderExaminerGaze( viz, examinerData, start );
       renderExaminerSpeech( viz, examinerSpeech, start);
-      renderChildSpeech( viz, childVocal, start);
+      renderChildSpeech( viz, childVocal, start );
+      renderChildGesture( viz, childGesture, start )
       renderJointAttention(viz, child_ex, examiner_child, start, rangeInput.value);
       renderSocialBid( viz, social_bid, start );
     });

@@ -38,7 +38,7 @@ dashes = ["laugh", "whine_cry", "ball", "book", "ex_hands", "par_face", "other"]
 # off_task: c_disengage, c_away
 linebreak = ["c_disengage", "c_away"]
 
-socialbid = ["social__bid", "social_overture"]
+socialbid = ["social__bid", "social_overture", "soc_bid"]
 # Examiner
 
 # DIRECT
@@ -217,7 +217,10 @@ def main():
 			global info_
 			d = dict()
 			info = elan.HEADER.find("MEDIA_DESCRIPTOR")
-			d["origin"] = round(int(info["TIME_ORIGIN"])/1000, 3)
+			if info.has_attr("TIME_ORIGIN"):
+				d["origin"] = round(int(info["TIME_ORIGIN"])/1000, 3)
+			else:
+				d["origin"] = 0
 			#d["filename"] = info["RELATIVE_MEDIA_URL"].split("/")[-1]
 			d["child"] = file_.split("_")[0]
 			info_.append(json.dumps(d))

@@ -1,3 +1,8 @@
+function hideAll(){
+    $('.normal').css({"opacity":0});
+    $('.audio').css({"opacity":0});
+    $('.gesture').css({"opacity":0});
+}
 
 function rangeUpdate( limit ) {
 
@@ -64,6 +69,8 @@ function renderJointAttention(viz, child_ex, examiner_child, start, limit, opa )
 
 
 function drawGrid ( viz, number ){
+
+  /*
   viz.append("line") // top dashed line
         .attr({
           x1: 120,
@@ -73,99 +80,122 @@ function drawGrid ( viz, number ){
           'stroke-dasharray': "5, 5",
           stroke: line_color
         });
-      viz.append("line") // bottom dashed line
-        .attr({
-          x1: 120,
-          y1: 150,
-          x2: 950,
-          y2: 150,
-          'stroke-dasharray': "5, 5",
-          stroke: line_color
-        });
-      viz.append("line") // back solid line
-        .attr({
-          x1: 950,
-          y1: 10,
-          x2: 950,
-          y2: 190,
-          stroke: "#737373"
-        });
-      viz.append("line") // front solid line
-        .attr({
-          x1: 200,
-          y1: 10,
-          x2: 200,
-          y2: 190,
-          stroke: line_color
-        });
-      viz.append("line") // middle solid line
-        .attr({
-          x1: 50,
-          y1: 100,
-          x2: 950,
-          y2: 100,
-          stroke: line_color
-        });
+  viz.append("line") // bottom dashed line
+    .attr({
+      x1: 120,
+      y1: 150,
+      x2: 950,
+      y2: 150,
+      'stroke-dasharray': "5, 5",
+      stroke: line_color
+    });
+  */
+  viz.append("line") // back solid line
+    .attr({
+      x1: 950,
+      y1: 10,
+      x2: 950,
+      y2: 190,
+      stroke: "#737373"
+    });
+  viz.append("line") // front solid line
+    .attr({
+      x1: 200,
+      y1: 10,
+      x2: 200,
+      y2: 190,
+      stroke: line_color
+    });
+  viz.append("line") // middle solid line
+    .attr({
+      x1: 50,
+      y1: 100,
+      x2: 950,
+      y2: 100,
+      stroke: line_color
+    });
 
-      viz.append("text").text("CHILD")
-        .attr({
-          x: 50,//50
-          y: 47,//54
-          "font-size": 10,
-          fill: text_color_dark
-        });
+  viz.append("text").text("CHILD")
+    .attr({
+      x: 50,//50
+      y: 72,//47,//54
+      "font-size": 10,
+      fill: text_color_dark
+    });
 
-      viz.append("text").text(number)
-        .attr({
-          x: 50,
-          y: 59,
-          "font-size": 10,
-          fill: text_color_dark
-        });
+  viz.append("text").text(number)
+    .attr({
+      x: 50,
+      y: 84,//59,
+      "font-size": 10,
+      fill: text_color_dark
+    });
 
-      viz.append("text").text("EXAMINER")
-        .attr({
-          x: 50,
-          y: 154,
-          "font-size": 10,
-          fill: text_color_dark
-        });
+  viz.append("text").text("EXAMINER")
+    .attr({
+      x: 50,
+      y: 130,//154,
+      "font-size": 10,
+      fill: text_color_dark
+    });
 
-      // talk gaze for child
-      viz.append("text").text("Talk")
-        .attr({
-          x: 150,
-          y: 32,
-          "font-size": 10,
-          fill: text_color_light
-        });
-      viz.append("text").text("Gaze")
-        .attr({
-          x: 150,
-          y: 78,
-          "font-size": 10,
-          fill: text_color_light
-        });
+  // talk gaze for child
+  /*
+  viz.append("text").text("Talk")
+    .attr({
+      x: 150,
+      y: 32,
+      "font-size": 10,
+      fill: text_color_light
+    });
+  */
+  viz.append("text").text("Gaze")
+    .attr({
+      x: 150,
+      y: 78,
+      "font-size": 10,
+      fill: text_color_light
+    });
 
-      // talk gaze for child
-      viz.append("text").text("Gaze")
-        .attr({
-          x: 150,
-          y: 130,
-          "font-size": 10,
-          fill: text_color_light
-        });
-      viz.append("text").text("Talk")
-        .attr({
-          x: 150,
-          y: 175,
-          "font-size": 10,
-          fill: text_color_light
-        });
+  // talk gaze for child
+  viz.append("text").text("Gaze")
+    .attr({
+      x: 150,
+      y: 130,
+      "font-size": 10,
+      fill: text_color_light
+    });
+  /*
+  viz.append("text").text("Talk")
+    .attr({
+      x: 150,
+      y: 175,
+      "font-size": 10,
+      fill: text_color_light
+    });
+  */
 }
 
+function renderChildGesture( viz, childData, start){
+  for (i = 0; i < childData.length; i++) {
+    if ((250 + (childData[i].start - start).toFixed(2)*3 + (childData[i].end - childData[i].start).toFixed(2)*3) < 950)
+    {
+      viz.append("rect")
+        .attr({
+            class: "gesture",
+            x: function (d) { return 250 + (childData[i].start - start).toFixed(2)*3 },
+            y: function (d) { return 50 },
+            width: (childData[i].end - childData[i].start).toFixed(2)*3,
+            //height: 50,
+            height: 45,
+            fill: "black",
+            opacity: 0
+       });
+    }
+  }
+}
 
-function renderChild( viz, childData, start){
+function renderChildGaze( viz, childData, start){
   for (i = 0; i < childData.length; i++) {
     if ((250 + (childData[i].start - start).toFixed(2)*3 + (childData[i].end - childData[i].start).toFixed(2)*3) < 950)
     {
@@ -248,7 +278,7 @@ function renderSocialBid( viz, socialbid, start ){
 }
 
 
-function renderExaminer(viz, examinerData, start){
+function renderExaminerGaze(viz, examinerData, start){
   for (i = 0; i < examinerData.length; i++) {
   viz.append("rect")
     .attr({
@@ -332,6 +362,24 @@ function examinerShaded(viz, examinerData, start){
 }
 
 function renderExaminerSpeech( viz, examinerSpeech, start ){
+
+  for (i = 0; i < examinerSpeech.length; i++) {
+        if ((250 + (examinerSpeech[i].start - start).toFixed(2)*3 + (examinerSpeech[i].end - examinerSpeech[i].start).toFixed(2)*3) < 950)
+        {
+          viz.append("rect")
+            .attr({
+                class: "audio",
+                x: function (d) { return 250 + (examinerSpeech[i].start - start).toFixed(2)*3 },
+                y: function (d) { return 100 },
+                width: (examinerSpeech[i].end - examinerSpeech[i].start).toFixed(2)*3,
+                //height: 50,
+                height: 45,
+                fill: "black",
+                opacity: 0
+           });
+        }
+      }
+/*
   for (i = 0; i < examinerSpeech.length; i++) {
     viz.append("line") // bottom dashed line
       .attr({
@@ -346,10 +394,29 @@ function renderExaminerSpeech( viz, examinerSpeech, start ){
         opacity: 1
       });
   }
+  */
 }
 
 function renderChildSpeech( viz, childVocal, start){
   if (childVocal) {
+
+      for (i = 0; i < childVocal.length; i++) {
+        if ((250 + (childVocal[i].start - start).toFixed(2)*3 + (childVocal[i].end - childVocal[i].start).toFixed(2)*3) < 950)
+        {
+          viz.append("rect")
+            .attr({
+                class: "audio",
+                x: function (d) { return 250 + (childVocal[i].start - start).toFixed(2)*3 },
+                y: function (d) { return 50 },
+                width: (childVocal[i].end - childVocal[i].start).toFixed(2)*3,
+                //height: 50,
+                height: 45,
+                fill: "black",
+                opacity: 0
+           });
+        }
+      }
+/*
         for (i = 0; i < childVocal.length; i++) {
       viz.append("line") // bottom dashed line
         .attr({
@@ -363,8 +430,8 @@ function renderChildSpeech( viz, childVocal, start){
           stroke: text_color_dark,
           opacity: 1
         });
+*/
     }
-  }
 }
 
 function childSpeechCircles(){
